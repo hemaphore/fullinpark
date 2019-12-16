@@ -1,0 +1,221 @@
+$yellow: #CFA614;
+$blue: #3161AC;
+
+@mixin blue_button(){
+  color: #FFF;
+  background-color: transparent;
+  background-image: -webkit-linear-gradient(320deg, #00C0FF 0%, #4218B8 100%);
+  background-image: -o-linear-gradient(320deg, #00C0FF 0%, #4218B8 100%);
+  background-image: linear-gradient(50deg, #00C0FF 0%, #4218B8 100%);
+  border-radius: 8px;
+  text-align: center;
+  text-decoration: none;
+}
+
+@mixin orange_button(){
+  color: #FFF;
+  background-color: transparent;
+  background-image: -webkit-linear-gradient(320deg, #FD6E30 0%, #F9DF42 100%);
+  background-image: -o-linear-gradient(320deg, #FD6E30 0%, #F9DF42 100%);
+  background-image: linear-gradient(50deg, #FD6E30 0%, #F9DF42 100%);
+  border-radius: 8px;
+  text-align: center;
+  text-decoration: none;
+}
+
+body{  background: #CCC !important;  }
+
+#fullinpark_resa_form_container{
+  width: 100%;
+  margin-top: 50px;
+  padding: 0.5em;
+  position: relative;
+  background: #FFF;
+  border-radius: 10px;
+
+  #fullinpark_resa_form_entete{
+    height: 40px;
+    display: flex;
+    position: absolute;
+    top: -40px;
+    left: 0;
+
+    #fullinpark_resa_form_entete_resa_button{
+      margin-left: 10px;
+      padding: 0.5em 1.5em;
+      background: $yellow;
+      color: #FFF;
+      border-radius: 8px 8px 0 0;
+      font-weight: bold;
+      text-align: center;
+      text-transform: uppercase;
+      cursor: pointer;
+      z-index: 99;
+    }
+
+    #fullinpark_resa_form_entete_question_button{
+      margin-left: -2px;
+      padding: 0.5em 1.5em;
+      background: $blue;
+      color: #FFF;
+      border-radius: 8px 8px 0 0;
+
+      a{
+        text-decoration: none;
+        color: #FFF;
+        text-align: center;
+        text-transform: uppercase;
+        cursor: pointer;
+      }
+    }
+  }
+
+  #fullinpark_resa_form_content{
+    width: 80%;
+    margin: 1em auto;
+
+    .main_title{
+      margin: 1em 0 0 0;
+      font-size: 24px;
+      color: $yellow;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .secondary_title{
+      margin: 1em 0 0 0;
+      font-size: 18px;
+      color: $yellow;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .grey_container{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1em 1.5em;
+      background: #EEE;
+      border-radius: 8px;
+
+      p{  margin: 0;  }
+      .association_title{
+        width: 47%;
+        margin: 0;
+        color: $blue;
+        font-weight: bold;
+        line-height: 20px;
+      }
+
+      .association_link{
+        width: 47%;
+        padding: 0.7em 0;
+        font-size: 20px;
+        cursor: pointer;
+        @include blue_button();
+      }
+
+      #all_tickets_details{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+
+        .tickets_infos_container{
+          display: flex;
+          justify-content: space-between;
+          padding-bottom: 0.5em;
+          margin-top: 0.5em;
+          border-bottom: 1px solid $blue;
+
+          &:last-child{  border: none;}
+          .tickets_infos_title{
+            width: 65%;
+          }
+
+          .tickets_infos_content{
+            width: 30%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .resa_number{
+              color: $blue;
+              font-size: 20px;
+              font-weight: bold;
+            }
+            .resa_minus, .resa_add{
+              width: 25px;
+              height: 25px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              color: black;
+              background: #FFF;
+              border-radius: 5px;
+              text-decoration: none;
+              font-size: 18px;
+              font-weight: bold;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+
+    #date_hours_container{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin-top: 1em;
+
+      .date_hours_box{
+        width: 45%;
+        background: #EEE;
+        border-radius: 8px;
+
+        img{
+          width: 75px;
+          height: 75px;
+          margin: 1em auto 0 auto;
+        }
+
+        p{
+          margin: 0 0 0.5em 0;
+          text-align: center;
+          font-weight: bold;
+
+          a{
+            color: $blue;
+            text-decoration: none;
+            text-align: center;
+          }
+        }
+      }
+    }
+
+    form{
+      margin-top: 2em;
+
+      #resa_form_submit_button{
+        display: flex;
+        justify-content: space-between;
+
+        button{
+          width: 55% !important;
+          @include blue_button();
+        }
+
+        #update_resa_button{
+          width: 40%;
+          display: flex;
+          align-items: center;
+          line-height: 18px;
+          @include orange_button();
+        }
+      }
+    }
+  }
+
+  .blue{  color: $blue;  }
+  .bold{  font-weight: bold;  }
+}
