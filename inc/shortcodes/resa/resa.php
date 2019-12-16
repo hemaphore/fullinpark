@@ -1,4 +1,3 @@
-<div style="width:37%; ">
 <div id="fullinpark_resa_form_container">
   <div id="fullinpark_resa_form_entete">
     <div id="fullinpark_resa_form_entete_resa_button">
@@ -77,5 +76,4 @@
       </div>
     </form>
   </div>
-</div>
 </div>
