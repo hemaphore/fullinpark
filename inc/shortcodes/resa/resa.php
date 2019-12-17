@@ -1,3 +1,4 @@
+<div style="width:37%; ">
 <div id="fullinpark_resa_form_container">
   <div id="fullinpark_resa_form_entete">
     <div id="fullinpark_resa_form_entete_resa_button">
@@ -23,7 +24,20 @@
       <p class="secondary_title">PARTICULIERS</p>
 
       <div class="grey_container">
-        <p>Choisis <span class="blue bold">ton activité</span></p>
+        <div class="custom_select">
+          <a id="toogle_activities_button" onclick="toogle_activities();">
+            <p class="custom_select_default">Choisis <span class="blue bold">ton activité</span></p>
+            <img src="<?php echo PLUGIN_FIP_URL.'/fullinpark/img/arrow-blue.png'; ?> "/>
+          </a>
+
+          <div id="custom_select_activities">
+            <ul>
+              <li>Jump</li>
+              <li>Anniversaire</li>
+              <li>Stage</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -57,13 +71,22 @@
 
     <div id="date_hours_container">
       <div class="date_hours_box">
-        <img src="<?php echo PLUGIN_FIP_URL.'/fullinpark/img/picto-calendrier-FIP.png'; ?>"/>
-        <p><a>Date</a></p>
+        <a onclick="show_datepicker();">
+          <img src="<?php echo PLUGIN_FIP_URL.'/fullinpark/img/picto-calendrier-FIP.png'; ?>"/>
+          <p><span>Date</span> <img src="<?php echo PLUGIN_FIP_URL.'/fullinpark/img/arrow-blue.png'; ?> "/></p>
+        </a>
       </div>
 
       <div class="date_hours_box">
-        <img src="<?php echo PLUGIN_FIP_URL.'/fullinpark/img/picto-horloge-FIP.png'; ?>"/>
-        <p><a>Heure</a></p>
+        <a onclick="show_datepicker();">
+          <img src="<?php echo PLUGIN_FIP_URL.'/fullinpark/img/picto-horloge-FIP.png'; ?>"/>
+          <p><span>Heure</span> <img src="<?php echo PLUGIN_FIP_URL.'/fullinpark/img/arrow-blue.png'; ?>"/></p>
+        </a>
+      </div>
+
+      <div id="datepicker_container">
+        <a id="hide_datepicker" onclick="hide_datepicker();"><img src="<?php echo PLUGIN_FIP_URL.'/fullinpark/img/delete-white.png'; ?> "/></a>
+        <div id="datepicker"></div>
       </div>
     </div>
 
@@ -76,4 +99,5 @@
       </div>
     </form>
   </div>
+</div>
 </div>

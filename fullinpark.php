@@ -1,9 +1,9 @@
 <?php
 /*
 Plugin Name: Full In Park
-Description: Gestionnaire des réservations
+Description: Gestionnaire des réservations => Shortcode [fullinpark_resa] (formulaire frontend)
 Author: Maxime PORPIGLIA
-Version: 0.1
+Version: 1.1
 */
 
 if(!defined('ABSPATH')):
