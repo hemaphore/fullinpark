@@ -2,6 +2,10 @@ $yellow: #CFA614;
 $blue: #3161AC;
 
 @mixin blue_button(){
+  padding: 0.5em 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: #FFF;
   background-color: transparent;
   background-image: -webkit-linear-gradient(320deg, #00C0FF 0%, #4218B8 100%);
@@ -10,9 +14,14 @@ $blue: #3161AC;
   border-radius: 8px;
   text-align: center;
   text-decoration: none;
+  cursor: pointer;
 }
 
 @mixin orange_button(){
+  padding: 0.5em 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: #FFF;
   background-color: transparent;
   background-image: -webkit-linear-gradient(320deg, #FD6E30 0%, #F9DF42 100%);
@@ -21,54 +30,64 @@ $blue: #3161AC;
   border-radius: 8px;
   text-align: center;
   text-decoration: none;
+  cursor: pointer;
 }
 
 body{  background: #CCC !important;  }
 
+#fullinpark_resa_form_entete{
+  height: 40px;
+  display: flex;
+  background: transparent;
+  margin-bottom: 0;
+
+  #fullinpark_resa_form_entete_resa_button{
+    margin-left: 10px;
+    padding: 0.5em 1.5em;
+    background: $yellow;
+    color: #FFF;
+    border-radius: 8px 8px 0 0;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    cursor: pointer;
+    z-index: 99;
+
+    a{
+      text-decoration: none;
+      color: #FFF;
+      text-align: center;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+  }
+
+  #fullinpark_resa_form_entete_question_button{
+    margin-left: -2px;
+    padding: 0.5em 1.5em;
+    background: $blue;
+    color: #FFF;
+    border-radius: 8px 8px 0 0;
+
+    a{
+      text-decoration: none;
+      color: #FFF;
+      text-align: center;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+  }
+}
+
 #fullinpark_resa_form_container{
   width: 100%;
-  margin-top: 50px;
+  height: 700px;
+  margin-top: 0;
   padding: 0.5em;
   position: relative;
   background: #FFF;
   border-radius: 10px;
-
-  #fullinpark_resa_form_entete{
-    height: 40px;
-    display: flex;
-    position: absolute;
-    top: -40px;
-    left: 0;
-
-    #fullinpark_resa_form_entete_resa_button{
-      margin-left: 10px;
-      padding: 0.5em 1.5em;
-      background: $yellow;
-      color: #FFF;
-      border-radius: 8px 8px 0 0;
-      font-weight: bold;
-      text-align: center;
-      text-transform: uppercase;
-      cursor: pointer;
-      z-index: 99;
-    }
-
-    #fullinpark_resa_form_entete_question_button{
-      margin-left: -2px;
-      padding: 0.5em 1.5em;
-      background: $blue;
-      color: #FFF;
-      border-radius: 8px 8px 0 0;
-
-      a{
-        text-decoration: none;
-        color: #FFF;
-        text-align: center;
-        text-transform: uppercase;
-        cursor: pointer;
-      }
-    }
-  }
+  overflow: hidden;
 
   #fullinpark_resa_form_content{
     width: 80%;
@@ -89,6 +108,7 @@ body{  background: #CCC !important;  }
       font-weight: bold;
       text-transform: uppercase;
     }
+    #stage_selector_container{  display: none;  }
 
     .custom_select{
       width: 100%;
@@ -116,7 +136,7 @@ body{  background: #CCC !important;  }
         }
       }
 
-      #custom_select_activities{
+      #custom_select_activities, #custom_select_stages{
         width: calc(100% + 3em);
         display: none;
         position: absolute;
@@ -125,6 +145,7 @@ body{  background: #CCC !important;  }
         background: #EEE;
         color: #6d6d6d;
         box-shadow: 0px 15px 10px -15px #111;
+        z-index: 9999;
 
         &.active{  display: block;  }
         ul{
@@ -146,6 +167,7 @@ body{  background: #CCC !important;  }
         }
       }
     }
+    #custom_select_stages{  z-index: 9998 !important; }
 
     .grey_container{
       display: flex;
@@ -259,57 +281,125 @@ body{  background: #CCC !important;  }
           }
         }
       }
+    }
 
-      #datepicker_container{
-        width: 140%;
-        display: none;
-        flex-direction: column;
+    #resa_form_submit_button{
+      display: flex;
+      justify-content: space-between;
+      margin-top: 2em;
+
+      .next_step{
+        width: 55% !important;
+        @include blue_button();
+      }
+
+      #update_resa_button, .return_button{
+        width: 40%;
+        display: flex;
         align-items: center;
-        justify-content: center;
-        padding: 2em 0;
-        background: $yellow;
-        position: absolute;
-        left: -20%;
+        line-height: 18px;
+        @include orange_button();
+      }
+    }
+  }
 
-        #hide_datepicker{
-          width: 100%;
-          display: flex;
-          justify-content: flex-end;
-          margin: -1em 0 2em 0;
-          cursor: pointer;
+  #fullinpark_second_step_form_content{
+    width: 80%;
+    margin: 1em auto 1em 200%;
 
-          img{
-            width: 20px;
-            height: 20px;
-            margin-right: 1em;
-          }
-        }
+    .main_title{
+      margin: 1em 0 0 0;
+      font-size: 24px;
+      color: $yellow;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .secondary_title{
+      margin: 1em 0 0 0;
+      font-size: 16px;
+      color: $yellow;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    input{  width: 100%;  }
+
+    #resa_form_submit_button{
+      display: flex;
+      justify-content: space-between;
+      margin-top: 2em;
+
+      .next_step{
+        width: 55% !important;
+        @include blue_button();
+      }
+
+      #update_resa_button, .return_button{
+        width: 40%;
+        display: flex;
+        align-items: center;
+        line-height: 18px;
+        @include orange_button();
+      }
+    }
+  }
+
+  #fullinpark_question_form_content{
+    width: 80%;
+    margin: 1em auto 1em 200%;
+
+    .main_title{
+      margin: 1em 0;
+      font-size: 24px;
+      color: $yellow;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .question_form_row{
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 1em;
+
+      textarea{
+        min-height: 150px;
       }
     }
 
-    form{
-      margin-top: 2em;
-
-      #resa_form_submit_button{
-        display: flex;
-        justify-content: space-between;
-
-        button{
-          width: 55% !important;
-          @include blue_button();
-        }
-
-        #update_resa_button{
-          width: 40%;
-          display: flex;
-          align-items: center;
-          line-height: 18px;
-          @include orange_button();
-        }
-      }
+    button{
+      width: 55% !important;
+      @include blue_button();
     }
   }
 
   .blue{  color: $blue;  }
   .bold{  font-weight: bold;  }
+}
+
+#datepicker_container{
+  width: 120%;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2em 0;
+  background: $yellow;
+  margin-top: -120%;
+  margin-left: -10%;
+  position: relative;
+  z-index: 9999;
+
+  #hide_datepicker{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin: -1em 0 2em 0;
+    cursor: pointer;
+
+    img{
+      width: 20px;
+      height: 20px;
+      margin-right: 1em;
+    }
+  }
 }

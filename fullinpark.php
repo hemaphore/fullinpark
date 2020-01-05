@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Full In Park
-Description: Gestionnaire des réservations => Shortcode [fullinpark_resa] (formulaire frontend)
+Description: Gestionnaire des réservations => Shortcode [fullinpark_resa] (formulaire frontend) / Emails de confirmation (réservation + questions) / CTPs Réservations, Questions, Stages
 Author: Maxime PORPIGLIA
 Version: 1.1
 */
@@ -18,8 +18,10 @@ if(!class_exists('FIP')):
     function __construct(){
       require(PLUGIN_FIP_DIRECTORY.'inc/fip_functions.php');
       require(PLUGIN_FIP_DIRECTORY.'inc/shortcodes/shortcode_fullinpark_resa.php');
+      require(PLUGIN_FIP_DIRECTORY.'inc/shortcodes/shortcode_fullinpark_modify_resa.php');
 
       new FIPResa();
+      new FIPModifyResa();
 
       add_action('init', array($this, 'register_custom_post_type'));
     }
@@ -57,6 +59,72 @@ if(!class_exists('FIP')):
       );
 
       register_post_type('fip_stage', $fip_stage_args);
+
+      $fip_resa_label = array(
+        'name'            => 'Réservation',
+        'singular_name'   => 'Réservation',
+        'menu_name'       => 'Réservations',
+        'name_admin_bar'  => 'Réservations',
+        'all_items'           => __( 'Tous les Réservations' ),
+        'view_item'           => __( 'Voir la Réservation' ),
+        'add_new_item'        => __( 'Ajouter une nouvelle Réservation' ),
+        'add_new'             => __( 'Ajouter' ),
+        'edit_item'           => __( 'Editer la Réservation' ),
+        'update_item'         => __( 'Mettre à jour la Réservation' ),
+      );
+
+      $fip_resa_args = array(
+        'labels'          => $fip_resa_label,
+        'public'          => false,
+        'show_ui'         => true,
+        'show_in_menu'    => true,
+        'capability_type' => 'post',
+        'hierachical'     => false,
+        'menu_position'   => 3,
+        'menu_icon'       => 'dashicons-welcome-learn-more',
+        'supports'        => array('title'),
+        'taxonomies'      => array(),
+        'show_in_rest'    => true,
+        'can_export'          => true,
+        'has_archive'         => false,
+        'exclude_from_search' => true,
+        'publicly_queryable'  => false
+      );
+
+      register_post_type('fip_resa', $fip_resa_args);
+
+      $fip_question_label = array(
+        'name'            => 'Question',
+        'singular_name'   => 'Question',
+        'menu_name'       => 'Questions',
+        'name_admin_bar'  => 'Questions',
+        'all_items'           => __( 'Tous les Questions' ),
+        'view_item'           => __( 'Voir la Question' ),
+        'add_new_item'        => __( 'Ajouter une nouvelle Question' ),
+        'add_new'             => __( 'Ajouter' ),
+        'edit_item'           => __( 'Editer la Question' ),
+        'update_item'         => __( 'Mettre à jour la Question' ),
+      );
+
+      $fip_question_args = array(
+        'labels'          => $fip_question_label,
+        'public'          => false,
+        'show_ui'         => true,
+        'show_in_menu'    => true,
+        'capability_type' => 'post',
+        'hierachical'     => false,
+        'menu_position'   => 3,
+        'menu_icon'       => 'dashicons-welcome-learn-more',
+        'supports'        => array('title', 'editor'),
+        'taxonomies'      => array(),
+        'show_in_rest'    => true,
+        'can_export'          => true,
+        'has_archive'         => false,
+        'exclude_from_search' => true,
+        'publicly_queryable'  => false
+      );
+
+      register_post_type('fip_question', $fip_question_args);
     }
   }
 endif;

@@ -1,0 +1,8 @@
+#stage_open_date_container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start; }
+  #stage_open_date_container div {
+    width: 50%; }
+
+/*# sourceMappingURL=metas_stages.css.map */

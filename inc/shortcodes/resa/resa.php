@@ -1,15 +1,197 @@
-<!-- <div style="width:37%; "> -->
-<div id="fullinpark_resa_form_container">
-  <div id="fullinpark_resa_form_entete">
-    <div id="fullinpark_resa_form_entete_resa_button">
-      Réservations
-    </div>
+<?php
+global $wpdb;
 
-    <div id="fullinpark_resa_form_entete_question_button">
-      <a href="#" target="_blank">Question ?</a>
-    </div>
+//Register Résa
+if(isset($_POST['resa_sent'])):
+  echo '<pre>';
+  print_r($_POST);
+  echo '</pre>';
+
+  $resa_infos = array(
+	  'post_title'    => $_POST['resa_contact_fullname'].' - '.date('d/m/Y'),
+	  'post_content'  => '',
+	  'post_status'   => 'publish',
+	  'post_author'   => 1,
+	  'post_category' => array(),
+		'post_type'     => 'fip_resa',
+	);
+
+	$resa_id = wp_insert_post($resa_infos);
+
+  update_post_meta($resa_id, 'resa_jump', 2);
+  update_post_meta($resa_id, 'resa_', 2);
+  update_post_meta($resa_id, 'resa_date', date('Y-m-d'));
+  update_post_meta($resa_id, 'resa_hours', date('h:i'));
+
+  //Contact infos
+  update_post_meta($resa_id, 'resa_contact_fullname', $_POST['resa_contact_fullname']);
+  update_post_meta($resa_id, 'resa_contact_email', $_POST['resa_contact_email']);
+  update_post_meta($resa_id, 'resa_contact_phone', $_POST['resa_contact_phone']);
+
+  $to = $_POST['resa_contact_email'];
+  $object = 'Confirmation de réservation';
+  $headers[] = 'From: FullInpark <contact@fullinpark.fr>';
+
+  add_filter('wp_mail_content_type', 'wpdocs_set_html_mail_content_type' );
+
+  wp_mail( $to, $object, '
+    <style>
+      table tr{ margin: 0.5em 0 !important;  }
+      table td p{
+        text-align: justify!important;
+        margin: 0;
+        padding: 0;
+      }
+
+      @media only screen and (max-width: 599px) {
+        td[class="pattern"] td{ width: 100%;  }
+      }
+    </style>
+
+    <table cellpadding="0" cellspacing="0">
+      <tr>
+        <td class="pattern" width="600">
+          <table cellpadding="4" cellspacing="0">
+            <tr>
+              <td>
+                <p>Votre réservation a bien été prise en compte</p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  ', $headers );
+
+  wp_mail(get_option('fullinpark_admin_email'), 'Nouvelle réservation', '
+    <style>
+      table tr{ margin: 0.5em 0 !important;  }
+      table td p{
+        text-align: justify!important;
+        margin: 0;
+        padding: 0;
+      }
+
+      @media only screen and (max-width: 599px) {
+        td[class="pattern"] td{ width: 100%;  }
+      }
+    </style>
+
+    <table cellpadding="0" cellspacing="0">
+      <tr>
+        <td class="pattern" width="600">
+          <table cellpadding="4" cellspacing="0">
+            <tr>
+              <td>
+                <p>Une nouvelle réservation a été envoyée via le formulaire de réservation</p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  ', $headers );
+
+  remove_filter( 'wp_mail_content_type', 'wpdocs_set_html_mail_content_type' );
+endif;
+
+//Register Question
+if(isset($_POST['question_sent'])):
+  $question_infos = array(
+	  'post_title'    => $_POST['question_fullname'].' - '.date('d/m/Y'),
+	  'post_content'  => $_POST['question_core'],
+	  'post_status'   => 'publish',
+	  'post_author'   => 1,
+	  'post_category' => array(),
+		'post_type'     => 'fip_question',
+	);
+
+	$question_id = wp_insert_post($question_infos);
+
+  update_post_meta($question_id, 'email', $_POST['question_email']);
+  update_post_meta($question_id, 'phone', $_POST['question_phone']);
+
+  //Send email to user
+  $to = $_POST['question_email'];
+  $object = 'Question bien reçu';
+  $headers[] = 'From: FullInpark <contact@fullinpark.fr>';
+
+  add_filter('wp_mail_content_type', 'wpdocs_set_html_mail_content_type' );
+
+  wp_mail( $to, $object, '
+    <style>
+      table tr{ margin: 0.5em 0 !important;  }
+      table td p{
+        text-align: justify!important;
+        margin: 0;
+        padding: 0;
+      }
+
+      @media only screen and (max-width: 599px) {
+        td[class="pattern"] td{ width: 100%;  }
+      }
+    </style>
+
+    <table cellpadding="0" cellspacing="0">
+      <tr>
+        <td class="pattern" width="600">
+          <table cellpadding="4" cellspacing="0">
+            <tr>
+              <td>
+                <p>Votre question a bien été envoyée, nous vous répondrons dans les meilleurs délais.</p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  ', $headers );
+
+  wp_mail(get_option('fullinpark_admin_email'), 'Une nouvelle question envoyée', '
+    <style>
+      table tr{ margin: 0.5em 0 !important;  }
+      table td p{
+        text-align: justify!important;
+        margin: 0;
+        padding: 0;
+      }
+
+      @media only screen and (max-width: 599px) {
+        td[class="pattern"] td{ width: 100%;  }
+      }
+    </style>
+
+    <table cellpadding="0" cellspacing="0">
+      <tr>
+        <td class="pattern" width="600">
+          <table cellpadding="4" cellspacing="0">
+            <tr>
+              <td>
+                <p>Une question a été envoyé via le site internet</p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  ', $headers );
+
+  remove_filter( 'wp_mail_content_type', 'wpdocs_set_html_mail_content_type' );
+endif;  ?>
+
+<!--<div style="width:37%; ">-->
+
+<div id="fullinpark_resa_form_entete">
+  <div id="fullinpark_resa_form_entete_resa_button">
+    <a onclick="show_resa_form();">Réservations</a>
   </div>
 
+  <div id="fullinpark_resa_form_entete_question_button">
+    <a onclick="show_question_form();">Question ?</a>
+  </div>
+</div>
+
+<div id="fullinpark_resa_form_container">
   <div id="fullinpark_resa_form_content">
     <div>
       <p class="main_title">VOUS ÊTES: </p>
@@ -32,9 +214,34 @@
 
           <div id="custom_select_activities">
             <ul>
-              <li>Jump</li>
-              <li>Anniversaire</li>
-              <li>Stage</li>
+              <li onclick="activity_selected('Jump')">Jump</li>
+              <li onclick="activity_selected('Anniversaire')">Anniversaire</li>
+              <li onclick="show_stages_selector();">Stage</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="stage_selector_container">
+      <p class="secondary_title">Stages</p>
+
+      <?php
+      $all_stages = $wpdb->get_results("SELECT * FROM {$wpdb->prefix}posts WHERE post_type = 'fip_stage'"); ?>
+
+      <div class="grey_container">
+        <div class="custom_select">
+          <a id="toogle_stages_button" onclick="toogle_stages();">
+            <p class="custom_select_default">Choisis <span class="blue bold">ton stage</span></p>
+            <img src="<?php echo PLUGIN_FIP_URL.'/fullinpark/img/arrow-blue.png'; ?> "/>
+          </a>
+
+          <div id="custom_select_stages">
+            <ul>
+              <?php
+              foreach ($all_stages as $stage):  ?>
+                <li onclick="stage_selected('<?php echo $stage->post_title; ?>')"><?php echo $stage->post_title; ?></li><?php
+              endforeach; ?>
             </ul>
           </div>
         </div>
@@ -83,21 +290,88 @@
           <p><span>Heure</span> <img src="<?php echo PLUGIN_FIP_URL.'/fullinpark/img/arrow-blue.png'; ?>"/></p>
         </a>
       </div>
+    </div>
 
-      <div id="datepicker_container">
-        <a id="hide_datepicker" onclick="hide_datepicker();"><img src="<?php echo PLUGIN_FIP_URL.'/fullinpark/img/delete-white.png'; ?> "/></a>
-        <div id="datepicker"></div>
+    <div id="resa_form_submit_button">
+      <a class="next_step" onclick="go_to_step2();">Valider</a>
+      <a href="#" id="update_resa_button">Modifier ma reservation</a>
+    </div>
+  </div>
+
+  <div id="fullinpark_second_step_form_content">
+    <div>
+      <p class="main_title">Contact: </p>
+
+      <div>
+        <p class="secondary_title">Nom complet</p>
+        <input type="text" id="resa_fullname" onchange="update_contact_infos();"/>
+      </div>
+
+      <div>
+        <p class="secondary_title">Email</p>
+        <input type="text" id="resa_email" onchange="update_contact_infos();"/>
+      </div>
+
+      <div>
+        <p class="secondary_title">Téléphone</p>
+        <input type="text" id="resa_phone" onchange="update_contact_infos();"/>
       </div>
     </div>
 
-    <form action="#" method="POST">
-      <input type="hidden" id="activity" name="activity"/>
+    <div id="resa_form_submit_button">
+      <a class="return_button" onclick="show_resa_form();">Retour</a>
+      <a class="next_step" onclick="submit_resa_form();">Réserver</a>
+    </div>
+  </div>
 
-      <div id="resa_form_submit_button">
-        <button>Réserver</button>
-        <a href="#" id="update_resa_button">Modifier ma reservation</a>
+  <div id="fullinpark_question_form_content">
+    <p class="main_title">Votre question</p>
+
+    <form action="#" method="POST" id="question_form">
+      <div class="question_form_row">
+        <label for="question_fullname">Nom complet</label>
+        <input type="text" id="question_fullname" name="question_fullname"/>
       </div>
+
+      <div class="question_form_row">
+        <label for="question_email">Email</label>
+        <input type="text" id="question_email" name="question_email"/>
+      </div>
+
+      <div class="question_form_row">
+        <label for="question_phone">Téléphone</label>
+        <input type="text" id="question_phone" name="question_phone"/>
+      </div>
+
+      <div class="question_form_row">
+        <label for="question_core">Question</label>
+        <textarea id="question_core" name="question_core"></textarea>
+      </div>
+
+      <input type="hidden" name="question_sent" value="sent"/>
+      <button type="submit">Envoyer</button>
     </form>
   </div>
 </div>
-<!-- </div> -->
+
+<div id="datepicker_container">
+  <a id="hide_datepicker" onclick="hide_datepicker();"><img src="<?php echo PLUGIN_FIP_URL.'/fullinpark/img/delete-white.png'; ?> "/></a>
+  <div id="datepicker"></div>
+</div>
+
+<form action="#" method="POST" id="fullinpark_resa_form">
+  <!-- Réservation infos -->
+  <input type="hidden" name="resa_jump" id="resa_jump"/>
+  <input type="hidden" name="resa_kids" id="resa_kids"/>
+  <input type="hidden" name="resa_activity" id="resa_activity" />
+
+  <!-- Contact -->
+  <input type="hidden" name="resa_contact_fullname" id="resa_contact_fullname"/>
+  <input type="hidden" name="resa_contact_email" id="resa_contact_email"/>
+  <input type="hidden" name="resa_contact_phone" id="resa_contact_phone" />
+
+  <input type="hidden" name="resa_sent" value="sent"/>
+</form>
+
+
+<!--</div>-->
