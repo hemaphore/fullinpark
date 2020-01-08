@@ -352,5 +352,31 @@ body {
       width: 20px;
       height: 20px;
       margin-right: 1em; }
+  #datepicker_container #datepicker_step2 {
+    display: none;
+    text-align: center; }
+    #datepicker_container #datepicker_step2 ul {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      list-style: none;
+      margin: 0 auto;
+      padding: 0; }
+      #datepicker_container #datepicker_step2 ul li {
+        width: 18%;
+        background: #FFF;
+        color: #3161AC;
+        text-align: center;
+        padding: 0.5em 0;
+        margin: 0.5em 0;
+        font-weight: bold;
+        cursor: pointer; }
+        #datepicker_container #datepicker_step2 ul li.full {
+          background: red; }
+        #datepicker_container #datepicker_step2 ul li.not_enough_places {
+          background: orange; }
+        #datepicker_container #datepicker_step2 ul li.full, #datepicker_container #datepicker_step2 ul li.not_enough_places {
+          color: #CCC; }
 
 /*# sourceMappingURL=shortcode_fullinpark_resa.css.map */

@@ -3,10 +3,6 @@ global $wpdb;
 
 //Register Résa
 if(isset($_POST['resa_sent'])):
-  echo '<pre>';
-  print_r($_POST);
-  echo '</pre>';
-
   $resa_infos = array(
 	  'post_title'    => $_POST['resa_contact_fullname'].' - '.date('d/m/Y'),
 	  'post_content'  => '',
@@ -18,10 +14,11 @@ if(isset($_POST['resa_sent'])):
 
 	$resa_id = wp_insert_post($resa_infos);
 
-  update_post_meta($resa_id, 'resa_jump', 2);
-  update_post_meta($resa_id, 'resa_', 2);
-  update_post_meta($resa_id, 'resa_date', date('Y-m-d'));
-  update_post_meta($resa_id, 'resa_hours', date('h:i'));
+  update_post_meta($resa_id, 'resa_activity', $_POST['resa_activity']);
+  update_post_meta($resa_id, 'resa_jump', $_POST['resa_jump']);
+  update_post_meta($resa_id, 'resa_kids', $_POST['resa_kids']);
+  update_post_meta($resa_id, 'resa_date', $_POST['resa_date']);
+  update_post_meta($resa_id, 'resa_hour', $_POST['resa_hour']);
 
   //Contact infos
   update_post_meta($resa_id, 'resa_contact_fullname', $_POST['resa_contact_fullname']);
@@ -179,7 +176,7 @@ if(isset($_POST['question_sent'])):
   remove_filter( 'wp_mail_content_type', 'wpdocs_set_html_mail_content_type' );
 endif;  ?>
 
-<!--<div style="width:37%; ">-->
+<div style="width:37%; ">
 
 <div id="fullinpark_resa_form_entete">
   <div id="fullinpark_resa_form_entete_resa_button">
@@ -280,14 +277,14 @@ endif;  ?>
       <div class="date_hours_box">
         <a onclick="show_datepicker();">
           <img src="<?php echo PLUGIN_FIP_URL.'/fullinpark/img/picto-calendrier-FIP.png'; ?>"/>
-          <p><span>Date</span> <img src="<?php echo PLUGIN_FIP_URL.'/fullinpark/img/arrow-blue.png'; ?> "/></p>
+          <p><span id="date_selected">Date</span> <img src="<?php echo PLUGIN_FIP_URL.'/fullinpark/img/arrow-blue.png'; ?> "/></p>
         </a>
       </div>
 
       <div class="date_hours_box">
         <a onclick="show_datepicker();">
           <img src="<?php echo PLUGIN_FIP_URL.'/fullinpark/img/picto-horloge-FIP.png'; ?>"/>
-          <p><span>Heure</span> <img src="<?php echo PLUGIN_FIP_URL.'/fullinpark/img/arrow-blue.png'; ?>"/></p>
+          <p><span id="hour_selected">Heure</span> <img src="<?php echo PLUGIN_FIP_URL.'/fullinpark/img/arrow-blue.png'; ?>"/></p>
         </a>
       </div>
     </div>
@@ -357,6 +354,25 @@ endif;  ?>
 <div id="datepicker_container">
   <a id="hide_datepicker" onclick="hide_datepicker();"><img src="<?php echo PLUGIN_FIP_URL.'/fullinpark/img/delete-white.png'; ?> "/></a>
   <div id="datepicker"></div>
+
+  <div id="datepicker_step2">
+    <p>Date sélectionnée: <span id="datepicker_step2_value">none</span></p>
+
+    <div>
+      <ul>
+        <li class="full" onclick="select_hour('8:00');">8:00</li>
+        <li onclick="select_hour('8:30');">8:30</li>
+        <li onclick="select_hour('9:00');">9:00</li>
+        <li class="not_enough_places" onclick="select_hour('9:30');">9:30</li>
+        <li onclick="select_hour('10:00');">10:00</li>
+        <li class="full" onclick="select_hour('10:30');">10:30</li>
+        <li onclick="select_hour('11:00');">11:00</li>
+        <li onclick="select_hour('11:30');">11:30</li>
+        <li class="not_enough_places" onclick="select_hour('12:00');">12:00</li>
+        <li onclick="select_hour('12:30');">12:30</li>
+      </ul>
+    </div>
+  </div>
 </div>
 
 <form action="#" method="POST" id="fullinpark_resa_form">
@@ -364,6 +380,8 @@ endif;  ?>
   <input type="hidden" name="resa_jump" id="resa_jump"/>
   <input type="hidden" name="resa_kids" id="resa_kids"/>
   <input type="hidden" name="resa_activity" id="resa_activity" />
+  <input type="hidden" name="resa_date" id="resa_date"/>
+  <input type="hidden" name="resa_hour" id="resa_hour" />
 
   <!-- Contact -->
   <input type="hidden" name="resa_contact_fullname" id="resa_contact_fullname"/>
@@ -374,4 +392,4 @@ endif;  ?>
 </form>
 
 
-<!--</div>-->
+</div>

@@ -1,5 +1,8 @@
 <?php
 function fullinpark_admin_includes(){
+  //Planning admin
+    wp_enqueue_style('fullinpark_main_admin_page_style', plugins_url().'/fullinpark/css/admin/templates/fullinpark.css');
+
   //Settings
   wp_enqueue_style('fullinpark_settings_style', plugins_url().'/fullinpark/css/admin/templates/settings.css');
 

@@ -110,7 +110,6 @@ function step2_errors(){
 
 function submit_resa_form(){
   if(valid_step2()){
-    alert('submitted');
     jQuery('#fullinpark_resa_form').submit();
   }
   else{
@@ -134,10 +133,39 @@ function question_errors(){
   if(!validPhone(jQuery('#question_phone').val())){ jQuery('#question_phone').css('background', red); }else{  jQuery('#question_phone').css('background', '#FFF'); }
 }
 
-jQuery(function() {
-  jQuery( "#datepicker" ).datepicker(
-    jQuery.datepicker.regional['fr']
-  );
+function appendLeadingZeroes(n){
+  if(n <= 9){ return "0" + n; }
+  return n
+}
+
+function convert_date_format(date){
+  let current_datetime = new Date(date);
+  let formatted_date = appendLeadingZeroes(current_datetime.getDate()) + "/" + appendLeadingZeroes(current_datetime.getMonth() + 1) + "/" + current_datetime.getFullYear();
+  return formatted_date;
+}
+
+function select_hour(hour){
+  jQuery('#resa_hour').val(hour);
+  jQuery("#hour_selected").text(hour);
+  jQuery("#datepicker_container").hide();
+}
+
+jQuery(function(){
+  jQuery( "#datepicker" ).datepicker({
+    dateFormat: "yy-mm-dd",
+    dayNames: ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"],
+    onSelect: function(dateText) {
+        jQuery("#datepicker").hide();
+        jQuery('#resa_date').val(dateText);
+        jQuery("#date_selected").text(convert_date_format(dateText));
+        jQuery("#datepicker_step2_value").text(convert_date_format(dateText));
+        jQuery("#datepicker_step2").show();
+    }
+    /*beforeShowDay: function(date){
+        var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
+        return [ array.indexOf(string) == -1 ]
+    }*/
+  });
 
   jQuery('#question_form').on('submit', function(event){
     if(!valid_question()){

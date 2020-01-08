@@ -402,4 +402,34 @@ body{  background: #CCC !important;  }
       margin-right: 1em;
     }
   }
+
+  #datepicker_step2{
+    display: none;
+    text-align: center;
+
+    ul{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      list-style: none;
+      margin: 0 auto;
+      padding: 0;
+
+      li{
+        width: 18%;
+        background: #FFF;
+        color: $blue;
+        text-align: center;
+        padding: 0.5em 0;
+        margin: 0.5em 0;
+        font-weight: bold;
+        cursor: pointer;
+
+        &.full{  background: red;  }
+        &.not_enough_places{  background: orange;  }
+        &.full, &.not_enough_places{ color: #CCC;  }
+      }
+    }
+  }
 }

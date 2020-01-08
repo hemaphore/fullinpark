@@ -6,6 +6,7 @@ if(!function_exists('fullinpark_add_metaboxes')):
     add_meta_box('fip_stage_date', 'Date du stage', 'fip_stage_date_html', 'fip_stage', 'advanced', 'high');
 
     //Resa
+    add_meta_box('fip_resa_details', 'Informations sur la réservation', 'fip_resa_details_html', 'fip_resa', 'advanced', 'high');
     add_meta_box('fip_resa_contact', 'Informations de contact', 'fip_resa_contact_html', 'fip_resa', 'advanced', 'high');
 
     //Question

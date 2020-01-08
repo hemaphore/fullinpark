@@ -13,9 +13,19 @@ if(!function_exists('wpdocs_set_html_mail_content_type')):
 endif;
 
 function fullinpark_admin_menu(){
-  add_options_page('FullInPark', 'FullInPark',  'manage_options', 'options_page_slug', 'fullinparksettings_page');
+  add_menu_page('Fullinpark', 'Fullinpark', 'manage_options', 'fullinpark_admin', 'fullinpark_admin_page', 'dashicons-admin-generic', '4');
+  add_submenu_page('fullinpark_admin', 'fullinpark_countdown', 'Compteur', 'manage_options', 'fullinpark_countdown', 'fullinpark_countdown_page');
+  add_submenu_page('fullinpark_admin', 'fullinpark_settings', 'Réglages', 'manage_options', 'fullinpark_settings', 'fullinparksettings_page');
 }
 add_action('admin_menu', 'fullinpark_admin_menu');
+
+function fullinpark_admin_page(){
+  require(PLUGIN_FIP_DIRECTORY.'inc/admin/templates/fullinpark.php');
+}
+
+function fullinpark_countdown_page(){
+  require(PLUGIN_FIP_DIRECTORY.'inc/admin/templates/countdown.php');
+}
 
 function fullinparksettings_page(){
   require(PLUGIN_FIP_DIRECTORY.'inc/admin/templates/settings.php');
