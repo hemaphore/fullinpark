@@ -1,0 +1,33 @@
+#fullinpark_admin_countdown_container {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  #fullinpark_admin_countdown_container #countdown {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1em 2em;
+    background: #FFF;
+    color: #3161AC;
+    border: 4px solid #3161AC;
+    border-radius: 5px; }
+    #fullinpark_admin_countdown_container #countdown p {
+      font-size: 30px;
+      font-weight: bold; }
+  #fullinpark_admin_countdown_container a {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #FFF;
+    color: #3161AC;
+    font-size: 30px;
+    font-weight: bold;
+    border: 4px solid #3161AC;
+    border-radius: 5px;
+    cursor: pointer; }
+
+/*# sourceMappingURL=countdown.css.map */

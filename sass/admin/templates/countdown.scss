@@ -1,0 +1,41 @@
+$yellow: #CFA614;
+$blue: #3161AC;
+
+#fullinpark_admin_countdown_container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  #countdown{
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1em 2em;
+    background: #FFF;
+    color: $blue;
+    border: 4px solid $blue;
+    border-radius: 5px;
+
+    p{
+      font-size: 30px;
+      font-weight: bold;
+    }
+  }
+
+  a{
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #FFF;
+    color: $blue;
+    font-size: 30px;
+    font-weight: bold;
+    border: 4px solid $blue;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+}

@@ -17,3 +17,108 @@
 .fullinpark_resa_opening{
   margin-bottom: 1em;
 }
+
+.main_label_container{
+  display: flex;
+
+  .main_label{
+    width: 100%;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+}
+
+#jump_kids_hours_validation, #anniversary_hours_validation{
+  width: 100%;
+  margin: 1.5em 0;
+  display: none;
+
+  &.active{  display: block !important;  }
+
+  .hours_validation_box{
+    margin: 0;
+
+    label{
+      padding-left: 3em;
+    }
+
+    .wrapper{
+      margin: 0 auto;
+    }
+  }
+}
+
+.wrapper{
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	width: 400px;
+	margin: 1em auto 0;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	-webkit-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+
+.switch_box{
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-flex: 1;
+	-ms-flex: 1;
+	flex: 1;
+}
+
+.box_1{
+	background: #eee;
+}
+
+input[type="checkbox"].switch_1{
+	font-size: 30px;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	width: 1.75em;
+	height: .8em;
+	background: #ddd;
+	border-radius: 3em;
+	position: relative;
+	cursor: pointer;
+	outline: none;
+	-webkit-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
+}
+
+input[type="checkbox"].switch_1:checked{
+  appearance: none;
+  outline: none;
+	background: #0ebeff;
+}
+
+input[type="checkbox"].switch_1:after{
+	position: absolute;
+	content: "";
+	width: .75em;
+	height: .75em;
+	border-radius: 50%;
+	background: #fff;
+	-webkit-box-shadow: 0 0 .25em rgba(0,0,0,.3);
+	box-shadow: 0 0 .25em rgba(0,0,0,.3);
+	-webkit-transform: scale(.7);
+	transform: scale(.7);
+	left: 0;
+	-webkit-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
+}
+
+input[type="checkbox"].switch_1:checked:after{
+  left: calc(100% - .75em);
+}
+
+input[type="checkbox"].switch_1:checked:before{
+  display: none !important;
+}

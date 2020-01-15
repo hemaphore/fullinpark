@@ -71,6 +71,77 @@ endif;  ?>
     </select>
   </div>
 
+  <p class="fip_admin_title">Fonctionnalités</p>
+
+  <div>
+    <div class="main_label_container">
+      <label class="main_label">Jump & Kids</label>
+      <div class="wrapper">
+    		<div class="switch_box box_1">
+    			<input type="checkbox" class="switch_1" onchange="show_jump_kids_section();"/>
+    		</div>
+      </div>
+    </div>
+
+    <div id="jump_kids_hours_validation">
+      <?php
+      $start_time = date('G:i', strtotime('7:00'));
+      $end_time = date('G:i', strtotime('20:00'));
+      $interval = (60*30);
+      $current_time = strtotime($start_time);
+
+      while ($current_time <= strtotime($end_time)):  ?>
+        <div class="hours_validation_box">
+          <label><?php echo date('G:i', $current_time); ?></label>
+          <div class="wrapper">
+        		<div class="switch_box box_1">
+        			<input type="checkbox" class="switch_1"/>
+        		</div>
+          </div>
+        </div>  <?php
+        $current_time += $interval;
+      endwhile; ?>
+    </div>
+
+    <div class="main_label_container">
+      <label class="main_label">Anniversaire</label>
+      <div class="wrapper">
+        <div class="switch_box box_1">
+          <input type="checkbox" class="switch_1" onchange="show_anniversary_section();"/>
+        </div>
+      </div>
+    </div>
+
+    <div id="anniversary_hours_validation">
+      <?php
+      $start_time = date('G:i', strtotime('7:00'));
+      $end_time = date('G:i', strtotime('20:00'));
+      $interval = (60*30);
+      $current_time = strtotime($start_time);
+
+      while ($current_time <= strtotime($end_time)):  ?>
+        <div class="hours_validation_box">
+          <label><?php echo date('G:i', $current_time); ?></label>
+          <div class="wrapper">
+        		<div class="switch_box box_1">
+        			<input type="checkbox" class="switch_1"/>
+        		</div>
+          </div>
+        </div>  <?php
+        $current_time += $interval;
+      endwhile; ?>
+    </div>
+
+    <div class="main_label_container">
+      <label class="main_label">Stages</label>
+      <div class="wrapper">
+        <div class="switch_box box_1">
+          <input type="checkbox" class="switch_1"/>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <input type="hidden" name="update_fullinpark_settings" value="updated"/>
   <button type="submit" class="button button-primary">Enregister</button>
 </form>

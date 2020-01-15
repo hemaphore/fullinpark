@@ -23,7 +23,12 @@ if(!class_exists('FIP')):
       new FIPResa();
       new FIPModifyResa();
 
+      require(PLUGIN_FIP_DIRECTORY.'inc/class/fullinparkResaManager.php');
+      require(PLUGIN_FIP_DIRECTORY.'inc/class/fullinparkTeamManager.php');
+
       add_action('init', array($this, 'register_custom_post_type'));
+      register_activation_hook( __FILE__ , array('FIP', 'install'));
+      register_uninstall_hook( __FILE__ , array('FIP', 'uninstall'));
     }
 
     public function register_custom_post_type(){
@@ -125,6 +130,18 @@ if(!class_exists('FIP')):
       );
 
       register_post_type('fip_question', $fip_question_args);
+    }
+
+    public static function install(){
+      global $wpdb;
+
+      $wpdb->query("CREATE TABLE IF NOT EXISTS {$wpdb->prefix}team_member (id INT AUTO_INCREMENT PRIMARY KEY, first_name VARCHAR(255) NOT NULL, last_name VARCHAR(255) NOT NULL);");
+    }
+
+    public static function uninstall(){
+      global $wpdb;
+
+      $wpdb->query("DROP TABLE IF EXISTS {$wpdb->prefix}team_member;");
     }
   }
 endif;
