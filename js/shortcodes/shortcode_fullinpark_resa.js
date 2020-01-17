@@ -14,7 +14,7 @@ function show_resa_form(){
   jQuery('#fullinpark_resa_form_content').animate({'margin-left' : '10%'}, 400);
 
   jQuery('#fullinpark_question_form_content').css('display', 'none');
-    jQuery('#fullinpark_second_step_form_content').css('display', 'none');
+  jQuery('#fullinpark_second_step_form_content').css('display', 'none');
   jQuery('#fullinpark_resa_form_content').css('display', 'block');
 }
 
@@ -39,7 +39,6 @@ function toogle_stages(){
 function activity_selected(name){
   jQuery('#toogle_activities_button p').html('<span class="blue bold">' + name + '</span>');
   jQuery('#resa_activity').val(name);
-  alert(name);
   toogle_activities();
 }
 

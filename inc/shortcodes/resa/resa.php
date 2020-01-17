@@ -45,13 +45,33 @@ if(isset($_POST['resa_sent'])):
       }
     </style>
 
-    <table cellpadding="0" cellspacing="0">
+    <table cellpadding="0" cellspacing="0" style="width: 100%;">
       <tr>
         <td class="pattern" width="600">
-          <table cellpadding="4" cellspacing="0">
+          <table cellpadding="4" cellspacing="0" style="width: 100%; background: #080f24;">
+            <tr>
+              <td>
+                <p>Logo</p>
+              </td>
+
+              <td>
+                <p>Contact</p>
+              </td>
+            </tr>
+          </table>
+
+          <table cellpadding="4" cellspacing="0" style="width: 100%;">
             <tr>
               <td>
                 <p>Votre réservation a bien été prise en compte</p>
+              </td>
+            </tr>
+          </table>
+
+          <table cellpadding="4" cellspacing="0" style="width: 100%; background: #080f24;">
+            <tr>
+              <td>
+                <a href="http://fullinpark.fr" style="color: #FFF; text-decoration: none;">fullinpark.fr</a>
               </td>
             </tr>
           </table>
@@ -74,13 +94,33 @@ if(isset($_POST['resa_sent'])):
       }
     </style>
 
-    <table cellpadding="0" cellspacing="0">
+    <table cellpadding="0" cellspacing="0" style="width: 100%;">
       <tr>
         <td class="pattern" width="600">
-          <table cellpadding="4" cellspacing="0">
+          <table cellpadding="4" cellspacing="0" style="width: 100%; background: #080f24;">
+            <tr>
+              <td>
+                <p>Logo</p>
+              </td>
+
+              <td>
+                <p>Contact</p>
+              </td>
+            </tr>
+          </table>
+
+          <table cellpadding="4" cellspacing="0" style="width: 100%;">
             <tr>
               <td>
                 <p>Une nouvelle réservation a été envoyée via le formulaire de réservation</p>
+              </td>
+            </tr>
+          </table>
+
+          <table cellpadding="4" cellspacing="0" style="width: 100%; background: #080f24;">
+            <tr>
+              <td>
+                <a href="http://fullinpark.fr" style="color: #FFF; text-decoration: none;">fullinpark.fr</a>
               </td>
             </tr>
           </table>
