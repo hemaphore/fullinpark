@@ -25,11 +25,14 @@ elseif($_GET['day'] == -1):
   $date_label = 'Hier -';
 endif;
 
-$sql = "SELECT * FROM {$wpdb->prefix}posts";
-$sql .= " INNER JOIN {$wpdb->prefix}postmeta m1 ON ({$wpdb->prefix}posts.ID = m1.post_id)";
-$sql .= " WHERE {$wpdb->prefix}posts.post_type = 'fip_resa' AND {$wpdb->prefix}posts.post_status != 'trash'";
-$sql .= " AND (m1.meta_key = 'resa_date' AND (m1.meta_value = '$current_day' OR m1.meta_value = '$alt_current_day'))";
-$all_resa = $wpdb->get_results($sql); ?>
+$start_time = date('G:i', strtotime(get_option('fullinpark_start_hour_of_day')));
+$end_time = date('G:i', strtotime(get_option('fullinpark_end_hour_of_day')));
+$interval = (60*30);
+$current_time = strtotime($start_time);
+
+$today_resa = fullinparkResaManager::get_resa_from_day(date('Y-m-d', strtotime($current_day)));
+$jump_max_resa_by_slot = fullinparkResaManager::jump_max_resa_by_slot($today_resa, $start_time, $end_time);
+$kids_max_resa_by_slot = fullinparkResaManager::kids_max_resa_by_slot($today_resa, $start_time, $end_time); ?>
 
 <div id="fullinpark_admin_page">
   <div id="fullinpark_admin_page_title_container">
@@ -54,9 +57,6 @@ $all_resa = $wpdb->get_results($sql); ?>
   <div id="fullinpark_planning_jump_container">
     <div id="fullinpark_planning_jump_head">
       <?php
-      $start_time = date('G:i', strtotime(get_option('fullinpark_start_hour_of_day')));
-      $end_time = date('G:i', strtotime(get_option('fullinpark_end_hour_of_day')));
-      $interval = (60*30);
       $current_time = strtotime($start_time);
 
       while ($current_time <= strtotime($end_time)):
@@ -67,18 +67,25 @@ $all_resa = $wpdb->get_results($sql); ?>
 
     <div id="fullinpark_planning_jump_body">
       <?php
-      $start_time = date('G:i', strtotime(get_option('fullinpark_start_hour_of_day')));
-      $end_time = date('G:i', strtotime(get_option('fullinpark_end_hour_of_day')));
-      $interval = (60*30);
       $current_time = strtotime($start_time);
 
       while ($current_time <= strtotime($end_time)):
+        $slot = 0;
+
         echo '<div class="fullinpark_planning_body_col">';
-        foreach ($all_resa as $resa):
+        foreach ($today_resa as $resa):
           if($current_time == strtotime(date('G:i', strtotime(get_post_meta($resa->ID, 'resa_hour', true)))) AND get_post_meta($resa->ID, 'resa_jump', true) != 0):
             echo '<div class="fullinpark_planning_body_elem" onclick="show_resa_infos('.$resa->ID.');">'.get_post_meta($resa->ID, 'resa_jump', true).'</div>';
+            $slot = $slot+1;
           endif;
         endforeach;
+
+        for ($i = $slot; $i < $jump_max_resa_by_slot; $i++):
+          if($slot > 0):
+            echo '<div class="fullinpark_planning_body_elem empty"></div>';
+          endif;
+        endfor;
+
         echo '</div>';
 
         $current_time += $interval;
@@ -91,9 +98,6 @@ $all_resa = $wpdb->get_results($sql); ?>
   <div id="fullinpark_planning_kids_container">
     <div id="fullinpark_planning_kids_head">
       <?php
-      $start_time = date('G:i', strtotime(get_option('fullinpark_start_hour_of_day')));
-      $end_time = date('G:i', strtotime(get_option('fullinpark_end_hour_of_day')));
-      $interval = (60*30);
       $current_time = strtotime($start_time);
 
       while ($current_time <= strtotime($end_time)):
@@ -104,18 +108,25 @@ $all_resa = $wpdb->get_results($sql); ?>
 
     <div id="fullinpark_planning_kids_body">
       <?php
-      $start_time = date('G:i', strtotime(get_option('fullinpark_start_hour_of_day')));
-      $end_time = date('G:i', strtotime(get_option('fullinpark_end_hour_of_day')));
-      $interval = (60*30);
       $current_time = strtotime($start_time);
 
       while ($current_time <= strtotime($end_time)):
+        $slot = 0;
+
         echo '<div class="fullinpark_planning_body_col">';
-        foreach ($all_resa as $resa):
+        foreach ($today_resa as $resa):
           if($current_time == strtotime(date('G:i', strtotime(get_post_meta($resa->ID, 'resa_hour', true)))) AND get_post_meta($resa->ID, 'resa_kids', true) != 0):
             echo '<div class="fullinpark_planning_body_elem">'.get_post_meta($resa->ID, 'resa_kids', true).'</div>';
+            $slot = $slot+1;
           endif;
         endforeach;
+
+        for ($i = $slot; $i < $kids_max_resa_by_slot; $i++):
+          if($slot > 0):
+            echo '<div class="fullinpark_planning_body_elem empty"></div>';
+          endif;
+        endfor;
+
         echo '</div>';
 
         $current_time += $interval;

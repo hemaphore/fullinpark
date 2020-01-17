@@ -176,7 +176,7 @@ if(isset($_POST['question_sent'])):
   remove_filter( 'wp_mail_content_type', 'wpdocs_set_html_mail_content_type' );
 endif;  ?>
 
-<div style="width:37%; ">
+<!--<div style="width:37%; ">-->
 
 <div id="fullinpark_resa_form_entete">
   <div id="fullinpark_resa_form_entete_resa_button">
@@ -211,9 +211,18 @@ endif;  ?>
 
           <div id="custom_select_activities">
             <ul>
-              <li onclick="activity_selected('Jump')">Jump</li>
-              <li onclick="activity_selected('Anniversaire')">Anniversaire</li>
-              <li onclick="show_stages_selector();">Stage</li>
+              <?php
+              if(get_option('fullinpark_jump_kids_activation')): ?>
+                <li onclick="activity_selected('Jump')">Jump</li><?php
+              endif;
+
+              if(get_option('fullinpark_anniversary_activation')): ?>
+                <li onclick="activity_selected('Anniversaire')">Anniversaire</li><?php
+              endif;
+
+              if(get_option('fullinpark_stages_activation')): ?>
+                <li onclick="show_stages_selector();">Stage</li><?php
+              endif; ?>
             </ul>
           </div>
         </div>
@@ -375,6 +384,11 @@ endif;  ?>
   </div>
 </div>
 
+<div id="form_errors_message">
+  <a>x</a>
+  erreurs !!!
+</div>
+
 <form action="#" method="POST" id="fullinpark_resa_form">
   <!-- Réservation infos -->
   <input type="hidden" name="resa_jump" id="resa_jump"/>
@@ -392,4 +406,4 @@ endif;  ?>
 </form>
 
 
-</div>
+<!--</div>-->

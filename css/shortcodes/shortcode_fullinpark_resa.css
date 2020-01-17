@@ -379,4 +379,18 @@ body {
         #datepicker_container #datepicker_step2 ul li.full, #datepicker_container #datepicker_step2 ul li.not_enough_places {
           color: #CCC; }
 
+#form_errors_message {
+  width: 120%;
+  height: 100px;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5em;
+  background: #FFF;
+  margin-top: -100px;
+  margin-left: 110%;
+  position: relative;
+  z-index: 9999; }
+
 /*# sourceMappingURL=shortcode_fullinpark_resa.css.map */

@@ -5,6 +5,11 @@ if(isset($_POST['update_fullinpark_settings']) AND $_POST['update_fullinpark_set
   update_option('fullinpark_end_day_of_week', $_POST['fullinpark_end_day_of_week']);
   update_option('fullinpark_start_hour_of_day', $_POST['fullinpark_start_hour_of_day']);
   update_option('fullinpark_end_hour_of_day', $_POST['fullinpark_end_hour_of_day']);
+
+  //Activities activation
+  update_option('fullinpark_jump_kids_activation', $_POST['fullinpark_jump_kids_activation']);
+  update_option('fullinpark_anniversary_activation', $_POST['fullinpark_anniversary_activation']);
+  update_option('fullinpark_stages_activation', $_POST['fullinpark_stages_activation']);
 endif;  ?>
 
 <form action="#" method="POST">
@@ -78,12 +83,12 @@ endif;  ?>
       <label class="main_label">Jump & Kids</label>
       <div class="wrapper">
     		<div class="switch_box box_1">
-    			<input type="checkbox" class="switch_1" onchange="show_jump_kids_section();"/>
+    			<input type="checkbox" name="fullinpark_jump_kids_activation" id="fullinpark_jump_kids_activation" <?php echo (get_option('fullinpark_jump_kids_activation')) ? 'checked' : ''; ?> class="switch_1" onchange="show_jump_kids_section();"/>
     		</div>
       </div>
     </div>
 
-    <div id="jump_kids_hours_validation">
+    <div id="jump_kids_hours_validation" <?php echo (get_option('fullinpark_jump_kids_activation')) ? 'class="active"' : ''; ?>>
       <?php
       $start_time = date('G:i', strtotime('7:00'));
       $end_time = date('G:i', strtotime('20:00'));
@@ -107,12 +112,12 @@ endif;  ?>
       <label class="main_label">Anniversaire</label>
       <div class="wrapper">
         <div class="switch_box box_1">
-          <input type="checkbox" class="switch_1" onchange="show_anniversary_section();"/>
+          <input type="checkbox" name="fullinpark_anniversary_activation" id="fullinpark_anniversary_activation" <?php echo (get_option('fullinpark_anniversary_activation')) ? 'checked' : ''; ?> class="switch_1" onchange="show_anniversary_section();"/>
         </div>
       </div>
     </div>
 
-    <div id="anniversary_hours_validation">
+    <div id="anniversary_hours_validation" <?php echo (get_option('fullinpark_anniversary_activation')) ? 'class="active"' : ''; ?>>
       <?php
       $start_time = date('G:i', strtotime('7:00'));
       $end_time = date('G:i', strtotime('20:00'));
@@ -136,7 +141,7 @@ endif;  ?>
       <label class="main_label">Stages</label>
       <div class="wrapper">
         <div class="switch_box box_1">
-          <input type="checkbox" class="switch_1"/>
+          <input type="checkbox" name="fullinpark_stages_activation" id="fullinpark_stages_activation" <?php echo (get_option('fullinpark_stages_activation')) ? 'checked' : ''; ?> class="switch_1"/>
         </div>
       </div>
     </div>

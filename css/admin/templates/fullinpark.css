@@ -73,10 +73,13 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        border-top: 1px solid #000;
+        border-bottom: 1px solid #000;
         cursor: pointer; }
-        #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_jump_body .fullinpark_planning_body_col .fullinpark_planning_body_elem:first-child, #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_kids_body .fullinpark_planning_body_col .fullinpark_planning_body_elem:first-child, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_jump_body .fullinpark_planning_body_col .fullinpark_planning_body_elem:first-child, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_kids_body .fullinpark_planning_body_col .fullinpark_planning_body_elem:first-child {
-          border-top: none; }
+        #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_jump_body .fullinpark_planning_body_col .fullinpark_planning_body_elem:last-child, #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_kids_body .fullinpark_planning_body_col .fullinpark_planning_body_elem:last-child, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_jump_body .fullinpark_planning_body_col .fullinpark_planning_body_elem:last-child, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_kids_body .fullinpark_planning_body_col .fullinpark_planning_body_elem:last-child {
+          border-bottom: none; }
+      #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_jump_body .fullinpark_planning_body_col .empty, #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_kids_body .fullinpark_planning_body_col .empty, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_jump_body .fullinpark_planning_body_col .empty, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_kids_body .fullinpark_planning_body_col .empty {
+        border: none !important;
+        background: #BBB; }
 
 #resa_infos_popup {
   width: 100%;

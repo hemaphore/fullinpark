@@ -38,6 +38,8 @@ function toogle_stages(){
 
 function activity_selected(name){
   jQuery('#toogle_activities_button p').html('<span class="blue bold">' + name + '</span>');
+  jQuery('#resa_activity').val(name);
+  alert(name);
   toogle_activities();
 }
 

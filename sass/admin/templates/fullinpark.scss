@@ -164,10 +164,15 @@
           display: flex;
           justify-content: center;
           align-items: center;
-          border-top: 1px solid #000;
+          border-bottom: 1px solid #000;
           cursor: pointer;
 
-          &:first-child{  border-top: none  }
+          &:last-child{  border-bottom: none;  }
+        }
+
+        .empty{
+          border: none !important;
+          background: #BBB;
         }
       }
     }
