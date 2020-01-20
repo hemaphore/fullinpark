@@ -52,7 +52,7 @@ $kids_max_resa_by_slot = fullinparkResaManager::kids_max_resa_by_slot($today_res
     <a href="<?php echo $admin_url.'&day='.($current_position +1); ?>"><img id="fullinpark_planning_nav_next" src="<?php echo PLUGIN_FIP_URL.'/fullinpark/img/arrow-nav-black.png'; ?> "/></a>
   </div>
 
-  <p>Jump</p>
+  <p class="fullinpark_planning_title">Jump</p>
 
   <div id="fullinpark_planning_jump_container">
     <div id="fullinpark_planning_jump_head">
@@ -68,6 +68,7 @@ $kids_max_resa_by_slot = fullinparkResaManager::kids_max_resa_by_slot($today_res
     <div id="fullinpark_planning_jump_body">
       <?php
       $current_time = strtotime($start_time);
+      $total_jump = 0;
 
       while ($current_time <= strtotime($end_time)):
         $slot = 0;
@@ -75,7 +76,41 @@ $kids_max_resa_by_slot = fullinparkResaManager::kids_max_resa_by_slot($today_res
         echo '<div class="fullinpark_planning_body_col">';
         foreach ($today_resa as $resa):
           if($current_time == strtotime(date('G:i', strtotime(get_post_meta($resa->ID, 'resa_hour', true)))) AND get_post_meta($resa->ID, 'resa_jump', true) != 0):
-            echo '<div class="fullinpark_planning_body_elem" onclick="show_resa_infos('.$resa->ID.');">'.get_post_meta($resa->ID, 'resa_jump', true).'</div>';
+            $total_jump = $total_jump + intval(get_post_meta($resa->ID, 'resa_jump', true));
+
+            if($slot+1 == $kids_max_resa_by_slot): ?>
+              <div class="fullinpark_planning_body_elem no_border" onclick="show_resa_popup('<?php echo $resa->ID; ?>')">
+                <?php echo get_post_meta($resa->ID, 'resa_jump', true); ?>
+              </div>  <?php
+            else: ?>
+            <div class="fullinpark_planning_body_elem" onclick="show_resa_popup('<?php echo $resa->ID; ?>')">
+              <?php echo get_post_meta($resa->ID, 'resa_jump', true); ?>
+            </div><?php
+            endif;  ?>
+
+            <div id="fullinpark_planning_elem_popup_<?php echo $resa->ID; ?>" class="fullinpark_planning_elem_popup">
+              <a class="hide_resa_popup_button" onclick="hide_resa_popup('<?php echo $resa->ID; ?>')">x</a>
+
+              <p class="fullinpark_planning_elem_popup_title">Fiche de la Réservation</p>
+
+              <div class="fullinpark_planning_elem_popup_qty">
+                <div>
+                  <span>Jump:</span> <span class="fullinpark_planning_elem_popup_qty_value"><?php echo get_post_meta($resa->ID, 'resa_jump', true); ?></span>
+                </div>
+
+                <div>
+                  <span>Kids:</span> <span class="fullinpark_planning_elem_popup_qty_value"><?php echo get_post_meta($resa->ID, 'resa_kids', true); ?></span>
+                </div>
+              </div>
+
+              <div class="fullinpark_planning_elem_popup_contact">
+                <p><span>Nom complet:</span> <span class="fullinpark_planning_elem_popup_contact_value"><?php echo get_post_meta($resa->ID, 'resa_contact_fullname', true); ?></span></p>
+                <p><span>Email:</span> <span class="fullinpark_planning_elem_popup_contact_value"><?php echo get_post_meta($resa->ID, 'resa_contact_email', true); ?></span></p>
+                <p><span>Téléphone:</span> <span class="fullinpark_planning_elem_popup_contact_value"><?php echo get_post_meta($resa->ID, 'resa_contact_phone', true); ?></span></p>
+              </div>
+
+              <a class="fullinpark_planning_elem_popup_modify_button" href="<?php echo esc_url(home_url()).'/wp-admin/post.php?post='.$resa->ID.'&action=edit'; ?>">modifier</a>
+            </div><?php
             $slot = $slot+1;
           endif;
         endforeach;
@@ -93,7 +128,9 @@ $kids_max_resa_by_slot = fullinparkResaManager::kids_max_resa_by_slot($today_res
     </div>
   </div>
 
-  <p>Kids</p>
+  <p>Total Jump: <?php echo $total_jump; ?></p>
+
+  <p class="fullinpark_planning_title">Kids</p>
 
   <div id="fullinpark_planning_kids_container">
     <div id="fullinpark_planning_kids_head">
@@ -109,6 +146,7 @@ $kids_max_resa_by_slot = fullinparkResaManager::kids_max_resa_by_slot($today_res
     <div id="fullinpark_planning_kids_body">
       <?php
       $current_time = strtotime($start_time);
+      $total_kids = 0;
 
       while ($current_time <= strtotime($end_time)):
         $slot = 0;
@@ -116,7 +154,23 @@ $kids_max_resa_by_slot = fullinparkResaManager::kids_max_resa_by_slot($today_res
         echo '<div class="fullinpark_planning_body_col">';
         foreach ($today_resa as $resa):
           if($current_time == strtotime(date('G:i', strtotime(get_post_meta($resa->ID, 'resa_hour', true)))) AND get_post_meta($resa->ID, 'resa_kids', true) != 0):
-            echo '<div class="fullinpark_planning_body_elem">'.get_post_meta($resa->ID, 'resa_kids', true).'</div>';
+            $total_kids = $total_kids + intval(get_post_meta($resa->ID, 'resa_kids', true));
+
+            if($slot+1 == $kids_max_resa_by_slot): ?>
+              <div class="fullinpark_planning_body_elem no_border" onclick="show_resa_popup('<?php echo $resa->ID; ?>')">
+                <?php echo get_post_meta($resa->ID, 'resa_kids', true); ?>
+              </div>  <?php
+            else: ?>
+            <div class="fullinpark_planning_body_elem" onclick="show_resa_popup('<?php echo $resa->ID; ?>')">
+              <?php echo get_post_meta($resa->ID, 'resa_kids', true); ?>
+            </div><?php
+            endif;  ?>
+
+            <div id="fullinpark_planning_elem_popup_<?php echo $resa->ID; ?>" class="fullinpark_planning_elem_popup">
+              <?php echo $resa->ID; ?>
+
+              <a href="<?php echo esc_url(home_url()).'/wp-admin/post.php?post='.$resa->ID.'&action=edit'; ?>">modifier</a>
+            </div><?php
             $slot = $slot+1;
           endif;
         endforeach;
@@ -133,43 +187,6 @@ $kids_max_resa_by_slot = fullinparkResaManager::kids_max_resa_by_slot($today_res
       endwhile; ?>
     </div>
   </div>
-</div>
 
-<div id="resa_infos_popup">
-  <a onclick="hide_popup('#resa_infos_popup');"><div class="popup_x"></div></a>
-
-  <div class="popup_content">
-    <p id="popup_main_title">Informations de la réservation</p>
-
-    <div id="resa_infos_container">
-      <div class="resa_infos_col">
-        <p class="resa_infos_title">Places</p>
-
-        <div>
-          <p><span class="resa_infos_label">Jump:</span> <span id="resa_infos_value_jump" class="resa_infos_value"></span></p>
-          <p><span class="resa_infos_label">Kids:</span> <span id="resa_infos_value_kids" class="resa_infos_value"></span></p>
-        </div>
-      </div>
-
-
-      <div class="resa_infos_col">
-        <p class="resa_infos_title">Crénau</p>
-
-        <div>
-          <p><span class="resa_infos_label">Date:</span> <span id="resa_infos_value_date" class="resa_infos_value"></span></p>
-          <p><span class="resa_infos_label">heure:</span> <span id="resa_infos_value_hour" class="resa_infos_value"></span></p>
-        </div>
-      </div>
-    </div>
-
-    <div id="resa_infos_contact">
-      <p class="resa_infos_title">Contact client</p>
-
-      <div>
-        <p><span class="resa_infos_label">Nom:</span> <span id="resa_infos_value_fullname" class="resa_infos_value"></span></p>
-        <p><span class="resa_infos_label">Email:</span> <span id="resa_infos_value_email" class="resa_infos_value"></span></p>
-        <p><span class="resa_infos_label">Téléphone:</span> <span id="resa_infos_value_phone" class="resa_infos_value"></span></p>
-      </div>
-    </div>
-  </div>
+  <p>Total Kids: <?php echo $total_kids; ?></p>
 </div>

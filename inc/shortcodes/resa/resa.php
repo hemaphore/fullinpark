@@ -29,6 +29,10 @@ if(isset($_POST['resa_sent'])):
   $object = 'Confirmation de réservation';
   $headers[] = 'From: FullInpark <contact@fullinpark.fr>';
 
+  $phpmailerInitAction = function(&$phpmailer) {
+    $phpmailer->AddEmbeddedImage(PLUGIN_FIP_DIRECTORY.'img/logo.png', 'logo');
+  };
+  add_action('phpmailer_init', $phpmailerInitAction);
   add_filter('wp_mail_content_type', 'wpdocs_set_html_mail_content_type' );
 
   wp_mail( $to, $object, '
@@ -45,17 +49,17 @@ if(isset($_POST['resa_sent'])):
       }
     </style>
 
-    <table cellpadding="0" cellspacing="0" style="width: 100%;">
+    <table cellpadding="0" cellspacing="0" style="width: 100%; background: #FFF;">
       <tr>
         <td class="pattern" width="600">
           <table cellpadding="4" cellspacing="0" style="width: 100%; background: #080f24;">
             <tr>
               <td>
-                <p>Logo</p>
+                <p><img src="cid:logo" /></p>
               </td>
 
-              <td>
-                <p>Contact</p>
+              <td style="text-align: right;">
+                <p>04 65 85 16 95</p>
               </td>
             </tr>
           </table>
@@ -70,7 +74,7 @@ if(isset($_POST['resa_sent'])):
 
           <table cellpadding="4" cellspacing="0" style="width: 100%; background: #080f24;">
             <tr>
-              <td>
+              <td style="text-align: center;">
                 <a href="http://fullinpark.fr" style="color: #FFF; text-decoration: none;">fullinpark.fr</a>
               </td>
             </tr>
@@ -94,17 +98,17 @@ if(isset($_POST['resa_sent'])):
       }
     </style>
 
-    <table cellpadding="0" cellspacing="0" style="width: 100%;">
+    <table cellpadding="0" cellspacing="0" style="width: 100%; background: #FFF;">
       <tr>
         <td class="pattern" width="600">
           <table cellpadding="4" cellspacing="0" style="width: 100%; background: #080f24;">
             <tr>
               <td>
-                <p>Logo</p>
+                <p><img src="cid:logo" /></p>
               </td>
 
-              <td>
-                <p>Contact</p>
+              <td style="text-align: right;">
+                <p>04 65 85 16 95</p>
               </td>
             </tr>
           </table>
@@ -119,7 +123,7 @@ if(isset($_POST['resa_sent'])):
 
           <table cellpadding="4" cellspacing="0" style="width: 100%; background: #080f24;">
             <tr>
-              <td>
+              <td style="text-align: center;">
                 <a href="http://fullinpark.fr" style="color: #FFF; text-decoration: none;">fullinpark.fr</a>
               </td>
             </tr>
@@ -129,6 +133,7 @@ if(isset($_POST['resa_sent'])):
     </table>
   ', $headers );
 
+  remove_action('phpmailer_init', $phpmailerInitAction);
   remove_filter( 'wp_mail_content_type', 'wpdocs_set_html_mail_content_type' );
 endif;
 
