@@ -104,10 +104,10 @@ if(isset($_POST['resa_sent'])):
       }
     </style>
 
-    <table cellpadding="0" cellspacing="0" style="width: 100%; background: #FFF;">
+    <table cellpadding="0" cellspacing="10" style="width: 100%; background: #FFF;">
       <tr style="background: #FFF;">
         <td class="pattern" width="600" style="background: #FFF;">
-          <table cellpadding="4" cellspacing="0" style="width: 100%; background: #080f24;">
+          <table cellpadding="20" cellspacing="0" style="width: 100%; background: #080f24;">
             <tr>
               <td>
                 <p><img src="cid:logo" /></p>
@@ -119,7 +119,7 @@ if(isset($_POST['resa_sent'])):
             </tr>
           </table>
 
-          <table cellpadding="4" cellspacing="0" style="width: 100%;">
+          <table cellpadding="4" cellspacing="10" style="width: 100%;">
             <tr>
               <td>
                 <p>Une nouvelle réservation a été envoyée via le formulaire de réservation</p>
@@ -127,7 +127,7 @@ if(isset($_POST['resa_sent'])):
             </tr>
           </table>
 
-          <table cellpadding="4" cellspacing="0" style="width: 100%; background: #080f24;">
+          <table cellpadding="20" cellspacing="10" style="width: 100%; background: #080f24;">
             <tr>
               <td style="text-align: center;">
                 <a href="http://fullinpark.fr" style="color: #FFF; text-decoration: none;">fullinpark.fr</a>
@@ -351,7 +351,7 @@ endif;  ?>
 
     <div id="resa_form_submit_button">
       <a class="next_step" onclick="go_to_step2();">Valider</a>
-      <a href="#" id="update_resa_button">Modifier ma reservation</a>
+      <a href="<?php echo esc_url(home_url()).'/modifier-ma-reservation/'; ?>" id="update_resa_button">Modifier ma reservation</a>
     </div>
   </div>
 
