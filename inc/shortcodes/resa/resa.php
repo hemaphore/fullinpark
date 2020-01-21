@@ -50,9 +50,9 @@ if(isset($_POST['resa_sent'])):
     </style>
 
     <table cellpadding="0" cellspacing="0" style="width: 100%; background: #FFF;">
-      <tr>
-        <td class="pattern" width="600">
-          <table cellpadding="4" cellspacing="0" style="width: 100%; background: #080f24;">
+      <tr style="background: #FFF;">
+        <td class="pattern" width="600" style="background: #FFF;">
+          <table cellpadding="20" cellspacing="0" style="width: 100%; background: #080f24;">
             <tr>
               <td>
                 <p><img src="cid:logo" /></p>
@@ -70,9 +70,15 @@ if(isset($_POST['resa_sent'])):
                 <p>Votre réservation a bien été prise en compte</p>
               </td>
             </tr>
+
+            <tr>
+              <td>
+                <p>Vous pouvez modifier votre réservation à l\'aide du code suivant: '.$resa_id.'</p>
+              </td>
+            </tr>
           </table>
 
-          <table cellpadding="4" cellspacing="0" style="width: 100%; background: #080f24;">
+          <table cellpadding="20" cellspacing="0" style="width: 100%; background: #080f24;">
             <tr>
               <td style="text-align: center;">
                 <a href="http://fullinpark.fr" style="color: #FFF; text-decoration: none;">fullinpark.fr</a>
@@ -99,8 +105,8 @@ if(isset($_POST['resa_sent'])):
     </style>
 
     <table cellpadding="0" cellspacing="0" style="width: 100%; background: #FFF;">
-      <tr>
-        <td class="pattern" width="600">
+      <tr style="background: #FFF;">
+        <td class="pattern" width="600" style="background: #FFF;">
           <table cellpadding="4" cellspacing="0" style="width: 100%; background: #080f24;">
             <tr>
               <td>
