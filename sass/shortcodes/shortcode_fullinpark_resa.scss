@@ -2,7 +2,7 @@ $yellow: #CFA614;
 $blue: #3161AC;
 
 @mixin blue_button(){
-  padding: 0.5em 0;
+  padding: 0.75em 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -18,7 +18,7 @@ $blue: #3161AC;
 }
 
 @mixin orange_button(){
-  padding: 0.5em 0;
+  padding: 0.75em 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -34,7 +34,7 @@ $blue: #3161AC;
 }
 
 body{  background: #CCC !important;  }
-
+.bold{  font-weight: bold;  }
 #fullinpark_resa_form_entete{
   height: 40px;
   display: flex;
@@ -42,6 +42,8 @@ body{  background: #CCC !important;  }
   margin-bottom: 0;
 
   #fullinpark_resa_form_entete_resa_button{
+    display: flex;
+    align-items: center;
     margin-left: 10px;
     padding: 0.5em 1.5em;
     background: $yellow;
@@ -63,6 +65,8 @@ body{  background: #CCC !important;  }
   }
 
   #fullinpark_resa_form_entete_question_button{
+    display: flex;
+    align-items: center;
     margin-left: -2px;
     padding: 0.5em 1.5em;
     background: $blue;
@@ -81,7 +85,7 @@ body{  background: #CCC !important;  }
 
 #fullinpark_resa_form_container{
   width: 100%;
-  height: 700px;
+  //height: 1020px !important;
   margin-top: 0;
   padding: 0.5em;
   position: relative;
@@ -108,7 +112,7 @@ body{  background: #CCC !important;  }
       font-weight: bold;
       text-transform: uppercase;
     }
-    #stage_selector_container{  display: none;  }
+    #stage_selector_container, #collectives_courses_selector_container, #anniversary_infos_container{  display: none;  }
 
     .custom_select{
       width: 100%;
@@ -136,7 +140,7 @@ body{  background: #CCC !important;  }
         }
       }
 
-      #custom_select_activities, #custom_select_stages{
+      #custom_select_activities, #custom_select_stages, #custom_select_collectives_courses, #custom_select_anniversary{
         width: calc(100% + 3em);
         display: none;
         position: absolute;
@@ -162,6 +166,29 @@ body{  background: #CCC !important;  }
             &:hover{
               background: #FFF;
               font-weight: bold;
+            }
+          }
+        }
+      }
+
+      #custom_select_anniversary{
+        ul{
+          li{
+            position: relative;
+
+            .infobulle{
+              width: 20px;
+              height: 20px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              position: absolute;
+              top: calc(50% - 10px);
+              right: 20px;
+              border-radius: 50%;
+              color: #FFF;
+              background: $yellow;
+              cursor: pointer;
             }
           }
         }
@@ -204,9 +231,8 @@ body{  background: #CCC !important;  }
           justify-content: space-between;
           padding-bottom: 0.5em;
           margin-top: 0.5em;
-          border-bottom: 1px solid $blue;
 
-          &:last-child{  border: none;}
+          &:first-child{  border-bottom: 1px solid $blue;  }
           .tickets_infos_title{
             width: 65%;
           }
@@ -238,6 +264,65 @@ body{  background: #CCC !important;  }
             }
           }
         }
+
+        #tickets_details_anniversary{
+          display: none;
+          margin-top: 0.5em;
+          text-align: center;
+          font-weight: bold;
+        }
+      }
+    }
+
+    #anniversary_formula_container{
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      margin-top: 1.5em;
+
+      .anniversary_formula_box{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        label{
+          width: calc(100% - 25px);
+          margin:  0;
+
+          input{ margin-right: 10px; }
+        }
+
+        .infobulle{
+          width: 20px;
+          height: 20px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 50%;
+          color: #FFF;
+          background: $yellow;
+          text-decoration: none;
+          cursor: pointer;
+        }
+      }
+    }
+
+    #riders_container{
+      #riders_selected_container{
+        width: 100%;
+      }
+
+      #riders_reservation_button{
+        max-width: 50%;
+        margin: 1em auto 0 auto;
+        @include blue_button();
+      }
+
+      #riders_reservation_unavailable_message, #riders_reservation_kids_message{
+        margin-top: 1em;
+        color: red;
       }
     }
 
@@ -250,8 +335,21 @@ body{  background: #CCC !important;  }
 
       .date_hours_box{
         width: 45%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         background: #EEE;
         border-radius: 8px;
+
+        #recap_resa{
+          width: 80%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;;
+          margin: auto;
+
+          p{  margin: 0;  }
+        }
 
         a{
           color: $blue;
@@ -322,7 +420,11 @@ body{  background: #CCC !important;  }
       font-weight: bold;
       text-transform: uppercase;
     }
-    input{  width: 100%;  }
+    input{
+      width: 100%;
+      min-height: 30px;
+      border: 1px solid #C4C4C4;
+    }
 
     #resa_form_submit_button{
       display: flex;
@@ -361,8 +463,16 @@ body{  background: #CCC !important;  }
       flex-direction: column;
       margin-bottom: 1em;
 
+      input{
+        width: 100%;
+        min-height: 30px;
+        border: 1px solid #C4C4C4;
+      }
+
       textarea{
+        width: 100%;
         min-height: 150px;
+        border: 1px solid #C4C4C4;
       }
     }
 
@@ -391,6 +501,8 @@ body{  background: #CCC !important;  }
 
   #hide_datepicker{
     width: 100%;
+    position: absolute;
+    top: 30px;
     display: flex;
     justify-content: flex-end;
     margin: -1em 0 2em 0;
@@ -403,48 +515,304 @@ body{  background: #CCC !important;  }
     }
   }
 
-  #datepicker_step2{
+  #datepicker_step1{
+    display: none;
+
+    #datepicker_step1_title{
+      color: #FFF;
+      font-size: 20px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    #datepicker{
+      td{
+        padding: 0;
+
+        .ui-state-default{
+          text-align: center;
+          text-decoration: none;
+
+          &:hover{
+            background: $yellow;
+          }
+        }
+
+        .ui-state-highlight{
+
+        }
+      }
+    }
+  }
+
+  #datepicker_step2, #datepicker_step3{
+    width: 70%;
+    padding-bottom: 3em;
     display: none;
     text-align: center;
 
+    p{
+      color: #FFF;
+      font-size: 20px;
+      text-align: center;
+
+      a{
+        text-decoration: none;
+        color: #FFF;
+        cursor: pointer;
+
+        #datepicker_step2_value{
+          font-weight: bold;
+        }
+        &:hover{  color: $blue;  }
+      }
+    }
+
     ul{
+      width: 100%;
       display: flex;
       flex-direction: row;
-      justify-content: space-around;
+      justify-content: flex-start;
       flex-wrap: wrap;
       list-style: none;
       margin: 0 auto;
       padding: 0;
 
       li{
-        width: 18%;
+        width: 16%;
         background: #FFF;
         color: $blue;
         text-align: center;
         padding: 0.5em 0;
-        margin: 0.5em 0;
+        margin: 0.5em;
         font-weight: bold;
         cursor: pointer;
 
         &.full{  background: red;  }
         &.not_enough_places{  background: orange;  }
         &.full, &.not_enough_places{ color: #CCC;  }
+        &:hover{
+          background: $blue;
+          color: #FFF;
+        }
+      }
+    }
+
+    #datepicker_step2_arrow, #datepicker_step3_arrow{
+      width: 70%;
+      display: flex;
+      position: absolute;
+      bottom: 20px;
+      flex-direction: row;
+      justify-content: space-between;
+      margin-top: 2em;
+
+      .datepicker_step2_arrow_back{
+        cursor: pointer;
+
+        img{
+          width: 30px;
+          height: 30px;
+        }
+      }
+
+      .datepicker_step2_arrow_next{
+        cursor: pointer;
+
+        img{
+          width: 30px;
+          height: 30px;
+        }
       }
     }
   }
 }
 
-#form_errors_message{
+#riders_reservation_container{
   width: 120%;
-  height: 100px;
   display: none;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 0.5em;
-  background: #FFF;
-  margin-top: -100px;
-  margin-left: 110%;
+  padding: 2em 0;
+  background: $yellow;
+  margin-top: -120%;
+  margin-left: -10%;
   position: relative;
   z-index: 9999;
+
+  #hide_reservation_container{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin: -1em 0 2em 0;
+    cursor: pointer;
+
+    img{
+      width: 20px;
+      height: 20px;
+      margin-right: 1em;
+    }
+  }
+
+  .title{
+    width: 70%;
+    margin-bottom: 0.5em;
+    color: #FFF;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: left;
+    text-decoration: underline;
+    text-transform: uppercase;
+  }
+
+  #riders_reservation_content{
+    width: 70%;
+
+    .rider_line{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 0.5em;
+      margin-top: 0.5em;
+      border-bottom: 1px solid #FFF;
+      margin-bottom: 1em;
+
+      p{
+        margin: 0;
+        color: #FFF;
+        text-transform: uppercase;
+      }
+
+      .rider_infos_content{
+        width: 30%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .resa_number{
+          color: $blue;
+          font-size: 20px;
+          font-weight: bold;
+        }
+        .resa_minus, .resa_add{
+          width: 25px;
+          height: 25px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: #6d6d6d;
+          background: #FFF;
+          border-radius: 5px;
+          text-decoration: none;
+          font-size: 18px;
+          font-weight: bold;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  #add_riders{
+    width: 250px;
+    margin-top: 1em;
+    @include blue_button();
+  }
+}
+
+#form_errors_message_container{
+  width: 120%;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5em 0 2em 0;
+  background: $yellow;
+  margin-top: -70%;
+  margin-left: -10%;
+  position: relative;
+  z-index: 9999;
+
+  #hide_errors_message_container{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    position: absolute;
+    top: 1em;
+    cursor: pointer;
+
+    img{
+      width: 20px;
+      height: 20px;
+      margin-right: 1em;
+    }
+  }
+
+  #form_errors_message{
+    width: 80%;
+    margin: 3em auto 1em auto;
+    color: #FFF;
+  }
+}
+
+.validation_message_popup{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,0.8);
+  z-index: 999999;
+
+  .close_popup{
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+
+    img{  width: 25px;  }
+  }
+
+  .validation_message_popup_content{
+    width: 50%;
+    padding: 2em 2em 1em 2em;
+    margin: auto;
+    background: #FFF;
+  }
+}
+
+
+.loader {
+  margin: 2em 0;
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #4218B8; /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+#anniversary_popup{
+  width: 400px;
+  display: none;
+  padding: 1em 1.5em;
+  position: absolute;
+  background: #FFF;
+  border-radius: 8px;
+
+  .anniversary_popup_formula{  display: none;  }
+}
+
+@media screen and (max-width: 640px) {
+  .validation_message_popup{
+    .validation_message_popup_content{
+      width: 100%;
+    }
+  }
 }

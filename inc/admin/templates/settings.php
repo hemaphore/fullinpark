@@ -1,17 +1,54 @@
 <?php
-if(isset($_POST['update_fullinpark_settings']) AND $_POST['update_fullinpark_settings'] == "updated"):
-  update_option('fullinpark_admin_email', $_POST['fullinpark_admin_email']);
-  update_option('fullinpark_start_day_of_week', $_POST['fullinpark_start_day_of_week']);
-  update_option('fullinpark_end_day_of_week', $_POST['fullinpark_end_day_of_week']);
-  update_option('fullinpark_start_hour_of_day', $_POST['fullinpark_start_hour_of_day']);
-  update_option('fullinpark_end_hour_of_day', $_POST['fullinpark_end_hour_of_day']);
+require(PLUGIN_FIP_DIRECTORY.'inc/admin/templates/settings/update_settings.php');
 
-  //Activities activation
-  update_option('fullinpark_jump_kids_activation', $_POST['fullinpark_jump_kids_activation']);
-  update_option('fullinpark_anniversary_activation', $_POST['fullinpark_anniversary_activation']);
-  update_option('fullinpark_stages_activation', $_POST['fullinpark_stages_activation']);
-endif;  ?>
+$url = admin_url().'admin.php?page=fullinpark_settings';  ?>
 
+<div>
+  <div id="settings_nav">
+    <ul>
+      <li <?php echo (!isset($_GET['subpage']))? 'class="active"' : ''; ?>><a href="<?php echo $url; ?>">Réservation</a></li>
+      <li <?php echo (isset($_GET['subpage']) AND $_GET['subpage'] == 'company')? 'class="active"' : ''; ?>><a href="<?php echo $url.'&subpage=company'; ?>">Établissement</a></li>
+      <li <?php echo (isset($_GET['subpage']) AND $_GET['subpage'] == 'others')? 'class="active"' : ''; ?>><a href="<?php echo $url.'&subpage=others'; ?>">Autres</a></li>
+    </ul>
+  </div>
+
+  <div id="settings_content">
+    <?php
+    if(isset($_GET['subpage']) AND $_GET['subpage'] == 'company'):
+      require(PLUGIN_FIP_DIRECTORY.'inc/admin/templates/settings/company.php');
+    elseif(isset($_GET['subpage']) AND $_GET['subpage'] == 'others'):
+      require(PLUGIN_FIP_DIRECTORY.'inc/admin/templates/settings/others.php');
+    else:
+      require(PLUGIN_FIP_DIRECTORY.'inc/admin/templates/settings/resa.php');
+    endif;  ?>
+  </div>
+</div>
+
+<style>
+#settings_nav{ margin: 0;  }
+#settings_nav ul{  display: flex;  }
+#settings_nav ul li{
+  margin-right: 1em;
+  padding: 0.5em 1em;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+#settings_nav ul li.active{
+  background: #CFA614;
+  border-radius: 5px 0;
+  font-weight: bold;
+}
+
+#settings_nav ul li a{
+  text-decoration: none;
+  color: #000;
+}
+#settings_nav ul li.active a{ color: #FFF;  }
+#settings_content{  margin: 0;  }
+</style>
+
+<!--
 <form action="#" method="POST">
   <p class="fip_admin_title">Email</p>
 
@@ -150,3 +187,4 @@ endif;  ?>
   <input type="hidden" name="update_fullinpark_settings" value="updated"/>
   <button type="submit" class="button button-primary">Enregister</button>
 </form>
+-->

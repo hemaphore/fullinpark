@@ -1,0 +1,53 @@
+//Details
+#fip_resa_details p, #fip_resa_contact_infos p{
+  width: 500px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  span{
+    width: 250px;
+    text-align: left;
+
+    &:first-child{  font-weight: bold; }
+  }
+}
+
+//Extra Informations
+.checkbox_choice{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 2em;
+}
+
+#collective_course_container, #anniversary_jump_infos{
+  margin-top: 2em;
+  padding-top: 2em;
+}
+
+.meta_select_container{
+  display: flex;
+  margin: 1em 0;
+
+  label{
+    width: 200px;
+  }
+}
+
+.warning{
+  color: #EDABAB;
+  font-weight: bold;
+}
+
+//Notes
+#resa_note_places div{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+#resa_note_text textarea{
+  width: 100%;
+  min-height: 150px;
+  margin-top: 1em;
+}

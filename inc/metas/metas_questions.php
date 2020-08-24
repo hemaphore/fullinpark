@@ -1,6 +1,7 @@
 <?php
 function fip_question_coordonates_html(){
-  global $post; ?>
+  global $post;
+  update_post_meta($post->ID, 'read', true);  ?>
 
   <div>
     <div>

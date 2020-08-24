@@ -1,12 +1,17 @@
 body {
   background: #CCC !important; }
 
+.bold {
+  font-weight: bold; }
+
 #fullinpark_resa_form_entete {
   height: 40px;
   display: flex;
   background: transparent;
   margin-bottom: 0; }
   #fullinpark_resa_form_entete #fullinpark_resa_form_entete_resa_button {
+    display: flex;
+    align-items: center;
     margin-left: 10px;
     padding: 0.5em 1.5em;
     background: #CFA614;
@@ -24,6 +29,8 @@ body {
       text-transform: uppercase;
       cursor: pointer; }
   #fullinpark_resa_form_entete #fullinpark_resa_form_entete_question_button {
+    display: flex;
+    align-items: center;
     margin-left: -2px;
     padding: 0.5em 1.5em;
     background: #3161AC;
@@ -38,7 +45,6 @@ body {
 
 #fullinpark_resa_form_container {
   width: 100%;
-  height: 700px;
   margin-top: 0;
   padding: 0.5em;
   position: relative;
@@ -60,7 +66,7 @@ body {
       color: #CFA614;
       font-weight: bold;
       text-transform: uppercase; }
-    #fullinpark_resa_form_container #fullinpark_resa_form_content #stage_selector_container {
+    #fullinpark_resa_form_container #fullinpark_resa_form_content #stage_selector_container, #fullinpark_resa_form_container #fullinpark_resa_form_content #collectives_courses_selector_container, #fullinpark_resa_form_container #fullinpark_resa_form_content #anniversary_infos_container {
       display: none; }
     #fullinpark_resa_form_container #fullinpark_resa_form_content .custom_select {
       width: 100%;
@@ -79,7 +85,7 @@ body {
         #fullinpark_resa_form_container #fullinpark_resa_form_content .custom_select a.active img {
           transform: rotate(180deg);
           transition-duration: 0.6s; }
-      #fullinpark_resa_form_container #fullinpark_resa_form_content .custom_select #custom_select_activities, #fullinpark_resa_form_container #fullinpark_resa_form_content .custom_select #custom_select_stages {
+      #fullinpark_resa_form_container #fullinpark_resa_form_content .custom_select #custom_select_activities, #fullinpark_resa_form_container #fullinpark_resa_form_content .custom_select #custom_select_stages, #fullinpark_resa_form_container #fullinpark_resa_form_content .custom_select #custom_select_collectives_courses, #fullinpark_resa_form_container #fullinpark_resa_form_content .custom_select #custom_select_anniversary {
         width: calc(100% + 3em);
         display: none;
         position: absolute;
@@ -89,20 +95,35 @@ body {
         color: #6d6d6d;
         box-shadow: 0px 15px 10px -15px #111;
         z-index: 9999; }
-        #fullinpark_resa_form_container #fullinpark_resa_form_content .custom_select #custom_select_activities.active, #fullinpark_resa_form_container #fullinpark_resa_form_content .custom_select #custom_select_stages.active {
+        #fullinpark_resa_form_container #fullinpark_resa_form_content .custom_select #custom_select_activities.active, #fullinpark_resa_form_container #fullinpark_resa_form_content .custom_select #custom_select_stages.active, #fullinpark_resa_form_container #fullinpark_resa_form_content .custom_select #custom_select_collectives_courses.active, #fullinpark_resa_form_container #fullinpark_resa_form_content .custom_select #custom_select_anniversary.active {
           display: block; }
-        #fullinpark_resa_form_container #fullinpark_resa_form_content .custom_select #custom_select_activities ul, #fullinpark_resa_form_container #fullinpark_resa_form_content .custom_select #custom_select_stages ul {
+        #fullinpark_resa_form_container #fullinpark_resa_form_content .custom_select #custom_select_activities ul, #fullinpark_resa_form_container #fullinpark_resa_form_content .custom_select #custom_select_stages ul, #fullinpark_resa_form_container #fullinpark_resa_form_content .custom_select #custom_select_collectives_courses ul, #fullinpark_resa_form_container #fullinpark_resa_form_content .custom_select #custom_select_anniversary ul {
           list-style: none;
           padding: 0;
           margin: 0; }
-          #fullinpark_resa_form_container #fullinpark_resa_form_content .custom_select #custom_select_activities ul li, #fullinpark_resa_form_container #fullinpark_resa_form_content .custom_select #custom_select_stages ul li {
+          #fullinpark_resa_form_container #fullinpark_resa_form_content .custom_select #custom_select_activities ul li, #fullinpark_resa_form_container #fullinpark_resa_form_content .custom_select #custom_select_stages ul li, #fullinpark_resa_form_container #fullinpark_resa_form_content .custom_select #custom_select_collectives_courses ul li, #fullinpark_resa_form_container #fullinpark_resa_form_content .custom_select #custom_select_anniversary ul li {
             width: 100%;
             padding: 0.5em 0;
             text-align: center;
             cursor: pointer; }
-            #fullinpark_resa_form_container #fullinpark_resa_form_content .custom_select #custom_select_activities ul li:hover, #fullinpark_resa_form_container #fullinpark_resa_form_content .custom_select #custom_select_stages ul li:hover {
+            #fullinpark_resa_form_container #fullinpark_resa_form_content .custom_select #custom_select_activities ul li:hover, #fullinpark_resa_form_container #fullinpark_resa_form_content .custom_select #custom_select_stages ul li:hover, #fullinpark_resa_form_container #fullinpark_resa_form_content .custom_select #custom_select_collectives_courses ul li:hover, #fullinpark_resa_form_container #fullinpark_resa_form_content .custom_select #custom_select_anniversary ul li:hover {
               background: #FFF;
               font-weight: bold; }
+      #fullinpark_resa_form_container #fullinpark_resa_form_content .custom_select #custom_select_anniversary ul li {
+        position: relative; }
+        #fullinpark_resa_form_container #fullinpark_resa_form_content .custom_select #custom_select_anniversary ul li .infobulle {
+          width: 20px;
+          height: 20px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          position: absolute;
+          top: calc(50% - 10px);
+          right: 20px;
+          border-radius: 50%;
+          color: #FFF;
+          background: #CFA614;
+          cursor: pointer; }
     #fullinpark_resa_form_container #fullinpark_resa_form_content #custom_select_stages {
       z-index: 9998 !important; }
     #fullinpark_resa_form_container #fullinpark_resa_form_content .grey_container {
@@ -125,7 +146,7 @@ body {
         padding: 0.7em 0;
         font-size: 20px;
         cursor: pointer;
-        padding: 0.5em 0;
+        padding: 0.75em 0;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -146,10 +167,9 @@ body {
           display: flex;
           justify-content: space-between;
           padding-bottom: 0.5em;
-          margin-top: 0.5em;
-          border-bottom: 1px solid #3161AC; }
-          #fullinpark_resa_form_container #fullinpark_resa_form_content .grey_container #all_tickets_details .tickets_infos_container:last-child {
-            border: none; }
+          margin-top: 0.5em; }
+          #fullinpark_resa_form_container #fullinpark_resa_form_content .grey_container #all_tickets_details .tickets_infos_container:first-child {
+            border-bottom: 1px solid #3161AC; }
           #fullinpark_resa_form_container #fullinpark_resa_form_content .grey_container #all_tickets_details .tickets_infos_container .tickets_infos_title {
             width: 65%; }
           #fullinpark_resa_form_container #fullinpark_resa_form_content .grey_container #all_tickets_details .tickets_infos_container .tickets_infos_content {
@@ -174,6 +194,59 @@ body {
               font-size: 18px;
               font-weight: bold;
               cursor: pointer; }
+        #fullinpark_resa_form_container #fullinpark_resa_form_content .grey_container #all_tickets_details #tickets_details_anniversary {
+          display: none;
+          margin-top: 0.5em;
+          text-align: center;
+          font-weight: bold; }
+    #fullinpark_resa_form_container #fullinpark_resa_form_content #anniversary_formula_container {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      margin-top: 1.5em; }
+      #fullinpark_resa_form_container #fullinpark_resa_form_content #anniversary_formula_container .anniversary_formula_box {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between; }
+        #fullinpark_resa_form_container #fullinpark_resa_form_content #anniversary_formula_container .anniversary_formula_box label {
+          width: calc(100% - 25px);
+          margin: 0; }
+          #fullinpark_resa_form_container #fullinpark_resa_form_content #anniversary_formula_container .anniversary_formula_box label input {
+            margin-right: 10px; }
+        #fullinpark_resa_form_container #fullinpark_resa_form_content #anniversary_formula_container .anniversary_formula_box .infobulle {
+          width: 20px;
+          height: 20px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 50%;
+          color: #FFF;
+          background: #CFA614;
+          text-decoration: none;
+          cursor: pointer; }
+    #fullinpark_resa_form_container #fullinpark_resa_form_content #riders_container #riders_selected_container {
+      width: 100%; }
+    #fullinpark_resa_form_container #fullinpark_resa_form_content #riders_container #riders_reservation_button {
+      max-width: 50%;
+      margin: 1em auto 0 auto;
+      padding: 0.75em 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFF;
+      background-color: transparent;
+      background-image: -webkit-linear-gradient(320deg, #00C0FF 0%, #4218B8 100%);
+      background-image: -o-linear-gradient(320deg, #00C0FF 0%, #4218B8 100%);
+      background-image: linear-gradient(50deg, #00C0FF 0%, #4218B8 100%);
+      border-radius: 8px;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer; }
+    #fullinpark_resa_form_container #fullinpark_resa_form_content #riders_container #riders_reservation_unavailable_message, #fullinpark_resa_form_container #fullinpark_resa_form_content #riders_container #riders_reservation_kids_message {
+      margin-top: 1em;
+      color: red; }
     #fullinpark_resa_form_container #fullinpark_resa_form_content #date_hours_container {
       display: flex;
       flex-direction: row;
@@ -182,8 +255,19 @@ body {
       position: relative; }
       #fullinpark_resa_form_container #fullinpark_resa_form_content #date_hours_container .date_hours_box {
         width: 45%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         background: #EEE;
         border-radius: 8px; }
+        #fullinpark_resa_form_container #fullinpark_resa_form_content #date_hours_container .date_hours_box #recap_resa {
+          width: 80%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          margin: auto; }
+          #fullinpark_resa_form_container #fullinpark_resa_form_content #date_hours_container .date_hours_box #recap_resa p {
+            margin: 0; }
         #fullinpark_resa_form_container #fullinpark_resa_form_content #date_hours_container .date_hours_box a {
           color: #3161AC;
           text-decoration: none;
@@ -210,7 +294,7 @@ body {
       margin-top: 2em; }
       #fullinpark_resa_form_container #fullinpark_resa_form_content #resa_form_submit_button .next_step {
         width: 55% !important;
-        padding: 0.5em 0;
+        padding: 0.75em 0;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -228,7 +312,7 @@ body {
         display: flex;
         align-items: center;
         line-height: 18px;
-        padding: 0.5em 0;
+        padding: 0.75em 0;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -257,14 +341,16 @@ body {
       font-weight: bold;
       text-transform: uppercase; }
     #fullinpark_resa_form_container #fullinpark_second_step_form_content input {
-      width: 100%; }
+      width: 100%;
+      min-height: 30px;
+      border: 1px solid #C4C4C4; }
     #fullinpark_resa_form_container #fullinpark_second_step_form_content #resa_form_submit_button {
       display: flex;
       justify-content: space-between;
       margin-top: 2em; }
       #fullinpark_resa_form_container #fullinpark_second_step_form_content #resa_form_submit_button .next_step {
         width: 55% !important;
-        padding: 0.5em 0;
+        padding: 0.75em 0;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -282,7 +368,7 @@ body {
         display: flex;
         align-items: center;
         line-height: 18px;
-        padding: 0.5em 0;
+        padding: 0.75em 0;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -308,11 +394,17 @@ body {
       display: flex;
       flex-direction: column;
       margin-bottom: 1em; }
+      #fullinpark_resa_form_container #fullinpark_question_form_content .question_form_row input {
+        width: 100%;
+        min-height: 30px;
+        border: 1px solid #C4C4C4; }
       #fullinpark_resa_form_container #fullinpark_question_form_content .question_form_row textarea {
-        min-height: 150px; }
+        width: 100%;
+        min-height: 150px;
+        border: 1px solid #C4C4C4; }
     #fullinpark_resa_form_container #fullinpark_question_form_content button {
       width: 55% !important;
-      padding: 0.5em 0;
+      padding: 0.75em 0;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -344,6 +436,8 @@ body {
   z-index: 9999; }
   #datepicker_container #hide_datepicker {
     width: 100%;
+    position: absolute;
+    top: 30px;
     display: flex;
     justify-content: flex-end;
     margin: -1em 0 2em 0;
@@ -352,45 +446,245 @@ body {
       width: 20px;
       height: 20px;
       margin-right: 1em; }
-  #datepicker_container #datepicker_step2 {
+  #datepicker_container #datepicker_step1 {
+    display: none; }
+    #datepicker_container #datepicker_step1 #datepicker_step1_title {
+      color: #FFF;
+      font-size: 20px;
+      font-weight: bold;
+      text-align: center; }
+    #datepicker_container #datepicker_step1 #datepicker td {
+      padding: 0; }
+      #datepicker_container #datepicker_step1 #datepicker td .ui-state-default {
+        text-align: center;
+        text-decoration: none; }
+        #datepicker_container #datepicker_step1 #datepicker td .ui-state-default:hover {
+          background: #CFA614; }
+  #datepicker_container #datepicker_step2, #datepicker_container #datepicker_step3 {
+    width: 70%;
+    padding-bottom: 3em;
     display: none;
     text-align: center; }
-    #datepicker_container #datepicker_step2 ul {
+    #datepicker_container #datepicker_step2 p, #datepicker_container #datepicker_step3 p {
+      color: #FFF;
+      font-size: 20px;
+      text-align: center; }
+      #datepicker_container #datepicker_step2 p a, #datepicker_container #datepicker_step3 p a {
+        text-decoration: none;
+        color: #FFF;
+        cursor: pointer; }
+        #datepicker_container #datepicker_step2 p a #datepicker_step2_value, #datepicker_container #datepicker_step3 p a #datepicker_step2_value {
+          font-weight: bold; }
+        #datepicker_container #datepicker_step2 p a:hover, #datepicker_container #datepicker_step3 p a:hover {
+          color: #3161AC; }
+    #datepicker_container #datepicker_step2 ul, #datepicker_container #datepicker_step3 ul {
+      width: 100%;
       display: flex;
       flex-direction: row;
-      justify-content: space-around;
+      justify-content: flex-start;
       flex-wrap: wrap;
       list-style: none;
       margin: 0 auto;
       padding: 0; }
-      #datepicker_container #datepicker_step2 ul li {
-        width: 18%;
+      #datepicker_container #datepicker_step2 ul li, #datepicker_container #datepicker_step3 ul li {
+        width: 16%;
         background: #FFF;
         color: #3161AC;
         text-align: center;
         padding: 0.5em 0;
-        margin: 0.5em 0;
+        margin: 0.5em;
         font-weight: bold;
         cursor: pointer; }
-        #datepicker_container #datepicker_step2 ul li.full {
+        #datepicker_container #datepicker_step2 ul li.full, #datepicker_container #datepicker_step3 ul li.full {
           background: red; }
-        #datepicker_container #datepicker_step2 ul li.not_enough_places {
+        #datepicker_container #datepicker_step2 ul li.not_enough_places, #datepicker_container #datepicker_step3 ul li.not_enough_places {
           background: orange; }
-        #datepicker_container #datepicker_step2 ul li.full, #datepicker_container #datepicker_step2 ul li.not_enough_places {
+        #datepicker_container #datepicker_step2 ul li.full, #datepicker_container #datepicker_step2 ul li.not_enough_places, #datepicker_container #datepicker_step3 ul li.full, #datepicker_container #datepicker_step3 ul li.not_enough_places {
           color: #CCC; }
+        #datepicker_container #datepicker_step2 ul li:hover, #datepicker_container #datepicker_step3 ul li:hover {
+          background: #3161AC;
+          color: #FFF; }
+    #datepicker_container #datepicker_step2 #datepicker_step2_arrow, #datepicker_container #datepicker_step2 #datepicker_step3_arrow, #datepicker_container #datepicker_step3 #datepicker_step2_arrow, #datepicker_container #datepicker_step3 #datepicker_step3_arrow {
+      width: 70%;
+      display: flex;
+      position: absolute;
+      bottom: 20px;
+      flex-direction: row;
+      justify-content: space-between;
+      margin-top: 2em; }
+      #datepicker_container #datepicker_step2 #datepicker_step2_arrow .datepicker_step2_arrow_back, #datepicker_container #datepicker_step2 #datepicker_step3_arrow .datepicker_step2_arrow_back, #datepicker_container #datepicker_step3 #datepicker_step2_arrow .datepicker_step2_arrow_back, #datepicker_container #datepicker_step3 #datepicker_step3_arrow .datepicker_step2_arrow_back {
+        cursor: pointer; }
+        #datepicker_container #datepicker_step2 #datepicker_step2_arrow .datepicker_step2_arrow_back img, #datepicker_container #datepicker_step2 #datepicker_step3_arrow .datepicker_step2_arrow_back img, #datepicker_container #datepicker_step3 #datepicker_step2_arrow .datepicker_step2_arrow_back img, #datepicker_container #datepicker_step3 #datepicker_step3_arrow .datepicker_step2_arrow_back img {
+          width: 30px;
+          height: 30px; }
+      #datepicker_container #datepicker_step2 #datepicker_step2_arrow .datepicker_step2_arrow_next, #datepicker_container #datepicker_step2 #datepicker_step3_arrow .datepicker_step2_arrow_next, #datepicker_container #datepicker_step3 #datepicker_step2_arrow .datepicker_step2_arrow_next, #datepicker_container #datepicker_step3 #datepicker_step3_arrow .datepicker_step2_arrow_next {
+        cursor: pointer; }
+        #datepicker_container #datepicker_step2 #datepicker_step2_arrow .datepicker_step2_arrow_next img, #datepicker_container #datepicker_step2 #datepicker_step3_arrow .datepicker_step2_arrow_next img, #datepicker_container #datepicker_step3 #datepicker_step2_arrow .datepicker_step2_arrow_next img, #datepicker_container #datepicker_step3 #datepicker_step3_arrow .datepicker_step2_arrow_next img {
+          width: 30px;
+          height: 30px; }
 
-#form_errors_message {
+#riders_reservation_container {
   width: 120%;
-  height: 100px;
   display: none;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 0.5em;
-  background: #FFF;
-  margin-top: -100px;
-  margin-left: 110%;
+  padding: 2em 0;
+  background: #CFA614;
+  margin-top: -120%;
+  margin-left: -10%;
   position: relative;
   z-index: 9999; }
+  #riders_reservation_container #hide_reservation_container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin: -1em 0 2em 0;
+    cursor: pointer; }
+    #riders_reservation_container #hide_reservation_container img {
+      width: 20px;
+      height: 20px;
+      margin-right: 1em; }
+  #riders_reservation_container .title {
+    width: 70%;
+    margin-bottom: 0.5em;
+    color: #FFF;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: left;
+    text-decoration: underline;
+    text-transform: uppercase; }
+  #riders_reservation_container #riders_reservation_content {
+    width: 70%; }
+    #riders_reservation_container #riders_reservation_content .rider_line {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 0.5em;
+      margin-top: 0.5em;
+      border-bottom: 1px solid #FFF;
+      margin-bottom: 1em; }
+      #riders_reservation_container #riders_reservation_content .rider_line p {
+        margin: 0;
+        color: #FFF;
+        text-transform: uppercase; }
+      #riders_reservation_container #riders_reservation_content .rider_line .rider_infos_content {
+        width: 30%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center; }
+        #riders_reservation_container #riders_reservation_content .rider_line .rider_infos_content .resa_number {
+          color: #3161AC;
+          font-size: 20px;
+          font-weight: bold; }
+        #riders_reservation_container #riders_reservation_content .rider_line .rider_infos_content .resa_minus, #riders_reservation_container #riders_reservation_content .rider_line .rider_infos_content .resa_add {
+          width: 25px;
+          height: 25px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: #6d6d6d;
+          background: #FFF;
+          border-radius: 5px;
+          text-decoration: none;
+          font-size: 18px;
+          font-weight: bold;
+          cursor: pointer; }
+  #riders_reservation_container #add_riders {
+    width: 250px;
+    margin-top: 1em;
+    padding: 0.75em 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFF;
+    background-color: transparent;
+    background-image: -webkit-linear-gradient(320deg, #00C0FF 0%, #4218B8 100%);
+    background-image: -o-linear-gradient(320deg, #00C0FF 0%, #4218B8 100%);
+    background-image: linear-gradient(50deg, #00C0FF 0%, #4218B8 100%);
+    border-radius: 8px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer; }
+
+#form_errors_message_container {
+  width: 120%;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5em 0 2em 0;
+  background: #CFA614;
+  margin-top: -70%;
+  margin-left: -10%;
+  position: relative;
+  z-index: 9999; }
+  #form_errors_message_container #hide_errors_message_container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    position: absolute;
+    top: 1em;
+    cursor: pointer; }
+    #form_errors_message_container #hide_errors_message_container img {
+      width: 20px;
+      height: 20px;
+      margin-right: 1em; }
+  #form_errors_message_container #form_errors_message {
+    width: 80%;
+    margin: 3em auto 1em auto;
+    color: #FFF; }
+
+.validation_message_popup {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 999999; }
+  .validation_message_popup .close_popup {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    cursor: pointer; }
+    .validation_message_popup .close_popup img {
+      width: 25px; }
+  .validation_message_popup .validation_message_popup_content {
+    width: 50%;
+    padding: 2em 2em 1em 2em;
+    margin: auto;
+    background: #FFF; }
+
+.loader {
+  margin: 2em 0;
+  border: 16px solid #f3f3f3;
+  /* Light grey */
+  border-top: 16px solid #4218B8;
+  /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite; }
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
+#anniversary_popup {
+  width: 400px;
+  display: none;
+  padding: 1em 1.5em;
+  position: absolute;
+  background: #FFF;
+  border-radius: 8px; }
+  #anniversary_popup .anniversary_popup_formula {
+    display: none; }
+
+@media screen and (max-width: 640px) {
+  .validation_message_popup .validation_message_popup_content {
+    width: 100%; } }
 
 /*# sourceMappingURL=shortcode_fullinpark_resa.css.map */

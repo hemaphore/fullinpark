@@ -1,7 +1,20 @@
 $yellow: #CFA614;
 $blue: #3161AC;
 
+/*
+Planning color */
+$stage: #F8CBAD;
+$course: #305496;
+$structure: #FFCCFF;
+$anniversary: #B4C6E7;
+$kids: #A9D08E;
+$jump: #8EA9DB;
+$total: #FF5756;
+
 #fullinpark_admin_page{
+  width: calc(100% + 20px);
+  margin-left: -10px;
+
   #fullinpark_admin_page_title_container{
     display: flex;
     align-items: center;
@@ -26,11 +39,17 @@ $blue: #3161AC;
     justify-content: center;
     align-items: center;
     margin: 1em auto 3em auto;
+    position: relative;
 
     p{
+      display: flex;
       margin: 0;
       font-size: 20px;
       font-weight: bold;
+
+      span{
+        margin: 0 0.5em;
+      }
     }
 
     a{
@@ -46,19 +65,107 @@ $blue: #3161AC;
       }
     }
     #fullinpark_planning_nav_back{ transform: rotate(180deg);  }
+
+    #datepicker_planning_nav_container{
+      width: 100%;
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: #FFF;
+
+      #datepicker_planning_nav_close_button{
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        margin: 15px;
+        cursor: pointer;
+
+        img{
+          width: 25px;
+          height: 25px;
+          margin: 0 1em;
+        }
+      }
+
+      #datepicker_planning_nav{  margin: 1em auto;  }
+    }
   }
 
   .fullinpark_planning_title{
     text-transform: uppercase;
     font-weight: bold;
     font-size: 20px;
-    margin-bottom: 0.2em;
+    margin-bottom: 1em;
+  }
+
+  #fullinpark_planning_jump_global_container, #fullinpark_planning_kids_global_container{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+
+    #fullinpark_planning_jump_entries_container, #fullinpark_planning_kids_entries_container{
+      width: 120px;
+
+      .fullinpark_planning_jump_entries_elem, .fullinpark_planning_kids_entries_elem{
+        width: 100%;
+        height: 30px;
+        padding-left: 5px;
+        display: flex;
+        align-items: center;
+        font-weight: bold;
+        border-left: 1px solid #000;
+        border-top: 1px solid #000;
+
+        &:first-child, &:nth-child(2){
+          border-right: none;
+          border-top: none;
+          border-left: none;
+        }
+
+        &:nth-child(2){
+          padding-top: 1px;
+          border-bottom: 2px solid #000;
+        }
+        &:last-child{  border-bottom: 1px solid #000;  }
+        &.jump{  background: $jump;  }
+        &.kids{  background: $kids;  }
+        &.structure{ background: $structure; }
+        &.anniversary{ background: $anniversary; }
+        &.stage{ background: $stage; }
+        &.course{ background: $course; }
+        &.total{
+          background: $total;
+          border-top: 3px solid #000;
+        }
+      }
+    }
   }
 
   #fullinpark_planning_jump_container, #fullinpark_planning_kids_container{
+    width: 100%;
     display: flex;
     flex-direction: column;
     margin-bottom: 2em;
+
+    #fullinpark_planning_jump_warning, #fullinpark_planning_kids_warning{
+      width: calc(100% - 20px);
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+
+      .fullinpark_planning_warning_elem{
+        width: 100%;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+      }
+    }
 
     #fullinpark_planning_jump_head, #fullinpark_planning_kids_head{
       width: calc(100% - 20px);
@@ -74,42 +181,50 @@ $blue: #3161AC;
         align-items: center;
         border-right: 1px solid #000;
         border-top: 1px solid #000;
-        border-bottom: 1px solid #000;
+        border-bottom: 3px solid #000;
         font-weight: bold;
 
         &:first-child{  border-left: 1px solid #000;  }
+        &.disabled{
+          background: #BBB !important;
+          color: #000 !important;
+        }
       }
     }
 
     #fullinpark_planning_jump_body, #fullinpark_planning_kids_body{
       width: calc(100% - 20px);
       display: flex;
-      flex-direction: row;
-      justify-content: space-around;
+      flex-direction: column;
 
-      .fullinpark_planning_body_col{
-        width: 100%;
+      .fullinpark_planning_jump_body_line{
         display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: flex-start;
-        border-right: 1px solid #000;
-        border-bottom: 1px solid #000;
-        background: #BBB;
+        flex-direction: row;
+        justify-content: space-around;
 
-        &:first-child{  border-left: 1px solid #000;  }
-        .fullinpark_planning_body_elem{
+        &.total_line{  border-top: 2px solid #000; }
+        .fullinpark_planning_body_col{
           width: 100%;
           height: 30px;
           display: flex;
+          flex-direction: column;
           justify-content: center;
           align-items: center;
+          border-right: 1px solid #000;
           border-bottom: 1px solid #000;
-          cursor: pointer;
           background: #FFF;
 
-          &.no_border{  border-bottom: none !important;  }
-          &:last-child{  border-bottom: none !important;  }
+          &.jump{  background: $jump;  }
+          &.kids{  background: $kids;  }
+          &.structure{ background: $structure; }
+          &.anniversary{ background: $anniversary; }
+          &.stage{ background: $stage; }
+          &.course{ background: $course; }
+          &.total{ background: $total; }
+          &.disabled{
+            background: #BBB !important;
+            color: #000 !important;
+          }
 
           a{
             width: 100%;
@@ -119,21 +234,49 @@ $blue: #3161AC;
             justify-content: center;
             text-decoration: none;
             color: #000;
+            cursor: pointer;
           }
 
-          &:hover{
-            background: $yellow;
-            color: #FFF;
-            font-weight: bold;
+          &:first-child{  border-left: 1px solid #000;  }
+
+          .fullinpark_planning_body_elem{
+            width: 100%;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 1px solid #000;
+            cursor: pointer;
+            background: #FFF;
+
+            &.no_border{  border-bottom: none !important;  }
+            &:last-child{  border-bottom: none !important;  }
+
+            a{
+              width: 100%;
+              height: 100%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              text-decoration: none;
+              color: #000;
+              cursor: pointer;
+            }
+
+            &:hover{
+              background: $yellow;
+              color: #FFF;
+              font-weight: bold;
+            }
           }
-        }
 
-        .empty{
-          border: none !important;
-          background: #BBB;
-          cursor: auto;
+          .empty{
+            border: none !important;
+            background: #BBB;
+            cursor: auto;
 
-          &:hover{  background: #BBB;  }
+            &:hover{  background: #BBB;  }
+          }
         }
       }
     }
@@ -142,7 +285,7 @@ $blue: #3161AC;
 
 .fullinpark_planning_elem_popup{
   width: 500px;
-  height: 350px;
+  height: 435px;
   display: none;
   position: fixed;
   left: calc(50% - 250px);
@@ -150,69 +293,184 @@ $blue: #3161AC;
   background: #FFF;
   border: 4px solid $blue;
 
-  .hide_resa_popup_button{
-    margin: 0.5em 1em;
-    color: $yellow;
-    font-size: 20px;
-    font-weight: bold;
-    float: right;
-    cursor: pointer;
-  }
+  .fullinpark_planning_elem_popup_content{
+    position: relative;
 
-  .fullinpark_planning_elem_popup_title{
-    font-size: 18px;
-    font-weight: bold;
-    text-transform: uppercase;
-    text-align: center;
-    margin-bottom: 2em;
-  }
+    .hide_resa_popup_button{
+      color: $yellow;
+      font-size: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      position: absolute;
+      top: 0em;
+      right: 1em;
+      z-index: 999999;
 
-  .fullinpark_planning_elem_popup_qty{
-    width: 80%;
-    margin: 1em auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-
-    span{
-      font-size: 17px;
-
-      &.fullinpark_planning_elem_popup_qty_value{
-        font-weight: bold;
-        margin-left: 10px;
+      img{
+        width: 20px;
+        height: 20px;
       }
     }
-  }
 
-  .fullinpark_planning_elem_popup_contact{
-    width: 90%;
-    margin: 40px 0 0 10%;
+    .fullinpark_planning_elem_popup_title{
+      font-size: 18px;
+      font-weight: bold;
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 2em;
+    }
 
-    p{
-      display: flex;
+    .resa_listing{
+      height: 235px;
+      margin-left: 2em;
+      overflow-y: hidden;
+      overflow-y: scroll;
 
-      span{
-        width: 150px;
+      &::-webkit-scrollbar {  width: 10px;  }
+      &::-webkit-scrollbar-track {  background: #FFF;  }
+      &::-webkit-scrollbar-thumb {  background: #888;  }
 
-        &.fullinpark_planning_elem_popup_contact_value{
-          font-size: 16px;
+      li{
+        a{  cursor: pointer;  }
+      }
+
+      .popup_user_infos{
+        width: 100%;
+        height: 100%;
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: #FFF;
+
+        a{
+          margin: 0 1em;
+          cursor: pointer;
+
+          img{  width: 30px;  }
+        }
+
+        .user_infos_title{
+          margin-top: -30px;
+          margin-bottom: 0;
+          font-size: 18px;
           font-weight: bold;
-          margin-left: 20px;
+          text-align: center;
+        }
+
+        .user_info_content{
+          width: 75%;
+          margin: 2em auto;
+
+          p{
+            display: flex;
+            margin: 0;
+
+            span{
+              &:first-child{
+                width: 35%;
+                margin-left: 5%;
+                font-weight: bold;
+              }
+            }
+          }
+        }
+
+        .resa_real_accompt{
+          display: flex;
+          justify-content: space-around;
+
+          input{
+            width: 50px;
+            margin-left: 10px;
+          }
+        }
+
+        textarea{
+          width: 75%;
+          min-height: 75px;
+          display: block;
+          margin: 1em auto;
+        }
+
+        .popup_user_infos_buttons{
+          width: 75%;
+          margin: 1em auto;
+          display: flex;
+          justify-content: space-between;
+
+          .popup_modify_button{
+            width: 47%;
+            margin: 0;
+            padding: 0.5em 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: $blue;
+            color: #FFF;
+            text-decoration: none;
+            cursor: pointer;
+          }
         }
       }
     }
+
+    .add_resa_button{
+      width: 250px;
+      padding: 0.5em 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 1em auto;
+      background: $blue;
+      color: #FFF;
+      text-decoration: none;
+    }
+  }
+}
+.border_time{  border-right: 3px solid #000 !important;  }
+.booked, .booked:hover{  color: #000; }
+.paid, .paid:hover{  color: #A9D08E; }
+.confirmed, .confirmed:hover{  color: #CFA614; }
+.real_past{  background: #BBB !important;  }
+.real_previ{
+  background: orange !important;
+  color: #FFF;
+}
+.real_active{
+  background: green !important;
+  color: #FFF;
+}
+
+.real_to_come{
+  background: blue !important;
+  color: #FFF;
+}
+
+@media screen and (max-width: 950px) {
+  #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_jump_head, #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_kids_head, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_jump_head, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_kids_head{  width: 780px;  }
+  #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_jump_body .fullinpark_planning_jump_body_line, #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_kids_body .fullinpark_planning_jump_body_line, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_jump_body .fullinpark_planning_jump_body_line, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_kids_body .fullinpark_planning_jump_body_line{ width: 780px;  }
+
+  #fullinpark_planning_jump_global_container, #fullinpark_planning_kids_global_container{  overflow-y: scroll !important;  }
+  #fullinpark_admin_page #fullinpark_planning_jump_global_container #fullinpark_planning_jump_entries_container, #fullinpark_admin_page #fullinpark_planning_jump_global_container #fullinpark_planning_kids_entries_container, #fullinpark_admin_page #fullinpark_planning_kids_global_container #fullinpark_planning_jump_entries_container, #fullinpark_admin_page #fullinpark_planning_kids_global_container #fullinpark_planning_kids_entries_container{
+    width: 80px !important;
+    font-size: 10px !important;
+    font-weight: normal;
   }
 
-  .fullinpark_planning_elem_popup_modify_button{
-    width: 50%;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 40px auto 1em auto;
-    background: $blue;
-    color: #FFF;
-    text-transform: uppercase;
-    text-decoration: none;
+  #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_jump_head .fullinpark_planning_head_elem, #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_kids_head .fullinpark_planning_head_elem, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_jump_head .fullinpark_planning_head_elem, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_kids_head .fullinpark_planning_head_elem{
+    width: 30px !important;
+    font-size: 10px !important;
+    font-weight: normal;
+  }
+
+  #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_jump_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col, #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_kids_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_jump_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_kids_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col{
+    width: 30px !important;
+    font-size: 10px !important;
+    font-weight: normal;
+  }
+
+  #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_jump_head, #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_kids_head, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_jump_head, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_kids_head{
+    justify-content: flex-start;
   }
 }

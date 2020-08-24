@@ -1,7 +1,7 @@
 #edit_resa_form_container {
   width: 50%;
   max-width: 600px;
-  margin: 0 auto;
+  margin: 2em auto;
   padding: 0.5em;
   background: #FFF;
   border-radius: 10px; }
@@ -19,24 +19,86 @@
       flex-direction: row;
       justify-content: space-between;
       align-items: center; }
+      #edit_resa_form_container form #edit_resa_form_places .edit_resa_form_row, #edit_resa_form_container form #edit_resa_form_date .edit_resa_form_row {
+        width: 47%; }
     #edit_resa_form_container form .edit_resa_form_row {
+      width: 100%;
       display: flex;
       flex-direction: column; }
       #edit_resa_form_container form .edit_resa_form_row .edit_resa_form_input_container {
+        width: 100%;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-items: center; }
         #edit_resa_form_container form .edit_resa_form_row .edit_resa_form_input_container input {
-          width: calc(100% - 40px); }
-          #edit_resa_form_container form .edit_resa_form_row .edit_resa_form_input_container input:disabled {
-            opacity: 0.4;
-            cursor: not-allowed; }
+          width: 100%; }
         #edit_resa_form_container form .edit_resa_form_row .edit_resa_form_input_container img {
           width: 25px;
           height: 25px;
           cursor: pointer; }
-    #edit_resa_form_container form button {
+    #edit_resa_form_container form #edit_resa_buttons_container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between; }
+      #edit_resa_form_container form #edit_resa_buttons_container .modify_button {
+        width: 175px;
+        margin: 2em 0 1em 0;
+        font-size: 14px;
+        padding: 0.5em 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #FFF;
+        background-color: transparent;
+        background-image: -webkit-linear-gradient(320deg, #00C0FF 0%, #4218B8 100%);
+        background-image: -o-linear-gradient(320deg, #00C0FF 0%, #4218B8 100%);
+        background-image: linear-gradient(50deg, #00C0FF 0%, #4218B8 100%);
+        border-radius: 8px;
+        text-align: center;
+        text-decoration: none;
+        cursor: pointer; }
+      #edit_resa_form_container form #edit_resa_buttons_container a {
+        width: 175px;
+        margin: 2em 0 1em 0;
+        font-size: 14px;
+        padding: 0.5em 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #FFF;
+        background-color: transparent;
+        background-image: -webkit-linear-gradient(320deg, #FD6E30 0%, #F9DF42 100%);
+        background-image: -o-linear-gradient(320deg, #FD6E30 0%, #F9DF42 100%);
+        background-image: linear-gradient(50deg, #FD6E30 0%, #F9DF42 100%);
+        border-radius: 8px;
+        text-align: center;
+        text-decoration: none;
+        cursor: pointer; }
+
+#modify_resa_container {
+  width: 50%;
+  max-width: 600px;
+  background: #FFF;
+  padding: 2em;
+  margin: 2em auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+  #modify_resa_container form {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; }
+    #modify_resa_container form input {
+      width: 250px;
+      height: 30px; }
+    #modify_resa_container form button {
+      width: 250px;
+      margin: 1em auto;
+      font-size: 16px;
       padding: 0.5em 0;
       display: flex;
       align-items: center;
@@ -49,8 +111,6 @@
       border-radius: 8px;
       text-align: center;
       text-decoration: none;
-      cursor: pointer;
-      width: 50%;
-      margin: 2em auto 0 auto; }
+      cursor: pointer; }
 
 /*# sourceMappingURL=shortcode_fullinpark_modify_resa.css.map */

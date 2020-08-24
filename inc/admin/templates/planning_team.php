@@ -1,2 +1,3 @@
-<?php
-echo 'planning team';
+<div>
+  <p>Planning Équipe</p>
+</div>

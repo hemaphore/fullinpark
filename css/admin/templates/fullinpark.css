@@ -1,164 +1,391 @@
-#fullinpark_admin_page #fullinpark_admin_page_title_container {
-  display: flex;
-  align-items: center; }
-  #fullinpark_admin_page #fullinpark_admin_page_title_container #fullinpark_admin_page_title {
-    width: 80%;
-    font-size: 32px;
-    font-weight: bold;
-    text-transform: uppercase;
-    text-align: center; }
-  #fullinpark_admin_page #fullinpark_admin_page_title_container select {
-    width: 200px;
-    height: 30px; }
-#fullinpark_admin_page #fullinpark_planning_nav {
-  width: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 1em auto 3em auto; }
-  #fullinpark_admin_page #fullinpark_planning_nav p {
-    margin: 0;
-    font-size: 20px;
-    font-weight: bold; }
-  #fullinpark_admin_page #fullinpark_planning_nav a {
+/*
+Planning color */
+#fullinpark_admin_page {
+  width: calc(100% + 20px);
+  margin-left: -10px; }
+  #fullinpark_admin_page #fullinpark_admin_page_title_container {
+    display: flex;
+    align-items: center; }
+    #fullinpark_admin_page #fullinpark_admin_page_title_container #fullinpark_admin_page_title {
+      width: 80%;
+      font-size: 32px;
+      font-weight: bold;
+      text-transform: uppercase;
+      text-align: center; }
+    #fullinpark_admin_page #fullinpark_admin_page_title_container select {
+      width: 200px;
+      height: 30px; }
+  #fullinpark_admin_page #fullinpark_planning_nav {
+    width: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    text-decoration: none; }
-    #fullinpark_admin_page #fullinpark_planning_nav a img {
-      width: 25px;
-      height: 25px;
-      margin: 0 1em; }
-  #fullinpark_admin_page #fullinpark_planning_nav #fullinpark_planning_nav_back {
-    transform: rotate(180deg); }
-#fullinpark_admin_page .fullinpark_planning_title {
-  text-transform: uppercase;
-  font-weight: bold;
-  font-size: 20px;
-  margin-bottom: 0.2em; }
-#fullinpark_admin_page #fullinpark_planning_jump_container, #fullinpark_admin_page #fullinpark_planning_kids_container {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 2em; }
-  #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_jump_head, #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_kids_head, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_jump_head, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_kids_head {
-    width: calc(100% - 20px);
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around; }
-    #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_jump_head .fullinpark_planning_head_elem, #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_kids_head .fullinpark_planning_head_elem, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_jump_head .fullinpark_planning_head_elem, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_kids_head .fullinpark_planning_head_elem {
-      width: 100%;
-      height: 30px;
+    margin: 1em auto 3em auto;
+    position: relative; }
+    #fullinpark_admin_page #fullinpark_planning_nav p {
+      display: flex;
+      margin: 0;
+      font-size: 20px;
+      font-weight: bold; }
+      #fullinpark_admin_page #fullinpark_planning_nav p span {
+        margin: 0 0.5em; }
+    #fullinpark_admin_page #fullinpark_planning_nav a {
       display: flex;
       justify-content: center;
       align-items: center;
-      border-right: 1px solid #000;
-      border-top: 1px solid #000;
-      border-bottom: 1px solid #000;
-      font-weight: bold; }
-      #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_jump_head .fullinpark_planning_head_elem:first-child, #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_kids_head .fullinpark_planning_head_elem:first-child, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_jump_head .fullinpark_planning_head_elem:first-child, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_kids_head .fullinpark_planning_head_elem:first-child {
-        border-left: 1px solid #000; }
-  #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_jump_body, #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_kids_body, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_jump_body, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_kids_body {
-    width: calc(100% - 20px);
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around; }
-    #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_jump_body .fullinpark_planning_body_col, #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_kids_body .fullinpark_planning_body_col, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_jump_body .fullinpark_planning_body_col, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_kids_body .fullinpark_planning_body_col {
+      text-decoration: none; }
+      #fullinpark_admin_page #fullinpark_planning_nav a img {
+        width: 25px;
+        height: 25px;
+        margin: 0 1em; }
+    #fullinpark_admin_page #fullinpark_planning_nav #fullinpark_planning_nav_back {
+      transform: rotate(180deg); }
+    #fullinpark_admin_page #fullinpark_planning_nav #datepicker_planning_nav_container {
       width: 100%;
-      display: flex;
+      display: none;
       flex-direction: column;
-      justify-content: flex-start;
-      align-items: flex-start;
-      border-right: 1px solid #000;
-      border-bottom: 1px solid #000;
-      background: #BBB; }
-      #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_jump_body .fullinpark_planning_body_col:first-child, #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_kids_body .fullinpark_planning_body_col:first-child, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_jump_body .fullinpark_planning_body_col:first-child, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_kids_body .fullinpark_planning_body_col:first-child {
-        border-left: 1px solid #000; }
-      #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_jump_body .fullinpark_planning_body_col .fullinpark_planning_body_elem, #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_kids_body .fullinpark_planning_body_col .fullinpark_planning_body_elem, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_jump_body .fullinpark_planning_body_col .fullinpark_planning_body_elem, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_kids_body .fullinpark_planning_body_col .fullinpark_planning_body_elem {
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: #FFF; }
+      #fullinpark_admin_page #fullinpark_planning_nav #datepicker_planning_nav_container #datepicker_planning_nav_close_button {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        margin: 15px;
+        cursor: pointer; }
+        #fullinpark_admin_page #fullinpark_planning_nav #datepicker_planning_nav_container #datepicker_planning_nav_close_button img {
+          width: 25px;
+          height: 25px;
+          margin: 0 1em; }
+      #fullinpark_admin_page #fullinpark_planning_nav #datepicker_planning_nav_container #datepicker_planning_nav {
+        margin: 1em auto; }
+  #fullinpark_admin_page .fullinpark_planning_title {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 1em; }
+  #fullinpark_admin_page #fullinpark_planning_jump_global_container, #fullinpark_admin_page #fullinpark_planning_kids_global_container {
+    width: 100%;
+    display: flex;
+    flex-direction: row; }
+    #fullinpark_admin_page #fullinpark_planning_jump_global_container #fullinpark_planning_jump_entries_container, #fullinpark_admin_page #fullinpark_planning_jump_global_container #fullinpark_planning_kids_entries_container, #fullinpark_admin_page #fullinpark_planning_kids_global_container #fullinpark_planning_jump_entries_container, #fullinpark_admin_page #fullinpark_planning_kids_global_container #fullinpark_planning_kids_entries_container {
+      width: 120px; }
+      #fullinpark_admin_page #fullinpark_planning_jump_global_container #fullinpark_planning_jump_entries_container .fullinpark_planning_jump_entries_elem, #fullinpark_admin_page #fullinpark_planning_jump_global_container #fullinpark_planning_jump_entries_container .fullinpark_planning_kids_entries_elem, #fullinpark_admin_page #fullinpark_planning_jump_global_container #fullinpark_planning_kids_entries_container .fullinpark_planning_jump_entries_elem, #fullinpark_admin_page #fullinpark_planning_jump_global_container #fullinpark_planning_kids_entries_container .fullinpark_planning_kids_entries_elem, #fullinpark_admin_page #fullinpark_planning_kids_global_container #fullinpark_planning_jump_entries_container .fullinpark_planning_jump_entries_elem, #fullinpark_admin_page #fullinpark_planning_kids_global_container #fullinpark_planning_jump_entries_container .fullinpark_planning_kids_entries_elem, #fullinpark_admin_page #fullinpark_planning_kids_global_container #fullinpark_planning_kids_entries_container .fullinpark_planning_jump_entries_elem, #fullinpark_admin_page #fullinpark_planning_kids_global_container #fullinpark_planning_kids_entries_container .fullinpark_planning_kids_entries_elem {
+        width: 100%;
+        height: 30px;
+        padding-left: 5px;
+        display: flex;
+        align-items: center;
+        font-weight: bold;
+        border-left: 1px solid #000;
+        border-top: 1px solid #000; }
+        #fullinpark_admin_page #fullinpark_planning_jump_global_container #fullinpark_planning_jump_entries_container .fullinpark_planning_jump_entries_elem:first-child, #fullinpark_admin_page #fullinpark_planning_jump_global_container #fullinpark_planning_jump_entries_container .fullinpark_planning_jump_entries_elem:nth-child(2), #fullinpark_admin_page #fullinpark_planning_jump_global_container #fullinpark_planning_jump_entries_container .fullinpark_planning_kids_entries_elem:first-child, #fullinpark_admin_page #fullinpark_planning_jump_global_container #fullinpark_planning_jump_entries_container .fullinpark_planning_kids_entries_elem:nth-child(2), #fullinpark_admin_page #fullinpark_planning_jump_global_container #fullinpark_planning_kids_entries_container .fullinpark_planning_jump_entries_elem:first-child, #fullinpark_admin_page #fullinpark_planning_jump_global_container #fullinpark_planning_kids_entries_container .fullinpark_planning_jump_entries_elem:nth-child(2), #fullinpark_admin_page #fullinpark_planning_jump_global_container #fullinpark_planning_kids_entries_container .fullinpark_planning_kids_entries_elem:first-child, #fullinpark_admin_page #fullinpark_planning_jump_global_container #fullinpark_planning_kids_entries_container .fullinpark_planning_kids_entries_elem:nth-child(2), #fullinpark_admin_page #fullinpark_planning_kids_global_container #fullinpark_planning_jump_entries_container .fullinpark_planning_jump_entries_elem:first-child, #fullinpark_admin_page #fullinpark_planning_kids_global_container #fullinpark_planning_jump_entries_container .fullinpark_planning_jump_entries_elem:nth-child(2), #fullinpark_admin_page #fullinpark_planning_kids_global_container #fullinpark_planning_jump_entries_container .fullinpark_planning_kids_entries_elem:first-child, #fullinpark_admin_page #fullinpark_planning_kids_global_container #fullinpark_planning_jump_entries_container .fullinpark_planning_kids_entries_elem:nth-child(2), #fullinpark_admin_page #fullinpark_planning_kids_global_container #fullinpark_planning_kids_entries_container .fullinpark_planning_jump_entries_elem:first-child, #fullinpark_admin_page #fullinpark_planning_kids_global_container #fullinpark_planning_kids_entries_container .fullinpark_planning_jump_entries_elem:nth-child(2), #fullinpark_admin_page #fullinpark_planning_kids_global_container #fullinpark_planning_kids_entries_container .fullinpark_planning_kids_entries_elem:first-child, #fullinpark_admin_page #fullinpark_planning_kids_global_container #fullinpark_planning_kids_entries_container .fullinpark_planning_kids_entries_elem:nth-child(2) {
+          border-right: none;
+          border-top: none;
+          border-left: none; }
+        #fullinpark_admin_page #fullinpark_planning_jump_global_container #fullinpark_planning_jump_entries_container .fullinpark_planning_jump_entries_elem:nth-child(2), #fullinpark_admin_page #fullinpark_planning_jump_global_container #fullinpark_planning_jump_entries_container .fullinpark_planning_kids_entries_elem:nth-child(2), #fullinpark_admin_page #fullinpark_planning_jump_global_container #fullinpark_planning_kids_entries_container .fullinpark_planning_jump_entries_elem:nth-child(2), #fullinpark_admin_page #fullinpark_planning_jump_global_container #fullinpark_planning_kids_entries_container .fullinpark_planning_kids_entries_elem:nth-child(2), #fullinpark_admin_page #fullinpark_planning_kids_global_container #fullinpark_planning_jump_entries_container .fullinpark_planning_jump_entries_elem:nth-child(2), #fullinpark_admin_page #fullinpark_planning_kids_global_container #fullinpark_planning_jump_entries_container .fullinpark_planning_kids_entries_elem:nth-child(2), #fullinpark_admin_page #fullinpark_planning_kids_global_container #fullinpark_planning_kids_entries_container .fullinpark_planning_jump_entries_elem:nth-child(2), #fullinpark_admin_page #fullinpark_planning_kids_global_container #fullinpark_planning_kids_entries_container .fullinpark_planning_kids_entries_elem:nth-child(2) {
+          padding-top: 1px;
+          border-bottom: 2px solid #000; }
+        #fullinpark_admin_page #fullinpark_planning_jump_global_container #fullinpark_planning_jump_entries_container .fullinpark_planning_jump_entries_elem:last-child, #fullinpark_admin_page #fullinpark_planning_jump_global_container #fullinpark_planning_jump_entries_container .fullinpark_planning_kids_entries_elem:last-child, #fullinpark_admin_page #fullinpark_planning_jump_global_container #fullinpark_planning_kids_entries_container .fullinpark_planning_jump_entries_elem:last-child, #fullinpark_admin_page #fullinpark_planning_jump_global_container #fullinpark_planning_kids_entries_container .fullinpark_planning_kids_entries_elem:last-child, #fullinpark_admin_page #fullinpark_planning_kids_global_container #fullinpark_planning_jump_entries_container .fullinpark_planning_jump_entries_elem:last-child, #fullinpark_admin_page #fullinpark_planning_kids_global_container #fullinpark_planning_jump_entries_container .fullinpark_planning_kids_entries_elem:last-child, #fullinpark_admin_page #fullinpark_planning_kids_global_container #fullinpark_planning_kids_entries_container .fullinpark_planning_jump_entries_elem:last-child, #fullinpark_admin_page #fullinpark_planning_kids_global_container #fullinpark_planning_kids_entries_container .fullinpark_planning_kids_entries_elem:last-child {
+          border-bottom: 1px solid #000; }
+        #fullinpark_admin_page #fullinpark_planning_jump_global_container #fullinpark_planning_jump_entries_container .fullinpark_planning_jump_entries_elem.jump, #fullinpark_admin_page #fullinpark_planning_jump_global_container #fullinpark_planning_jump_entries_container .fullinpark_planning_kids_entries_elem.jump, #fullinpark_admin_page #fullinpark_planning_jump_global_container #fullinpark_planning_kids_entries_container .fullinpark_planning_jump_entries_elem.jump, #fullinpark_admin_page #fullinpark_planning_jump_global_container #fullinpark_planning_kids_entries_container .fullinpark_planning_kids_entries_elem.jump, #fullinpark_admin_page #fullinpark_planning_kids_global_container #fullinpark_planning_jump_entries_container .fullinpark_planning_jump_entries_elem.jump, #fullinpark_admin_page #fullinpark_planning_kids_global_container #fullinpark_planning_jump_entries_container .fullinpark_planning_kids_entries_elem.jump, #fullinpark_admin_page #fullinpark_planning_kids_global_container #fullinpark_planning_kids_entries_container .fullinpark_planning_jump_entries_elem.jump, #fullinpark_admin_page #fullinpark_planning_kids_global_container #fullinpark_planning_kids_entries_container .fullinpark_planning_kids_entries_elem.jump {
+          background: #8EA9DB; }
+        #fullinpark_admin_page #fullinpark_planning_jump_global_container #fullinpark_planning_jump_entries_container .fullinpark_planning_jump_entries_elem.kids, #fullinpark_admin_page #fullinpark_planning_jump_global_container #fullinpark_planning_jump_entries_container .fullinpark_planning_kids_entries_elem.kids, #fullinpark_admin_page #fullinpark_planning_jump_global_container #fullinpark_planning_kids_entries_container .fullinpark_planning_jump_entries_elem.kids, #fullinpark_admin_page #fullinpark_planning_jump_global_container #fullinpark_planning_kids_entries_container .fullinpark_planning_kids_entries_elem.kids, #fullinpark_admin_page #fullinpark_planning_kids_global_container #fullinpark_planning_jump_entries_container .fullinpark_planning_jump_entries_elem.kids, #fullinpark_admin_page #fullinpark_planning_kids_global_container #fullinpark_planning_jump_entries_container .fullinpark_planning_kids_entries_elem.kids, #fullinpark_admin_page #fullinpark_planning_kids_global_container #fullinpark_planning_kids_entries_container .fullinpark_planning_jump_entries_elem.kids, #fullinpark_admin_page #fullinpark_planning_kids_global_container #fullinpark_planning_kids_entries_container .fullinpark_planning_kids_entries_elem.kids {
+          background: #A9D08E; }
+        #fullinpark_admin_page #fullinpark_planning_jump_global_container #fullinpark_planning_jump_entries_container .fullinpark_planning_jump_entries_elem.structure, #fullinpark_admin_page #fullinpark_planning_jump_global_container #fullinpark_planning_jump_entries_container .fullinpark_planning_kids_entries_elem.structure, #fullinpark_admin_page #fullinpark_planning_jump_global_container #fullinpark_planning_kids_entries_container .fullinpark_planning_jump_entries_elem.structure, #fullinpark_admin_page #fullinpark_planning_jump_global_container #fullinpark_planning_kids_entries_container .fullinpark_planning_kids_entries_elem.structure, #fullinpark_admin_page #fullinpark_planning_kids_global_container #fullinpark_planning_jump_entries_container .fullinpark_planning_jump_entries_elem.structure, #fullinpark_admin_page #fullinpark_planning_kids_global_container #fullinpark_planning_jump_entries_container .fullinpark_planning_kids_entries_elem.structure, #fullinpark_admin_page #fullinpark_planning_kids_global_container #fullinpark_planning_kids_entries_container .fullinpark_planning_jump_entries_elem.structure, #fullinpark_admin_page #fullinpark_planning_kids_global_container #fullinpark_planning_kids_entries_container .fullinpark_planning_kids_entries_elem.structure {
+          background: #FFCCFF; }
+        #fullinpark_admin_page #fullinpark_planning_jump_global_container #fullinpark_planning_jump_entries_container .fullinpark_planning_jump_entries_elem.anniversary, #fullinpark_admin_page #fullinpark_planning_jump_global_container #fullinpark_planning_jump_entries_container .fullinpark_planning_kids_entries_elem.anniversary, #fullinpark_admin_page #fullinpark_planning_jump_global_container #fullinpark_planning_kids_entries_container .fullinpark_planning_jump_entries_elem.anniversary, #fullinpark_admin_page #fullinpark_planning_jump_global_container #fullinpark_planning_kids_entries_container .fullinpark_planning_kids_entries_elem.anniversary, #fullinpark_admin_page #fullinpark_planning_kids_global_container #fullinpark_planning_jump_entries_container .fullinpark_planning_jump_entries_elem.anniversary, #fullinpark_admin_page #fullinpark_planning_kids_global_container #fullinpark_planning_jump_entries_container .fullinpark_planning_kids_entries_elem.anniversary, #fullinpark_admin_page #fullinpark_planning_kids_global_container #fullinpark_planning_kids_entries_container .fullinpark_planning_jump_entries_elem.anniversary, #fullinpark_admin_page #fullinpark_planning_kids_global_container #fullinpark_planning_kids_entries_container .fullinpark_planning_kids_entries_elem.anniversary {
+          background: #B4C6E7; }
+        #fullinpark_admin_page #fullinpark_planning_jump_global_container #fullinpark_planning_jump_entries_container .fullinpark_planning_jump_entries_elem.stage, #fullinpark_admin_page #fullinpark_planning_jump_global_container #fullinpark_planning_jump_entries_container .fullinpark_planning_kids_entries_elem.stage, #fullinpark_admin_page #fullinpark_planning_jump_global_container #fullinpark_planning_kids_entries_container .fullinpark_planning_jump_entries_elem.stage, #fullinpark_admin_page #fullinpark_planning_jump_global_container #fullinpark_planning_kids_entries_container .fullinpark_planning_kids_entries_elem.stage, #fullinpark_admin_page #fullinpark_planning_kids_global_container #fullinpark_planning_jump_entries_container .fullinpark_planning_jump_entries_elem.stage, #fullinpark_admin_page #fullinpark_planning_kids_global_container #fullinpark_planning_jump_entries_container .fullinpark_planning_kids_entries_elem.stage, #fullinpark_admin_page #fullinpark_planning_kids_global_container #fullinpark_planning_kids_entries_container .fullinpark_planning_jump_entries_elem.stage, #fullinpark_admin_page #fullinpark_planning_kids_global_container #fullinpark_planning_kids_entries_container .fullinpark_planning_kids_entries_elem.stage {
+          background: #F8CBAD; }
+        #fullinpark_admin_page #fullinpark_planning_jump_global_container #fullinpark_planning_jump_entries_container .fullinpark_planning_jump_entries_elem.course, #fullinpark_admin_page #fullinpark_planning_jump_global_container #fullinpark_planning_jump_entries_container .fullinpark_planning_kids_entries_elem.course, #fullinpark_admin_page #fullinpark_planning_jump_global_container #fullinpark_planning_kids_entries_container .fullinpark_planning_jump_entries_elem.course, #fullinpark_admin_page #fullinpark_planning_jump_global_container #fullinpark_planning_kids_entries_container .fullinpark_planning_kids_entries_elem.course, #fullinpark_admin_page #fullinpark_planning_kids_global_container #fullinpark_planning_jump_entries_container .fullinpark_planning_jump_entries_elem.course, #fullinpark_admin_page #fullinpark_planning_kids_global_container #fullinpark_planning_jump_entries_container .fullinpark_planning_kids_entries_elem.course, #fullinpark_admin_page #fullinpark_planning_kids_global_container #fullinpark_planning_kids_entries_container .fullinpark_planning_jump_entries_elem.course, #fullinpark_admin_page #fullinpark_planning_kids_global_container #fullinpark_planning_kids_entries_container .fullinpark_planning_kids_entries_elem.course {
+          background: #305496; }
+        #fullinpark_admin_page #fullinpark_planning_jump_global_container #fullinpark_planning_jump_entries_container .fullinpark_planning_jump_entries_elem.total, #fullinpark_admin_page #fullinpark_planning_jump_global_container #fullinpark_planning_jump_entries_container .fullinpark_planning_kids_entries_elem.total, #fullinpark_admin_page #fullinpark_planning_jump_global_container #fullinpark_planning_kids_entries_container .fullinpark_planning_jump_entries_elem.total, #fullinpark_admin_page #fullinpark_planning_jump_global_container #fullinpark_planning_kids_entries_container .fullinpark_planning_kids_entries_elem.total, #fullinpark_admin_page #fullinpark_planning_kids_global_container #fullinpark_planning_jump_entries_container .fullinpark_planning_jump_entries_elem.total, #fullinpark_admin_page #fullinpark_planning_kids_global_container #fullinpark_planning_jump_entries_container .fullinpark_planning_kids_entries_elem.total, #fullinpark_admin_page #fullinpark_planning_kids_global_container #fullinpark_planning_kids_entries_container .fullinpark_planning_jump_entries_elem.total, #fullinpark_admin_page #fullinpark_planning_kids_global_container #fullinpark_planning_kids_entries_container .fullinpark_planning_kids_entries_elem.total {
+          background: #FF5756;
+          border-top: 3px solid #000; }
+  #fullinpark_admin_page #fullinpark_planning_jump_container, #fullinpark_admin_page #fullinpark_planning_kids_container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2em; }
+    #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_jump_warning, #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_kids_warning, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_jump_warning, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_kids_warning {
+      width: calc(100% - 20px);
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around; }
+      #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_jump_warning .fullinpark_planning_warning_elem, #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_kids_warning .fullinpark_planning_warning_elem, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_jump_warning .fullinpark_planning_warning_elem, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_kids_warning .fullinpark_planning_warning_elem {
         width: 100%;
         height: 30px;
         display: flex;
         justify-content: center;
         align-items: center;
-        border-bottom: 1px solid #000;
-        cursor: pointer;
-        background: #FFF; }
-        #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_jump_body .fullinpark_planning_body_col .fullinpark_planning_body_elem.no_border, #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_kids_body .fullinpark_planning_body_col .fullinpark_planning_body_elem.no_border, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_jump_body .fullinpark_planning_body_col .fullinpark_planning_body_elem.no_border, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_kids_body .fullinpark_planning_body_col .fullinpark_planning_body_elem.no_border {
-          border-bottom: none !important; }
-        #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_jump_body .fullinpark_planning_body_col .fullinpark_planning_body_elem:last-child, #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_kids_body .fullinpark_planning_body_col .fullinpark_planning_body_elem:last-child, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_jump_body .fullinpark_planning_body_col .fullinpark_planning_body_elem:last-child, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_kids_body .fullinpark_planning_body_col .fullinpark_planning_body_elem:last-child {
-          border-bottom: none !important; }
-        #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_jump_body .fullinpark_planning_body_col .fullinpark_planning_body_elem a, #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_kids_body .fullinpark_planning_body_col .fullinpark_planning_body_elem a, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_jump_body .fullinpark_planning_body_col .fullinpark_planning_body_elem a, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_kids_body .fullinpark_planning_body_col .fullinpark_planning_body_elem a {
+        font-weight: bold; }
+    #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_jump_head, #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_kids_head, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_jump_head, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_kids_head {
+      width: calc(100% - 20px);
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around; }
+      #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_jump_head .fullinpark_planning_head_elem, #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_kids_head .fullinpark_planning_head_elem, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_jump_head .fullinpark_planning_head_elem, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_kids_head .fullinpark_planning_head_elem {
+        width: 100%;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-right: 1px solid #000;
+        border-top: 1px solid #000;
+        border-bottom: 3px solid #000;
+        font-weight: bold; }
+        #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_jump_head .fullinpark_planning_head_elem:first-child, #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_kids_head .fullinpark_planning_head_elem:first-child, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_jump_head .fullinpark_planning_head_elem:first-child, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_kids_head .fullinpark_planning_head_elem:first-child {
+          border-left: 1px solid #000; }
+        #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_jump_head .fullinpark_planning_head_elem.disabled, #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_kids_head .fullinpark_planning_head_elem.disabled, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_jump_head .fullinpark_planning_head_elem.disabled, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_kids_head .fullinpark_planning_head_elem.disabled {
+          background: #BBB !important;
+          color: #000 !important; }
+    #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_jump_body, #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_kids_body, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_jump_body, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_kids_body {
+      width: calc(100% - 20px);
+      display: flex;
+      flex-direction: column; }
+      #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_jump_body .fullinpark_planning_jump_body_line, #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_kids_body .fullinpark_planning_jump_body_line, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_jump_body .fullinpark_planning_jump_body_line, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_kids_body .fullinpark_planning_jump_body_line {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around; }
+        #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_jump_body .fullinpark_planning_jump_body_line.total_line, #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_kids_body .fullinpark_planning_jump_body_line.total_line, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_jump_body .fullinpark_planning_jump_body_line.total_line, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_kids_body .fullinpark_planning_jump_body_line.total_line {
+          border-top: 2px solid #000; }
+        #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_jump_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col, #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_kids_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_jump_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_kids_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col {
           width: 100%;
-          height: 100%;
+          height: 30px;
           display: flex;
-          align-items: center;
+          flex-direction: column;
           justify-content: center;
-          text-decoration: none;
-          color: #000; }
-        #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_jump_body .fullinpark_planning_body_col .fullinpark_planning_body_elem:hover, #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_kids_body .fullinpark_planning_body_col .fullinpark_planning_body_elem:hover, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_jump_body .fullinpark_planning_body_col .fullinpark_planning_body_elem:hover, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_kids_body .fullinpark_planning_body_col .fullinpark_planning_body_elem:hover {
-          background: #CFA614;
-          color: #FFF;
-          font-weight: bold; }
-      #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_jump_body .fullinpark_planning_body_col .empty, #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_kids_body .fullinpark_planning_body_col .empty, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_jump_body .fullinpark_planning_body_col .empty, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_kids_body .fullinpark_planning_body_col .empty {
-        border: none !important;
-        background: #BBB;
-        cursor: auto; }
-        #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_jump_body .fullinpark_planning_body_col .empty:hover, #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_kids_body .fullinpark_planning_body_col .empty:hover, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_jump_body .fullinpark_planning_body_col .empty:hover, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_kids_body .fullinpark_planning_body_col .empty:hover {
-          background: #BBB; }
+          align-items: center;
+          border-right: 1px solid #000;
+          border-bottom: 1px solid #000;
+          background: #FFF; }
+          #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_jump_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col.jump, #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_kids_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col.jump, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_jump_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col.jump, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_kids_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col.jump {
+            background: #8EA9DB; }
+          #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_jump_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col.kids, #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_kids_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col.kids, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_jump_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col.kids, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_kids_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col.kids {
+            background: #A9D08E; }
+          #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_jump_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col.structure, #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_kids_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col.structure, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_jump_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col.structure, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_kids_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col.structure {
+            background: #FFCCFF; }
+          #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_jump_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col.anniversary, #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_kids_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col.anniversary, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_jump_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col.anniversary, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_kids_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col.anniversary {
+            background: #B4C6E7; }
+          #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_jump_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col.stage, #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_kids_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col.stage, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_jump_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col.stage, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_kids_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col.stage {
+            background: #F8CBAD; }
+          #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_jump_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col.course, #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_kids_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col.course, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_jump_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col.course, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_kids_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col.course {
+            background: #305496; }
+          #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_jump_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col.total, #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_kids_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col.total, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_jump_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col.total, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_kids_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col.total {
+            background: #FF5756; }
+          #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_jump_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col.disabled, #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_kids_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col.disabled, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_jump_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col.disabled, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_kids_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col.disabled {
+            background: #BBB !important;
+            color: #000 !important; }
+          #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_jump_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col a, #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_kids_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col a, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_jump_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col a, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_kids_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col a {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: #000;
+            cursor: pointer; }
+          #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_jump_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col:first-child, #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_kids_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col:first-child, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_jump_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col:first-child, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_kids_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col:first-child {
+            border-left: 1px solid #000; }
+          #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_jump_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col .fullinpark_planning_body_elem, #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_kids_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col .fullinpark_planning_body_elem, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_jump_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col .fullinpark_planning_body_elem, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_kids_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col .fullinpark_planning_body_elem {
+            width: 100%;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 1px solid #000;
+            cursor: pointer;
+            background: #FFF; }
+            #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_jump_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col .fullinpark_planning_body_elem.no_border, #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_kids_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col .fullinpark_planning_body_elem.no_border, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_jump_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col .fullinpark_planning_body_elem.no_border, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_kids_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col .fullinpark_planning_body_elem.no_border {
+              border-bottom: none !important; }
+            #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_jump_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col .fullinpark_planning_body_elem:last-child, #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_kids_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col .fullinpark_planning_body_elem:last-child, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_jump_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col .fullinpark_planning_body_elem:last-child, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_kids_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col .fullinpark_planning_body_elem:last-child {
+              border-bottom: none !important; }
+            #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_jump_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col .fullinpark_planning_body_elem a, #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_kids_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col .fullinpark_planning_body_elem a, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_jump_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col .fullinpark_planning_body_elem a, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_kids_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col .fullinpark_planning_body_elem a {
+              width: 100%;
+              height: 100%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              text-decoration: none;
+              color: #000;
+              cursor: pointer; }
+            #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_jump_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col .fullinpark_planning_body_elem:hover, #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_kids_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col .fullinpark_planning_body_elem:hover, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_jump_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col .fullinpark_planning_body_elem:hover, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_kids_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col .fullinpark_planning_body_elem:hover {
+              background: #CFA614;
+              color: #FFF;
+              font-weight: bold; }
+          #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_jump_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col .empty, #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_kids_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col .empty, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_jump_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col .empty, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_kids_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col .empty {
+            border: none !important;
+            background: #BBB;
+            cursor: auto; }
+            #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_jump_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col .empty:hover, #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_kids_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col .empty:hover, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_jump_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col .empty:hover, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_kids_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col .empty:hover {
+              background: #BBB; }
 
 .fullinpark_planning_elem_popup {
   width: 500px;
-  height: 350px;
+  height: 435px;
   display: none;
   position: fixed;
   left: calc(50% - 250px);
   top: calc(50% - 150px);
   background: #FFF;
   border: 4px solid #3161AC; }
-  .fullinpark_planning_elem_popup .hide_resa_popup_button {
-    margin: 0.5em 1em;
-    color: #CFA614;
-    font-size: 20px;
-    font-weight: bold;
-    float: right;
-    cursor: pointer; }
-  .fullinpark_planning_elem_popup .fullinpark_planning_elem_popup_title {
-    font-size: 18px;
-    font-weight: bold;
-    text-transform: uppercase;
-    text-align: center;
-    margin-bottom: 2em; }
-  .fullinpark_planning_elem_popup .fullinpark_planning_elem_popup_qty {
-    width: 80%;
-    margin: 1em auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between; }
-    .fullinpark_planning_elem_popup .fullinpark_planning_elem_popup_qty span {
-      font-size: 17px; }
-      .fullinpark_planning_elem_popup .fullinpark_planning_elem_popup_qty span.fullinpark_planning_elem_popup_qty_value {
-        font-weight: bold;
-        margin-left: 10px; }
-  .fullinpark_planning_elem_popup .fullinpark_planning_elem_popup_contact {
-    width: 90%;
-    margin: 40px 0 0 10%; }
-    .fullinpark_planning_elem_popup .fullinpark_planning_elem_popup_contact p {
-      display: flex; }
-      .fullinpark_planning_elem_popup .fullinpark_planning_elem_popup_contact p span {
-        width: 150px; }
-        .fullinpark_planning_elem_popup .fullinpark_planning_elem_popup_contact p span.fullinpark_planning_elem_popup_contact_value {
-          font-size: 16px;
+  .fullinpark_planning_elem_popup .fullinpark_planning_elem_popup_content {
+    position: relative; }
+    .fullinpark_planning_elem_popup .fullinpark_planning_elem_popup_content .hide_resa_popup_button {
+      color: #CFA614;
+      font-size: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      position: absolute;
+      top: 0em;
+      right: 1em;
+      z-index: 999999; }
+      .fullinpark_planning_elem_popup .fullinpark_planning_elem_popup_content .hide_resa_popup_button img {
+        width: 20px;
+        height: 20px; }
+    .fullinpark_planning_elem_popup .fullinpark_planning_elem_popup_content .fullinpark_planning_elem_popup_title {
+      font-size: 18px;
+      font-weight: bold;
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 2em; }
+    .fullinpark_planning_elem_popup .fullinpark_planning_elem_popup_content .resa_listing {
+      height: 235px;
+      margin-left: 2em;
+      overflow-y: hidden;
+      overflow-y: scroll; }
+      .fullinpark_planning_elem_popup .fullinpark_planning_elem_popup_content .resa_listing::-webkit-scrollbar {
+        width: 10px; }
+      .fullinpark_planning_elem_popup .fullinpark_planning_elem_popup_content .resa_listing::-webkit-scrollbar-track {
+        background: #FFF; }
+      .fullinpark_planning_elem_popup .fullinpark_planning_elem_popup_content .resa_listing::-webkit-scrollbar-thumb {
+        background: #888; }
+      .fullinpark_planning_elem_popup .fullinpark_planning_elem_popup_content .resa_listing li a {
+        cursor: pointer; }
+      .fullinpark_planning_elem_popup .fullinpark_planning_elem_popup_content .resa_listing .popup_user_infos {
+        width: 100%;
+        height: 100%;
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: #FFF; }
+        .fullinpark_planning_elem_popup .fullinpark_planning_elem_popup_content .resa_listing .popup_user_infos a {
+          margin: 0 1em;
+          cursor: pointer; }
+          .fullinpark_planning_elem_popup .fullinpark_planning_elem_popup_content .resa_listing .popup_user_infos a img {
+            width: 30px; }
+        .fullinpark_planning_elem_popup .fullinpark_planning_elem_popup_content .resa_listing .popup_user_infos .user_infos_title {
+          margin-top: -30px;
+          margin-bottom: 0;
+          font-size: 18px;
           font-weight: bold;
-          margin-left: 20px; }
-  .fullinpark_planning_elem_popup .fullinpark_planning_elem_popup_modify_button {
-    width: 50%;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 40px auto 1em auto;
-    background: #3161AC;
-    color: #FFF;
-    text-transform: uppercase;
-    text-decoration: none; }
+          text-align: center; }
+        .fullinpark_planning_elem_popup .fullinpark_planning_elem_popup_content .resa_listing .popup_user_infos .user_info_content {
+          width: 75%;
+          margin: 2em auto; }
+          .fullinpark_planning_elem_popup .fullinpark_planning_elem_popup_content .resa_listing .popup_user_infos .user_info_content p {
+            display: flex;
+            margin: 0; }
+            .fullinpark_planning_elem_popup .fullinpark_planning_elem_popup_content .resa_listing .popup_user_infos .user_info_content p span:first-child {
+              width: 35%;
+              margin-left: 5%;
+              font-weight: bold; }
+        .fullinpark_planning_elem_popup .fullinpark_planning_elem_popup_content .resa_listing .popup_user_infos .resa_real_accompt {
+          display: flex;
+          justify-content: space-around; }
+          .fullinpark_planning_elem_popup .fullinpark_planning_elem_popup_content .resa_listing .popup_user_infos .resa_real_accompt input {
+            width: 50px;
+            margin-left: 10px; }
+        .fullinpark_planning_elem_popup .fullinpark_planning_elem_popup_content .resa_listing .popup_user_infos textarea {
+          width: 75%;
+          min-height: 75px;
+          display: block;
+          margin: 1em auto; }
+        .fullinpark_planning_elem_popup .fullinpark_planning_elem_popup_content .resa_listing .popup_user_infos .popup_user_infos_buttons {
+          width: 75%;
+          margin: 1em auto;
+          display: flex;
+          justify-content: space-between; }
+          .fullinpark_planning_elem_popup .fullinpark_planning_elem_popup_content .resa_listing .popup_user_infos .popup_user_infos_buttons .popup_modify_button {
+            width: 47%;
+            margin: 0;
+            padding: 0.5em 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #3161AC;
+            color: #FFF;
+            text-decoration: none;
+            cursor: pointer; }
+    .fullinpark_planning_elem_popup .fullinpark_planning_elem_popup_content .add_resa_button {
+      width: 250px;
+      padding: 0.5em 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 1em auto;
+      background: #3161AC;
+      color: #FFF;
+      text-decoration: none; }
+
+.border_time {
+  border-right: 3px solid #000 !important; }
+
+.booked, .booked:hover {
+  color: #000; }
+
+.paid, .paid:hover {
+  color: #A9D08E; }
+
+.confirmed, .confirmed:hover {
+  color: #CFA614; }
+
+.real_past {
+  background: #BBB !important; }
+
+.real_previ {
+  background: orange !important;
+  color: #FFF; }
+
+.real_active {
+  background: green !important;
+  color: #FFF; }
+
+.real_to_come {
+  background: blue !important;
+  color: #FFF; }
+
+@media screen and (max-width: 950px) {
+  #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_jump_head, #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_kids_head, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_jump_head, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_kids_head {
+    width: 780px; }
+
+  #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_jump_body .fullinpark_planning_jump_body_line, #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_kids_body .fullinpark_planning_jump_body_line, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_jump_body .fullinpark_planning_jump_body_line, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_kids_body .fullinpark_planning_jump_body_line {
+    width: 780px; }
+
+  #fullinpark_planning_jump_global_container, #fullinpark_planning_kids_global_container {
+    overflow-y: scroll !important; }
+
+  #fullinpark_admin_page #fullinpark_planning_jump_global_container #fullinpark_planning_jump_entries_container, #fullinpark_admin_page #fullinpark_planning_jump_global_container #fullinpark_planning_kids_entries_container, #fullinpark_admin_page #fullinpark_planning_kids_global_container #fullinpark_planning_jump_entries_container, #fullinpark_admin_page #fullinpark_planning_kids_global_container #fullinpark_planning_kids_entries_container {
+    width: 80px !important;
+    font-size: 10px !important;
+    font-weight: normal; }
+
+  #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_jump_head .fullinpark_planning_head_elem, #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_kids_head .fullinpark_planning_head_elem, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_jump_head .fullinpark_planning_head_elem, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_kids_head .fullinpark_planning_head_elem {
+    width: 30px !important;
+    font-size: 10px !important;
+    font-weight: normal; }
+
+  #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_jump_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col, #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_kids_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_jump_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_kids_body .fullinpark_planning_jump_body_line .fullinpark_planning_body_col {
+    width: 30px !important;
+    font-size: 10px !important;
+    font-weight: normal; }
+
+  #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_jump_head, #fullinpark_admin_page #fullinpark_planning_jump_container #fullinpark_planning_kids_head, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_jump_head, #fullinpark_admin_page #fullinpark_planning_kids_container #fullinpark_planning_kids_head {
+    justify-content: flex-start; } }
 
 /*# sourceMappingURL=fullinpark.css.map */

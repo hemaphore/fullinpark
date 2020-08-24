@@ -1,0 +1,105 @@
+#stagepicker_container{
+  width: 120%;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2em 0;
+  background: #FFF;
+  color: #000;
+  margin-top: -100%;
+  margin-left: -10%;
+  position: relative;
+  z-index: 9999;
+  border: 2px solid #000;
+
+  #hide_stagepicker{
+    width: 100%;
+    position: absolute;
+    top: 30px;
+    display: flex;
+    justify-content: flex-end;
+    margin: -1em 0 2em 0;
+    cursor: pointer;
+
+    img{
+      width: 20px;
+      height: 20px;
+      margin-right: 1em;
+    }
+  }
+
+  #stagepicker_content{
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    #stagepicker_table{
+      width: 90%;
+      display: flex;
+      flex-direction: column;
+      color: #000;
+      font-weight: bold;
+
+      .head{
+        div{
+          background: #FFF !important;
+          border-top: 2px solid #000;
+          padding: 5px 0;
+
+          &:first-child{
+            background: #FFF !important;
+            border-top: none !important;
+            border-left: none !important;
+          }
+        }
+      }
+
+      .row{
+        display: flex;
+        flex-direction: row;
+        background: #FFF;
+
+        label{  font-weight: 600; }
+        div{
+          width: 42.5%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          padding: 5px 0;
+          border-right: 2px solid #000;
+          border-bottom: 2px solid #000;
+          text-align: center;
+          background: #E4E4E4;
+
+          &:first-child{
+            width: 25%;
+            border-left: 2px solid #000;
+            background: #FFF !important;
+          }
+        }
+        .tramp{  background: #34c2e4 !important; }
+        .free{  background: #e4c934 !important; }
+        .rider{  background: #cb51cc !important; }
+      }
+    }
+  }
+
+  .resa_submit_button{
+    width: 200px;
+    margin-top: 2em;
+    padding: 0.75em 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFF;
+    background-image: linear-gradient(50deg, #00C0FF 0%, #4218B8 100%);
+    border-radius: 8px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+  }
+}

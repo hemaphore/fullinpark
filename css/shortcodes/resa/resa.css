@@ -1,0 +1,933 @@
+#stagepicker_container {
+  width: 120%;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2em 0;
+  background: #FFF;
+  color: #000;
+  margin-top: -100%;
+  margin-left: -10%;
+  position: relative;
+  z-index: 9999;
+  border: 2px solid #000; }
+  #stagepicker_container #hide_stagepicker {
+    width: 100%;
+    position: absolute;
+    top: 30px;
+    display: flex;
+    justify-content: flex-end;
+    margin: -1em 0 2em 0;
+    cursor: pointer; }
+    #stagepicker_container #hide_stagepicker img {
+      width: 20px;
+      height: 20px;
+      margin-right: 1em; }
+  #stagepicker_container #stagepicker_content {
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; }
+    #stagepicker_container #stagepicker_content #stagepicker_table {
+      width: 90%;
+      display: flex;
+      flex-direction: column;
+      color: #000;
+      font-weight: bold; }
+      #stagepicker_container #stagepicker_content #stagepicker_table .head div {
+        background: #FFF !important;
+        border-top: 2px solid #000;
+        padding: 5px 0; }
+        #stagepicker_container #stagepicker_content #stagepicker_table .head div:first-child {
+          background: #FFF !important;
+          border-top: none !important;
+          border-left: none !important; }
+      #stagepicker_container #stagepicker_content #stagepicker_table .row {
+        display: flex;
+        flex-direction: row;
+        background: #FFF; }
+        #stagepicker_container #stagepicker_content #stagepicker_table .row label {
+          font-weight: 600; }
+        #stagepicker_container #stagepicker_content #stagepicker_table .row div {
+          width: 42.5%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          padding: 5px 0;
+          border-right: 2px solid #000;
+          border-bottom: 2px solid #000;
+          text-align: center;
+          background: #E4E4E4; }
+          #stagepicker_container #stagepicker_content #stagepicker_table .row div:first-child {
+            width: 25%;
+            border-left: 2px solid #000;
+            background: #FFF !important; }
+        #stagepicker_container #stagepicker_content #stagepicker_table .row .tramp {
+          background: #34c2e4 !important; }
+        #stagepicker_container #stagepicker_content #stagepicker_table .row .free {
+          background: #e4c934 !important; }
+        #stagepicker_container #stagepicker_content #stagepicker_table .row .rider {
+          background: #cb51cc !important; }
+  #stagepicker_container .resa_submit_button {
+    width: 200px;
+    margin-top: 2em;
+    padding: 0.75em 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFF;
+    background-image: linear-gradient(50deg, #00C0FF 0%, #4218B8 100%);
+    border-radius: 8px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer; }
+
+#stagerecap_container {
+  display: none;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 1em;
+  position: relative; }
+  #stagerecap_container .date_hours_box {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #EEE;
+    border-radius: 8px; }
+    #stagerecap_container .date_hours_box .title {
+      margin-top: 1em;
+      text-decoration: underline;
+      font-weight: 600; }
+    #stagerecap_container .date_hours_box a {
+      color: #3161AC;
+      text-decoration: none;
+      text-align: center;
+      cursor: pointer; }
+      #stagerecap_container .date_hours_box a img {
+        width: 75px;
+        height: 75px;
+        display: block;
+        margin: 1em auto 0 auto; }
+      #stagerecap_container .date_hours_box a p {
+        display: flex;
+        justify-content: center;
+        margin: 0 0 0.5em 0;
+        text-align: center;
+        font-weight: bold; }
+        #stagerecap_container .date_hours_box a p img {
+          width: 16px;
+          height: 16px;
+          margin: 0.3em 0 0 1em; }
+
+body {
+  background: #CCC !important; }
+
+.bold {
+  font-weight: bold; }
+
+#fullinpark_resa_form_entete {
+  height: 40px;
+  display: flex;
+  background: transparent;
+  margin-bottom: 0; }
+  #fullinpark_resa_form_entete #fullinpark_resa_form_entete_resa_button {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+    padding: 0.5em 1.5em;
+    background: #CFA614;
+    color: #FFF;
+    border-radius: 8px 8px 0 0;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    cursor: pointer;
+    z-index: 99; }
+    #fullinpark_resa_form_entete #fullinpark_resa_form_entete_resa_button a {
+      text-decoration: none;
+      color: #FFF;
+      text-align: center;
+      text-transform: uppercase;
+      cursor: pointer; }
+  #fullinpark_resa_form_entete #fullinpark_resa_form_entete_question_button {
+    display: flex;
+    align-items: center;
+    margin-left: -2px;
+    padding: 0.5em 1.5em;
+    background: #3161AC;
+    color: #FFF;
+    border-radius: 8px 8px 0 0; }
+    #fullinpark_resa_form_entete #fullinpark_resa_form_entete_question_button a {
+      text-decoration: none;
+      color: #FFF;
+      text-align: center;
+      text-transform: uppercase;
+      cursor: pointer; }
+
+#fullinpark_resa_form_container {
+  width: 100%;
+  margin-top: 0;
+  padding: 0.5em;
+  position: relative;
+  background: #FFF;
+  border-radius: 10px;
+  overflow: hidden; }
+  #fullinpark_resa_form_container #fullinpark_resa_form_content {
+    width: 80%;
+    margin: 1em auto; }
+    #fullinpark_resa_form_container #fullinpark_resa_form_content .main_title {
+      margin: 1em 0 0 0;
+      font-size: 24px;
+      color: #CFA614;
+      font-weight: bold;
+      text-transform: uppercase; }
+    #fullinpark_resa_form_container #fullinpark_resa_form_content .secondary_title {
+      margin: 1em 0 0 0;
+      font-size: 18px;
+      color: #CFA614;
+      font-weight: bold;
+      text-transform: uppercase; }
+    #fullinpark_resa_form_container #fullinpark_resa_form_content #stage_selector_container, #fullinpark_resa_form_container #fullinpark_resa_form_content #collectives_courses_selector_container, #fullinpark_resa_form_container #fullinpark_resa_form_content #anniversary_infos_container {
+      display: none; }
+    #fullinpark_resa_form_container #fullinpark_resa_form_content .custom_select {
+      width: 100%;
+      position: relative; }
+      #fullinpark_resa_form_container #fullinpark_resa_form_content .custom_select a {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        text-decoration: none;
+        color: #6d6d6d;
+        cursor: pointer; }
+        #fullinpark_resa_form_container #fullinpark_resa_form_content .custom_select a img {
+          width: 16px;
+          height: 16px;
+          margin: 0.3em 0 0 1em; }
+        #fullinpark_resa_form_container #fullinpark_resa_form_content .custom_select a.active img {
+          transform: rotate(180deg);
+          transition-duration: 0.6s; }
+      #fullinpark_resa_form_container #fullinpark_resa_form_content .custom_select #custom_select_activities, #fullinpark_resa_form_container #fullinpark_resa_form_content .custom_select #custom_select_stages, #fullinpark_resa_form_container #fullinpark_resa_form_content .custom_select #custom_select_collectives_courses, #fullinpark_resa_form_container #fullinpark_resa_form_content .custom_select #custom_select_anniversary {
+        width: calc(100% + 40px);
+        display: none;
+        position: absolute;
+        top: calc(100% + 0.7em);
+        left: -20px;
+        background: #EEE;
+        color: #6d6d6d;
+        box-shadow: 0px 15px 10px -15px #111;
+        z-index: 9999; }
+        #fullinpark_resa_form_container #fullinpark_resa_form_content .custom_select #custom_select_activities.active, #fullinpark_resa_form_container #fullinpark_resa_form_content .custom_select #custom_select_stages.active, #fullinpark_resa_form_container #fullinpark_resa_form_content .custom_select #custom_select_collectives_courses.active, #fullinpark_resa_form_container #fullinpark_resa_form_content .custom_select #custom_select_anniversary.active {
+          display: block; }
+        #fullinpark_resa_form_container #fullinpark_resa_form_content .custom_select #custom_select_activities ul, #fullinpark_resa_form_container #fullinpark_resa_form_content .custom_select #custom_select_stages ul, #fullinpark_resa_form_container #fullinpark_resa_form_content .custom_select #custom_select_collectives_courses ul, #fullinpark_resa_form_container #fullinpark_resa_form_content .custom_select #custom_select_anniversary ul {
+          list-style: none;
+          padding: 0;
+          margin: 0; }
+          #fullinpark_resa_form_container #fullinpark_resa_form_content .custom_select #custom_select_activities ul li, #fullinpark_resa_form_container #fullinpark_resa_form_content .custom_select #custom_select_stages ul li, #fullinpark_resa_form_container #fullinpark_resa_form_content .custom_select #custom_select_collectives_courses ul li, #fullinpark_resa_form_container #fullinpark_resa_form_content .custom_select #custom_select_anniversary ul li {
+            width: 100%;
+            padding: 0.5em 0;
+            text-align: center;
+            cursor: pointer; }
+            #fullinpark_resa_form_container #fullinpark_resa_form_content .custom_select #custom_select_activities ul li:hover, #fullinpark_resa_form_container #fullinpark_resa_form_content .custom_select #custom_select_stages ul li:hover, #fullinpark_resa_form_container #fullinpark_resa_form_content .custom_select #custom_select_collectives_courses ul li:hover, #fullinpark_resa_form_container #fullinpark_resa_form_content .custom_select #custom_select_anniversary ul li:hover {
+              background: #FFF;
+              font-weight: bold; }
+      #fullinpark_resa_form_container #fullinpark_resa_form_content .custom_select #custom_select_anniversary ul li {
+        position: relative; }
+        #fullinpark_resa_form_container #fullinpark_resa_form_content .custom_select #custom_select_anniversary ul li .infobulle {
+          width: 20px;
+          height: 20px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          position: absolute;
+          top: calc(50% - 10px);
+          right: 20px;
+          border-radius: 50%;
+          color: #FFF;
+          background: #CFA614;
+          cursor: pointer; }
+    #fullinpark_resa_form_container #fullinpark_resa_form_content #custom_select_stages {
+      z-index: 9998 !important; }
+    #fullinpark_resa_form_container #fullinpark_resa_form_content .grey_container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 1em 20px;
+      background: #EEE;
+      border-radius: 8px; }
+      #fullinpark_resa_form_container #fullinpark_resa_form_content .grey_container p {
+        margin: 0; }
+      #fullinpark_resa_form_container #fullinpark_resa_form_content .grey_container .association_title {
+        width: 47%;
+        margin: 0;
+        color: #3161AC;
+        font-weight: bold;
+        line-height: 20px; }
+      #fullinpark_resa_form_container #fullinpark_resa_form_content .grey_container .association_link {
+        width: 47%;
+        padding: 0.7em 0;
+        font-size: 20px;
+        cursor: pointer;
+        padding: 0.75em 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #FFF;
+        background-color: transparent;
+        background-image: -webkit-linear-gradient(320deg, #00C0FF 0%, #4218B8 100%);
+        background-image: -o-linear-gradient(320deg, #00C0FF 0%, #4218B8 100%);
+        background-image: linear-gradient(50deg, #00C0FF 0%, #4218B8 100%);
+        border-radius: 8px;
+        text-align: center;
+        text-decoration: none;
+        cursor: pointer; }
+      #fullinpark_resa_form_container #fullinpark_resa_form_content .grey_container #all_tickets_details {
+        width: 100%;
+        display: flex;
+        flex-direction: column; }
+        #fullinpark_resa_form_container #fullinpark_resa_form_content .grey_container #all_tickets_details .tickets_infos_container {
+          display: flex;
+          justify-content: space-between;
+          padding-bottom: 0.5em;
+          margin-top: 0.5em; }
+          #fullinpark_resa_form_container #fullinpark_resa_form_content .grey_container #all_tickets_details .tickets_infos_container:first-child {
+            border-bottom: 1px solid #3161AC; }
+          #fullinpark_resa_form_container #fullinpark_resa_form_content .grey_container #all_tickets_details .tickets_infos_container .tickets_infos_title {
+            width: 65%; }
+          #fullinpark_resa_form_container #fullinpark_resa_form_content .grey_container #all_tickets_details .tickets_infos_container .tickets_infos_content {
+            width: 30%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center; }
+            #fullinpark_resa_form_container #fullinpark_resa_form_content .grey_container #all_tickets_details .tickets_infos_container .tickets_infos_content .resa_number {
+              color: #3161AC;
+              font-size: 20px;
+              font-weight: bold; }
+            #fullinpark_resa_form_container #fullinpark_resa_form_content .grey_container #all_tickets_details .tickets_infos_container .tickets_infos_content .resa_minus, #fullinpark_resa_form_container #fullinpark_resa_form_content .grey_container #all_tickets_details .tickets_infos_container .tickets_infos_content .resa_add {
+              width: 25px;
+              height: 25px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              color: #6d6d6d;
+              background: #FFF;
+              border-radius: 5px;
+              text-decoration: none;
+              font-size: 18px;
+              font-weight: bold;
+              cursor: pointer; }
+        #fullinpark_resa_form_container #fullinpark_resa_form_content .grey_container #all_tickets_details #tickets_details_anniversary {
+          display: none;
+          margin-top: 0.5em;
+          text-align: center;
+          font-weight: bold; }
+          #fullinpark_resa_form_container #fullinpark_resa_form_content .grey_container #all_tickets_details #tickets_details_anniversary #anniversary_cake_container {
+            display: none; }
+          #fullinpark_resa_form_container #fullinpark_resa_form_content .grey_container #all_tickets_details #tickets_details_anniversary .anniversary_extra_infos {
+            margin: 10px 0; }
+            #fullinpark_resa_form_container #fullinpark_resa_form_content .grey_container #all_tickets_details #tickets_details_anniversary .anniversary_extra_infos label {
+              display: block; }
+            #fullinpark_resa_form_container #fullinpark_resa_form_content .grey_container #all_tickets_details #tickets_details_anniversary .anniversary_extra_infos input {
+              width: 75%;
+              background: #FFF; }
+            #fullinpark_resa_form_container #fullinpark_resa_form_content .grey_container #all_tickets_details #tickets_details_anniversary .anniversary_extra_infos .checkbox_choice {
+              width: 50%;
+              display: flex; }
+              #fullinpark_resa_form_container #fullinpark_resa_form_content .grey_container #all_tickets_details #tickets_details_anniversary .anniversary_extra_infos .checkbox_choice label {
+                width: 100%;
+                display: flex;
+                align-items: center; }
+                #fullinpark_resa_form_container #fullinpark_resa_form_content .grey_container #all_tickets_details #tickets_details_anniversary .anniversary_extra_infos .checkbox_choice label input {
+                  width: 30px; }
+            #fullinpark_resa_form_container #fullinpark_resa_form_content .grey_container #all_tickets_details #tickets_details_anniversary .anniversary_extra_infos:last-child {
+              width: 75%;
+              display: flex;
+              margin: 10px auto; }
+    #fullinpark_resa_form_container #fullinpark_resa_form_content #stage_extra_infos_container {
+      width: 100%;
+      display: none; }
+      #fullinpark_resa_form_container #fullinpark_resa_form_content #stage_extra_infos_container #stage_extra_infos {
+        width: 100%; }
+        #fullinpark_resa_form_container #fullinpark_resa_form_content #stage_extra_infos_container #stage_extra_infos .stagiaire {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          margin: 1em 0; }
+          #fullinpark_resa_form_container #fullinpark_resa_form_content #stage_extra_infos_container #stage_extra_infos .stagiaire input {
+            width: 75%;
+            background: #FFF;
+            margin: 10px 0; }
+    #fullinpark_resa_form_container #fullinpark_resa_form_content #anniversary_formula_container {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center; }
+      #fullinpark_resa_form_container #fullinpark_resa_form_content #anniversary_formula_container .anniversary_formula_box {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between; }
+        #fullinpark_resa_form_container #fullinpark_resa_form_content #anniversary_formula_container .anniversary_formula_box label {
+          width: calc(100% - 25px);
+          margin: 0; }
+          #fullinpark_resa_form_container #fullinpark_resa_form_content #anniversary_formula_container .anniversary_formula_box label input {
+            margin-right: 10px; }
+        #fullinpark_resa_form_container #fullinpark_resa_form_content #anniversary_formula_container .anniversary_formula_box .infobulle {
+          width: 20px;
+          height: 20px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 50%;
+          color: #FFF;
+          background: #CFA614;
+          text-decoration: none;
+          cursor: pointer; }
+    #fullinpark_resa_form_container #fullinpark_resa_form_content #riders_container #riders_selected_container {
+      width: 90%; }
+      #fullinpark_resa_form_container #fullinpark_resa_form_content #riders_container #riders_selected_container #riders_selected {
+        margin: -1em 0 1em 1em; }
+      #fullinpark_resa_form_container #fullinpark_resa_form_content #riders_container #riders_selected_container #riders_update_button {
+        width: 200px;
+        max-width: 100%;
+        margin: 0;
+        padding: 0.75em 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #FFF;
+        background-color: transparent;
+        background-image: -webkit-linear-gradient(320deg, #00C0FF 0%, #4218B8 100%);
+        background-image: -o-linear-gradient(320deg, #00C0FF 0%, #4218B8 100%);
+        background-image: linear-gradient(50deg, #00C0FF 0%, #4218B8 100%);
+        border-radius: 8px;
+        text-align: center;
+        text-decoration: none;
+        cursor: pointer; }
+    #fullinpark_resa_form_container #fullinpark_resa_form_content #riders_container #riders_container_button {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center; }
+      #fullinpark_resa_form_container #fullinpark_resa_form_content #riders_container #riders_container_button #riders_reservation_button_container {
+        width: 80%; }
+        #fullinpark_resa_form_container #fullinpark_resa_form_content #riders_container #riders_container_button #riders_reservation_button_container #riders_reservation_button {
+          width: 200px;
+          max-width: 100%;
+          margin: 0 auto;
+          padding: 0.75em 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: #FFF;
+          background-color: transparent;
+          background-image: -webkit-linear-gradient(320deg, #00C0FF 0%, #4218B8 100%);
+          background-image: -o-linear-gradient(320deg, #00C0FF 0%, #4218B8 100%);
+          background-image: linear-gradient(50deg, #00C0FF 0%, #4218B8 100%);
+          border-radius: 8px;
+          text-align: center;
+          text-decoration: none;
+          cursor: pointer; }
+      #fullinpark_resa_form_container #fullinpark_resa_form_content #riders_container #riders_container_button .infobulle {
+        width: 20px;
+        height: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        color: #FFF;
+        background: #CFA614;
+        text-decoration: none;
+        cursor: pointer; }
+    #fullinpark_resa_form_container #fullinpark_resa_form_content #riders_container #riders_reservation_unavailable_message, #fullinpark_resa_form_container #fullinpark_resa_form_content #riders_container #riders_reservation_kids_message {
+      margin-top: 1em;
+      color: red; }
+    #fullinpark_resa_form_container #fullinpark_resa_form_content #date_hours_container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin-top: 1em;
+      position: relative; }
+      #fullinpark_resa_form_container #fullinpark_resa_form_content #date_hours_container .date_hours_box {
+        width: 45%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #EEE;
+        border-radius: 8px; }
+        #fullinpark_resa_form_container #fullinpark_resa_form_content #date_hours_container .date_hours_box #recap_resa {
+          width: 80%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          margin: auto; }
+          #fullinpark_resa_form_container #fullinpark_resa_form_content #date_hours_container .date_hours_box #recap_resa p {
+            margin: 0; }
+        #fullinpark_resa_form_container #fullinpark_resa_form_content #date_hours_container .date_hours_box a {
+          color: #3161AC;
+          text-decoration: none;
+          text-align: center;
+          cursor: pointer; }
+          #fullinpark_resa_form_container #fullinpark_resa_form_content #date_hours_container .date_hours_box a img {
+            width: 75px;
+            height: 75px;
+            display: block;
+            margin: 1em auto 0 auto; }
+          #fullinpark_resa_form_container #fullinpark_resa_form_content #date_hours_container .date_hours_box a p {
+            display: flex;
+            justify-content: center;
+            margin: 0 0 0.5em 0;
+            text-align: center;
+            font-weight: bold; }
+            #fullinpark_resa_form_container #fullinpark_resa_form_content #date_hours_container .date_hours_box a p img {
+              width: 16px;
+              height: 16px;
+              margin: 0.3em 0 0 1em; }
+    #fullinpark_resa_form_container #fullinpark_resa_form_content #resa_form_submit_button {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 2em; }
+      #fullinpark_resa_form_container #fullinpark_resa_form_content #resa_form_submit_button .next_step {
+        width: 55% !important;
+        padding: 0.75em 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #FFF;
+        background-color: transparent;
+        background-image: -webkit-linear-gradient(320deg, #00C0FF 0%, #4218B8 100%);
+        background-image: -o-linear-gradient(320deg, #00C0FF 0%, #4218B8 100%);
+        background-image: linear-gradient(50deg, #00C0FF 0%, #4218B8 100%);
+        border-radius: 8px;
+        text-align: center;
+        text-decoration: none;
+        cursor: pointer; }
+      #fullinpark_resa_form_container #fullinpark_resa_form_content #resa_form_submit_button #update_resa_button, #fullinpark_resa_form_container #fullinpark_resa_form_content #resa_form_submit_button .return_button {
+        width: 40%;
+        display: flex;
+        align-items: center;
+        line-height: 18px;
+        padding: 0.75em 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #FFF;
+        background-color: transparent;
+        background-image: -webkit-linear-gradient(320deg, #FD6E30 0%, #F9DF42 100%);
+        background-image: -o-linear-gradient(320deg, #FD6E30 0%, #F9DF42 100%);
+        background-image: linear-gradient(50deg, #FD6E30 0%, #F9DF42 100%);
+        border-radius: 8px;
+        text-align: center;
+        text-decoration: none;
+        cursor: pointer; }
+  #fullinpark_resa_form_container #fullinpark_second_step_form_content {
+    width: 80%;
+    margin: 1em auto 1em 200%; }
+    #fullinpark_resa_form_container #fullinpark_second_step_form_content .main_title {
+      margin: 1em 0 0 0;
+      font-size: 24px;
+      color: #CFA614;
+      font-weight: bold;
+      text-transform: uppercase; }
+    #fullinpark_resa_form_container #fullinpark_second_step_form_content .secondary_title {
+      margin: 1em 0 0 0;
+      font-size: 16px;
+      color: #CFA614;
+      font-weight: bold;
+      text-transform: uppercase; }
+    #fullinpark_resa_form_container #fullinpark_second_step_form_content input {
+      width: 100%;
+      min-height: 30px;
+      border: 1px solid #C4C4C4; }
+    #fullinpark_resa_form_container #fullinpark_second_step_form_content #resa_form_submit_button {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 2em; }
+      #fullinpark_resa_form_container #fullinpark_second_step_form_content #resa_form_submit_button .next_step {
+        width: 55% !important;
+        padding: 0.75em 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #FFF;
+        background-color: transparent;
+        background-image: -webkit-linear-gradient(320deg, #00C0FF 0%, #4218B8 100%);
+        background-image: -o-linear-gradient(320deg, #00C0FF 0%, #4218B8 100%);
+        background-image: linear-gradient(50deg, #00C0FF 0%, #4218B8 100%);
+        border-radius: 8px;
+        text-align: center;
+        text-decoration: none;
+        cursor: pointer; }
+      #fullinpark_resa_form_container #fullinpark_second_step_form_content #resa_form_submit_button #update_resa_button, #fullinpark_resa_form_container #fullinpark_second_step_form_content #resa_form_submit_button .return_button {
+        width: 40%;
+        display: flex;
+        align-items: center;
+        line-height: 18px;
+        padding: 0.75em 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #FFF;
+        background-color: transparent;
+        background-image: -webkit-linear-gradient(320deg, #FD6E30 0%, #F9DF42 100%);
+        background-image: -o-linear-gradient(320deg, #FD6E30 0%, #F9DF42 100%);
+        background-image: linear-gradient(50deg, #FD6E30 0%, #F9DF42 100%);
+        border-radius: 8px;
+        text-align: center;
+        text-decoration: none;
+        cursor: pointer; }
+  #fullinpark_resa_form_container #fullinpark_question_form_content, #fullinpark_resa_form_container #fullinpark_structure_form_content {
+    width: 80%;
+    margin: 1em auto 1em 200%; }
+    #fullinpark_resa_form_container #fullinpark_question_form_content .main_title, #fullinpark_resa_form_container #fullinpark_structure_form_content .main_title {
+      margin: 1em 0;
+      font-size: 24px;
+      color: #CFA614;
+      font-weight: bold;
+      text-transform: uppercase; }
+    #fullinpark_resa_form_container #fullinpark_question_form_content .structure_half_row, #fullinpark_resa_form_container #fullinpark_structure_form_content .structure_half_row {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between; }
+      #fullinpark_resa_form_container #fullinpark_question_form_content .structure_half_row .structure_form_row, #fullinpark_resa_form_container #fullinpark_structure_form_content .structure_half_row .structure_form_row {
+        width: 48%;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1em; }
+        #fullinpark_resa_form_container #fullinpark_question_form_content .structure_half_row .structure_form_row input, #fullinpark_resa_form_container #fullinpark_structure_form_content .structure_half_row .structure_form_row input {
+          width: 100%;
+          min-height: 30px;
+          border: 1px solid #C4C4C4; }
+        #fullinpark_resa_form_container #fullinpark_question_form_content .structure_half_row .structure_form_row textarea, #fullinpark_resa_form_container #fullinpark_structure_form_content .structure_half_row .structure_form_row textarea {
+          width: 100%;
+          min-height: 150px;
+          border: 1px solid #C4C4C4; }
+        #fullinpark_resa_form_container #fullinpark_question_form_content .structure_half_row .structure_form_row select, #fullinpark_resa_form_container #fullinpark_structure_form_content .structure_half_row .structure_form_row select {
+          height: 46px;
+          min-height: 30px; }
+    #fullinpark_resa_form_container #fullinpark_question_form_content .question_form_row, #fullinpark_resa_form_container #fullinpark_structure_form_content .question_form_row {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 1em; }
+      #fullinpark_resa_form_container #fullinpark_question_form_content .question_form_row input, #fullinpark_resa_form_container #fullinpark_structure_form_content .question_form_row input {
+        width: 100%;
+        min-height: 30px;
+        border: 1px solid #C4C4C4; }
+      #fullinpark_resa_form_container #fullinpark_question_form_content .question_form_row textarea, #fullinpark_resa_form_container #fullinpark_structure_form_content .question_form_row textarea {
+        width: 100%;
+        min-height: 150px;
+        border: 1px solid #C4C4C4; }
+      #fullinpark_resa_form_container #fullinpark_question_form_content .question_form_row select, #fullinpark_resa_form_container #fullinpark_structure_form_content .question_form_row select {
+        height: 46px;
+        min-height: 30px; }
+    #fullinpark_resa_form_container #fullinpark_question_form_content button, #fullinpark_resa_form_container #fullinpark_structure_form_content button {
+      width: 55% !important;
+      margin-top: 1em;
+      padding: 0.75em 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFF;
+      background-color: transparent;
+      background-image: -webkit-linear-gradient(320deg, #00C0FF 0%, #4218B8 100%);
+      background-image: -o-linear-gradient(320deg, #00C0FF 0%, #4218B8 100%);
+      background-image: linear-gradient(50deg, #00C0FF 0%, #4218B8 100%);
+      border-radius: 8px;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer; }
+  #fullinpark_resa_form_container .blue {
+    color: #3161AC; }
+  #fullinpark_resa_form_container .bold {
+    font-weight: bold; }
+
+#datepicker_container {
+  width: 120%;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2em 0;
+  background: #CFA614;
+  margin-top: -100%;
+  margin-left: -10%;
+  position: relative;
+  z-index: 9999; }
+  #datepicker_container #hide_datepicker {
+    width: 100%;
+    position: absolute;
+    top: 30px;
+    display: flex;
+    justify-content: flex-end;
+    margin: -1em 0 2em 0;
+    cursor: pointer; }
+    #datepicker_container #hide_datepicker img {
+      width: 20px;
+      height: 20px;
+      margin-right: 1em; }
+  #datepicker_container #datepicker_step1 {
+    display: none; }
+    #datepicker_container #datepicker_step1 #datepicker_step1_title {
+      color: #FFF;
+      font-size: 20px;
+      font-weight: bold;
+      text-align: center; }
+    #datepicker_container #datepicker_step1 #datepicker td {
+      padding: 0; }
+      #datepicker_container #datepicker_step1 #datepicker td .ui-state-default {
+        text-align: center;
+        text-decoration: none; }
+        #datepicker_container #datepicker_step1 #datepicker td .ui-state-default:hover {
+          background: #CFA614; }
+  #datepicker_container #datepicker_step2, #datepicker_container #datepicker_step3 {
+    width: 70%;
+    padding-bottom: 3em;
+    display: none;
+    text-align: center; }
+    #datepicker_container #datepicker_step2 p, #datepicker_container #datepicker_step3 p {
+      color: #FFF;
+      font-size: 20px;
+      text-align: center; }
+      #datepicker_container #datepicker_step2 p a, #datepicker_container #datepicker_step3 p a {
+        text-decoration: none;
+        color: #FFF;
+        cursor: pointer; }
+        #datepicker_container #datepicker_step2 p a #datepicker_step2_value, #datepicker_container #datepicker_step3 p a #datepicker_step2_value {
+          font-weight: bold; }
+        #datepicker_container #datepicker_step2 p a:hover, #datepicker_container #datepicker_step3 p a:hover {
+          color: #3161AC; }
+    #datepicker_container #datepicker_step2 ul, #datepicker_container #datepicker_step3 ul {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      list-style: none;
+      margin: 0 auto;
+      padding: 0; }
+      #datepicker_container #datepicker_step2 ul li, #datepicker_container #datepicker_step3 ul li {
+        width: 16%;
+        background: #FFF;
+        color: #3161AC;
+        text-align: center;
+        padding: 0.5em 0;
+        margin: 0.5em;
+        font-weight: bold;
+        cursor: pointer; }
+        #datepicker_container #datepicker_step2 ul li.full, #datepicker_container #datepicker_step3 ul li.full {
+          background: red; }
+        #datepicker_container #datepicker_step2 ul li.not_enough_places, #datepicker_container #datepicker_step3 ul li.not_enough_places {
+          background: orange; }
+        #datepicker_container #datepicker_step2 ul li.full, #datepicker_container #datepicker_step2 ul li.not_enough_places, #datepicker_container #datepicker_step3 ul li.full, #datepicker_container #datepicker_step3 ul li.not_enough_places {
+          color: #CCC; }
+        #datepicker_container #datepicker_step2 ul li:hover, #datepicker_container #datepicker_step3 ul li:hover {
+          background: #3161AC;
+          color: #FFF; }
+    #datepicker_container #datepicker_step2 #datepicker_step2_arrow, #datepicker_container #datepicker_step2 #datepicker_step3_arrow, #datepicker_container #datepicker_step3 #datepicker_step2_arrow, #datepicker_container #datepicker_step3 #datepicker_step3_arrow {
+      width: 70%;
+      display: flex;
+      position: absolute;
+      bottom: 20px;
+      flex-direction: row;
+      justify-content: space-between;
+      margin-top: 2em; }
+      #datepicker_container #datepicker_step2 #datepicker_step2_arrow .datepicker_step2_arrow_back, #datepicker_container #datepicker_step2 #datepicker_step3_arrow .datepicker_step2_arrow_back, #datepicker_container #datepicker_step3 #datepicker_step2_arrow .datepicker_step2_arrow_back, #datepicker_container #datepicker_step3 #datepicker_step3_arrow .datepicker_step2_arrow_back {
+        cursor: pointer; }
+        #datepicker_container #datepicker_step2 #datepicker_step2_arrow .datepicker_step2_arrow_back img, #datepicker_container #datepicker_step2 #datepicker_step3_arrow .datepicker_step2_arrow_back img, #datepicker_container #datepicker_step3 #datepicker_step2_arrow .datepicker_step2_arrow_back img, #datepicker_container #datepicker_step3 #datepicker_step3_arrow .datepicker_step2_arrow_back img {
+          width: 30px;
+          height: 30px; }
+      #datepicker_container #datepicker_step2 #datepicker_step2_arrow .datepicker_step2_arrow_next, #datepicker_container #datepicker_step2 #datepicker_step3_arrow .datepicker_step2_arrow_next, #datepicker_container #datepicker_step3 #datepicker_step2_arrow .datepicker_step2_arrow_next, #datepicker_container #datepicker_step3 #datepicker_step3_arrow .datepicker_step2_arrow_next {
+        cursor: pointer; }
+        #datepicker_container #datepicker_step2 #datepicker_step2_arrow .datepicker_step2_arrow_next img, #datepicker_container #datepicker_step2 #datepicker_step3_arrow .datepicker_step2_arrow_next img, #datepicker_container #datepicker_step3 #datepicker_step2_arrow .datepicker_step2_arrow_next img, #datepicker_container #datepicker_step3 #datepicker_step3_arrow .datepicker_step2_arrow_next img {
+          width: 30px;
+          height: 30px; }
+
+#riders_reservation_container {
+  width: 120%;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2em 0;
+  background: #CFA614;
+  margin-top: -100%;
+  margin-left: -10%;
+  position: relative;
+  z-index: 9999; }
+  #riders_reservation_container #hide_reservation_container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin: -1em 0 2em 0;
+    cursor: pointer; }
+    #riders_reservation_container #hide_reservation_container img {
+      width: 20px;
+      height: 20px;
+      margin-right: 1em; }
+  #riders_reservation_container .title {
+    width: 70%;
+    margin-bottom: 0.5em;
+    color: #FFF;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: left;
+    text-decoration: underline;
+    text-transform: uppercase; }
+  #riders_reservation_container #riders_reservation_content {
+    width: 70%; }
+    #riders_reservation_container #riders_reservation_content .rider_line {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 0.5em;
+      margin-top: 0.5em;
+      border-bottom: 1px solid #FFF;
+      margin-bottom: 1em; }
+      #riders_reservation_container #riders_reservation_content .rider_line p {
+        margin: 0;
+        color: #FFF;
+        text-transform: uppercase; }
+      #riders_reservation_container #riders_reservation_content .rider_line .rider_infos_content {
+        width: 30%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center; }
+        #riders_reservation_container #riders_reservation_content .rider_line .rider_infos_content .resa_number {
+          color: #3161AC;
+          font-size: 20px;
+          font-weight: bold; }
+        #riders_reservation_container #riders_reservation_content .rider_line .rider_infos_content .resa_minus, #riders_reservation_container #riders_reservation_content .rider_line .rider_infos_content .resa_add {
+          width: 25px;
+          height: 25px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: #6d6d6d;
+          background: #FFF;
+          border-radius: 5px;
+          text-decoration: none;
+          font-size: 18px;
+          font-weight: bold;
+          cursor: pointer; }
+  #riders_reservation_container #add_riders {
+    width: 250px;
+    margin-top: 1em;
+    padding: 0.75em 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFF;
+    background-color: transparent;
+    background-image: -webkit-linear-gradient(320deg, #00C0FF 0%, #4218B8 100%);
+    background-image: -o-linear-gradient(320deg, #00C0FF 0%, #4218B8 100%);
+    background-image: linear-gradient(50deg, #00C0FF 0%, #4218B8 100%);
+    border-radius: 8px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer; }
+
+#form_errors_message_container {
+  width: 120%;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5em 0 2em 0;
+  background: #CFA614;
+  margin-top: -70%;
+  margin-left: -10%;
+  position: relative;
+  z-index: 9999; }
+  #form_errors_message_container #hide_errors_message_container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    position: absolute;
+    top: 1em;
+    cursor: pointer; }
+    #form_errors_message_container #hide_errors_message_container img {
+      width: 20px;
+      height: 20px;
+      margin-right: 1em; }
+  #form_errors_message_container #form_errors_message {
+    width: 80%;
+    margin: 3em auto 1em auto;
+    color: #FFF; }
+
+.validation_message_popup {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 999999; }
+  .validation_message_popup .close_popup {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    cursor: pointer; }
+    .validation_message_popup .close_popup img {
+      width: 25px; }
+  .validation_message_popup .validation_message_popup_content {
+    width: 50%;
+    padding: 2em 2em 1em 2em;
+    margin: auto;
+    background: #FFF; }
+
+.loader {
+  margin: 2em 0;
+  border: 16px solid #f3f3f3;
+  /* Light grey */
+  border-top: 16px solid #4218B8;
+  /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite; }
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
+#anniversary_popup {
+  width: 400px;
+  display: none;
+  padding: 1em 20px;
+  position: absolute;
+  z-index: 999999;
+  background: #CFA614;
+  color: #FFF; }
+  #anniversary_popup .triangle {
+    width: 0;
+    height: 0;
+    margin-top: -33px;
+    margin-bottom: 33px;
+    border-style: solid;
+    border-width: 0 10px 17.3px 10px;
+    border-color: transparent transparent #CFA614 transparent; }
+  #anniversary_popup .anniversary_popup_formula {
+    display: none; }
+
+@media screen and (max-width: 640px) {
+  #fullinpark_resa_form_container {
+    overflow-x: visible !important;
+    overflow-y: visible !important; }
+    #fullinpark_resa_form_container #fullinpark_resa_form_content .grey_container .association_title {
+      width: 60%;
+      word-break: break-all; }
+    #fullinpark_resa_form_container #fullinpark_resa_form_content .grey_container .association_link {
+      width: 35%; }
+
+  .validation_message_popup .validation_message_popup_content {
+    width: 100%; } }
+
+/*# sourceMappingURL=resa.css.map */

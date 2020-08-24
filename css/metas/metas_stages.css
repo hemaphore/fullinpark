@@ -1,8 +1,83 @@
-#stage_open_date_container {
+.metas_stages_container #metas_stages_step1 #metas_stages_dates {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start; }
-  #stage_open_date_container div {
-    width: 50%; }
+  justify-content: flex-start;
+  margin: 1em 0; }
+  .metas_stages_container #metas_stages_step1 #metas_stages_dates .date_box {
+    width: 40%;
+    display: flex;
+    flex-direction: column; }
+    .metas_stages_container #metas_stages_step1 #metas_stages_dates .date_box input {
+      width: 200px;
+      max-width: 80%; }
+.metas_stages_container #metas_stages_step2, .metas_stages_container #stage_recap_resa_container {
+  width: 95%;
+  margin: 4em auto 2em auto; }
+  .metas_stages_container #metas_stages_step2 #metas_stages_planning, .metas_stages_container #metas_stages_step2 #stage_recap_resa, .metas_stages_container #stage_recap_resa_container #metas_stages_planning, .metas_stages_container #stage_recap_resa_container #stage_recap_resa {
+    display: flex;
+    flex-direction: column; }
+    .metas_stages_container #metas_stages_step2 #metas_stages_planning .col, .metas_stages_container #metas_stages_step2 #stage_recap_resa .col, .metas_stages_container #stage_recap_resa_container #metas_stages_planning .col, .metas_stages_container #stage_recap_resa_container #stage_recap_resa .col {
+      display: flex;
+      flex-direction: row; }
+      .metas_stages_container #metas_stages_step2 #metas_stages_planning .col:first-child .row, .metas_stages_container #metas_stages_step2 #stage_recap_resa .col:first-child .row, .metas_stages_container #stage_recap_resa_container #metas_stages_planning .col:first-child .row, .metas_stages_container #stage_recap_resa_container #stage_recap_resa .col:first-child .row {
+        border-top: 1px solid #000; }
+        .metas_stages_container #metas_stages_step2 #metas_stages_planning .col:first-child .row:nth-child(2), .metas_stages_container #metas_stages_step2 #stage_recap_resa .col:first-child .row:nth-child(2), .metas_stages_container #stage_recap_resa_container #metas_stages_planning .col:first-child .row:nth-child(2), .metas_stages_container #stage_recap_resa_container #stage_recap_resa .col:first-child .row:nth-child(2) {
+          margin-left: 1px;
+          border-left: 1px solid #000; }
+      .metas_stages_container #metas_stages_step2 #metas_stages_planning .col:nth-child(2) .row:first-child, .metas_stages_container #metas_stages_step2 #metas_stages_planning .col:nth-child(2) .the_row:first-child, .metas_stages_container #metas_stages_step2 #stage_recap_resa .col:nth-child(2) .row:first-child, .metas_stages_container #metas_stages_step2 #stage_recap_resa .col:nth-child(2) .the_row:first-child, .metas_stages_container #stage_recap_resa_container #metas_stages_planning .col:nth-child(2) .row:first-child, .metas_stages_container #stage_recap_resa_container #metas_stages_planning .col:nth-child(2) .the_row:first-child, .metas_stages_container #stage_recap_resa_container #stage_recap_resa .col:nth-child(2) .row:first-child, .metas_stages_container #stage_recap_resa_container #stage_recap_resa .col:nth-child(2) .the_row:first-child {
+        margin-top: -1px;
+        border-top: 1px solid #000; }
+      .metas_stages_container #metas_stages_step2 #metas_stages_planning .col .row, .metas_stages_container #metas_stages_step2 #metas_stages_planning .col .the_row, .metas_stages_container #metas_stages_step2 #stage_recap_resa .col .row, .metas_stages_container #metas_stages_step2 #stage_recap_resa .col .the_row, .metas_stages_container #stage_recap_resa_container #metas_stages_planning .col .row, .metas_stages_container #stage_recap_resa_container #metas_stages_planning .col .the_row, .metas_stages_container #stage_recap_resa_container #stage_recap_resa .col .row, .metas_stages_container #stage_recap_resa_container #stage_recap_resa .col .the_row {
+        width: 300px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-bottom: 1px solid #000;
+        border-right: 1px solid #000; }
+        .metas_stages_container #metas_stages_step2 #metas_stages_planning .col .row ul, .metas_stages_container #metas_stages_step2 #metas_stages_planning .col .the_row ul, .metas_stages_container #metas_stages_step2 #stage_recap_resa .col .row ul, .metas_stages_container #metas_stages_step2 #stage_recap_resa .col .the_row ul, .metas_stages_container #stage_recap_resa_container #metas_stages_planning .col .row ul, .metas_stages_container #stage_recap_resa_container #metas_stages_planning .col .the_row ul, .metas_stages_container #stage_recap_resa_container #stage_recap_resa .col .row ul, .metas_stages_container #stage_recap_resa_container #stage_recap_resa .col .the_row ul {
+          width: 100%;
+          margin: 0; }
+          .metas_stages_container #metas_stages_step2 #metas_stages_planning .col .row ul li, .metas_stages_container #metas_stages_step2 #metas_stages_planning .col .the_row ul li, .metas_stages_container #metas_stages_step2 #stage_recap_resa .col .row ul li, .metas_stages_container #metas_stages_step2 #stage_recap_resa .col .the_row ul li, .metas_stages_container #stage_recap_resa_container #metas_stages_planning .col .row ul li, .metas_stages_container #stage_recap_resa_container #metas_stages_planning .col .the_row ul li, .metas_stages_container #stage_recap_resa_container #stage_recap_resa .col .row ul li, .metas_stages_container #stage_recap_resa_container #stage_recap_resa .col .the_row ul li {
+            width: calc(100% - 20px);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 0;
+            padding: 8px 10px;
+            border-bottom: 1px solid #000; }
+            .metas_stages_container #metas_stages_step2 #metas_stages_planning .col .row ul li:last-child, .metas_stages_container #metas_stages_step2 #metas_stages_planning .col .the_row ul li:last-child, .metas_stages_container #metas_stages_step2 #stage_recap_resa .col .row ul li:last-child, .metas_stages_container #metas_stages_step2 #stage_recap_resa .col .the_row ul li:last-child, .metas_stages_container #stage_recap_resa_container #metas_stages_planning .col .row ul li:last-child, .metas_stages_container #stage_recap_resa_container #metas_stages_planning .col .the_row ul li:last-child, .metas_stages_container #stage_recap_resa_container #stage_recap_resa .col .row ul li:last-child, .metas_stages_container #stage_recap_resa_container #stage_recap_resa .col .the_row ul li:last-child {
+              border-bottom: none; }
+            .metas_stages_container #metas_stages_step2 #metas_stages_planning .col .row ul li a, .metas_stages_container #metas_stages_step2 #metas_stages_planning .col .the_row ul li a, .metas_stages_container #metas_stages_step2 #stage_recap_resa .col .row ul li a, .metas_stages_container #metas_stages_step2 #stage_recap_resa .col .the_row ul li a, .metas_stages_container #stage_recap_resa_container #metas_stages_planning .col .row ul li a, .metas_stages_container #stage_recap_resa_container #metas_stages_planning .col .the_row ul li a, .metas_stages_container #stage_recap_resa_container #stage_recap_resa .col .row ul li a, .metas_stages_container #stage_recap_resa_container #stage_recap_resa .col .the_row ul li a {
+              width: calc(100% - 40px); }
+            .metas_stages_container #metas_stages_step2 #metas_stages_planning .col .row ul li input, .metas_stages_container #metas_stages_step2 #metas_stages_planning .col .the_row ul li input, .metas_stages_container #metas_stages_step2 #stage_recap_resa .col .row ul li input, .metas_stages_container #metas_stages_step2 #stage_recap_resa .col .the_row ul li input, .metas_stages_container #stage_recap_resa_container #metas_stages_planning .col .row ul li input, .metas_stages_container #stage_recap_resa_container #metas_stages_planning .col .the_row ul li input, .metas_stages_container #stage_recap_resa_container #stage_recap_resa .col .row ul li input, .metas_stages_container #stage_recap_resa_container #stage_recap_resa .col .the_row ul li input {
+              width: 20px;
+              height: 20px; }
+        .metas_stages_container #metas_stages_step2 #metas_stages_planning .col .row:first-child, .metas_stages_container #metas_stages_step2 #metas_stages_planning .col .the_row:first-child, .metas_stages_container #metas_stages_step2 #stage_recap_resa .col .row:first-child, .metas_stages_container #metas_stages_step2 #stage_recap_resa .col .the_row:first-child, .metas_stages_container #stage_recap_resa_container #metas_stages_planning .col .row:first-child, .metas_stages_container #stage_recap_resa_container #metas_stages_planning .col .the_row:first-child, .metas_stages_container #stage_recap_resa_container #stage_recap_resa .col .row:first-child, .metas_stages_container #stage_recap_resa_container #stage_recap_resa .col .the_row:first-child {
+          width: 130px;
+          border-left: 1px solid #000; }
+      .metas_stages_container #metas_stages_step2 #metas_stages_planning .col .the_row, .metas_stages_container #metas_stages_step2 #stage_recap_resa .col .the_row, .metas_stages_container #stage_recap_resa_container #metas_stages_planning .col .the_row, .metas_stages_container #stage_recap_resa_container #stage_recap_resa .col .the_row {
+        height: auto !important;
+        justify-content: flex-start; }
+        .metas_stages_container #metas_stages_step2 #metas_stages_planning .col .the_row:first-child, .metas_stages_container #metas_stages_step2 #stage_recap_resa .col .the_row:first-child, .metas_stages_container #stage_recap_resa_container #metas_stages_planning .col .the_row:first-child, .metas_stages_container #stage_recap_resa_container #stage_recap_resa .col .the_row:first-child {
+          justify-content: center; }
+      .metas_stages_container #metas_stages_step2 #metas_stages_planning .col .no-border, .metas_stages_container #metas_stages_step2 #stage_recap_resa .col .no-border, .metas_stages_container #stage_recap_resa_container #metas_stages_planning .col .no-border, .metas_stages_container #stage_recap_resa_container #stage_recap_resa .col .no-border {
+        border: none !important; }
+    .metas_stages_container #metas_stages_step2 #metas_stages_planning .disabled, .metas_stages_container #metas_stages_step2 #stage_recap_resa .disabled, .metas_stages_container #stage_recap_resa_container #metas_stages_planning .disabled, .metas_stages_container #stage_recap_resa_container #stage_recap_resa .disabled {
+      background: #F4F4F4; }
+      .metas_stages_container #metas_stages_step2 #metas_stages_planning .disabled select, .metas_stages_container #metas_stages_step2 #stage_recap_resa .disabled select, .metas_stages_container #stage_recap_resa_container #metas_stages_planning .disabled select, .metas_stages_container #stage_recap_resa_container #stage_recap_resa .disabled select {
+        display: none; }
+
+.tramp {
+  background: #34c2e4; }
+
+.free {
+  background: #e4c934; }
+
+.rider {
+  background: #cb51cc; }
+
+.tramp a, .rider a, .free a {
+  color: #000 !important; }
 
 /*# sourceMappingURL=metas_stages.css.map */

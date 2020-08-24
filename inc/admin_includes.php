@@ -17,10 +17,11 @@ function fullinpark_admin_includes(){
 
 
   //Metas
+  wp_enqueue_style('fullinpark_resa_metas_style', plugins_url().'/fullinpark/css/metas/metas_resa.css');
   wp_enqueue_style('fullinpark_stages_metas_style', plugins_url().'/fullinpark/css/metas/metas_stages.css');
-  wp_enqueue_script('fullinpark_stages_metas_script', plugins_url().'/fullinpark/js/metas/metas_stages.js', array( 'jquery' ));
 
-    wp_enqueue_script('fullinpark_resa_metas_script', plugins_url().'/fullinpark/js/metas/metas_resa.js', array( 'jquery' ));
+  wp_enqueue_script('fullinpark_resa_metas_script', plugins_url().'/fullinpark/js/metas/metas_resa.js', array( 'jquery' ));
+  wp_enqueue_script('fullinpark_stages_metas_script', plugins_url().'/fullinpark/js/metas/metas_stages.js', array( 'jquery' ));
 
   wp_enqueue_script( 'jquery-ui-datepicker' );
   wp_enqueue_style( 'jquery-ui', 'https://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css');
